@@ -1,0 +1,25 @@
+:root {
+     --primario: #E71D36;
+     --secundario: #2E294E;
+     --terciario: #F46036;
+     --negro: #333333;
+     --gris: #525252;
+     --blanco: #F7F7FF;
+}
+
+*{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body{
+     background-color: var(--blanco);
+     display: grid;
+     grid-template-columns: repeat(12, 1fr);
+     grid-template-rows: auto 1fr;
+     column-gap: 20px;
+     min-height: 100vh;
+     margin: 0 50px;
+}
+
