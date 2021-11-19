@@ -1,0 +1,40 @@
+@import url("global.css");
+
+header{
+     grid-column-start: 9;
+     grid-column-end: 13;
+     text-align: right;
+     margin: 30px 0;
+}
+
+.menu a{
+     font-family: 'Quicksand';
+     font-weight: 500;
+     font-size: 24px;
+     line-height: 30px;
+     text-decoration: none;
+     color: var(--negro);
+     margin-left: 15px;
+     
+     display: inline-flex;
+     flex-direction: column;
+}
+
+.menu a:visited{
+     color: var(--negro);
+}
+
+.menu a:hover{
+     transition: all ease 0.2s;
+     color: var(--primario);
+}
+
+.menu a i{
+     text-align: center;
+}
+
+@media screen and (max-width: 1400px) {
+     .menu a{
+          font-size: 18px;
+     }
+}

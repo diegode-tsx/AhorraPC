@@ -1,8 +1,21 @@
-@extends('layouts.plantilla')
+@extends('layouts.plantilla-usuario')
 
-@section('title','Home')
+@section('styles')
+<link rel="stylesheet" href="{{asset('css/home.css')}}">
+
+@section('title','Inicio')
     
 @section('content')
-    <!---Cuerpo aqui puedes hacer la plantilla --->
-    <h1>Esta es la pagina principal de la web</h1>
+    <main>
+        <div class="logo">
+            <img src="{{asset('img/logo.png')}}" alt="">
+        </div>
+
+        <form action="">
+            <input type="text">
+            <input type="submit" value="Buscar">
+        </form>
+
+        <h1>Arma tu<span class="red"> PC </span>ideal y<span class="red"> ahorra </span>dinero</h1>
+    </main>
 @endsection
