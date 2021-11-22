@@ -11,8 +11,9 @@
             <img src="{{asset('img/logo.png')}}" alt="">
         </div>
 
-        <form action="">
-            <input type="text">
+        <form action="{{route('search')}}" method="POST">
+            @csrf
+            <input type="text" name="busqueda">
             <input type="submit" value="Buscar">
         </form>
 

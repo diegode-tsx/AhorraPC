@@ -32,4 +32,4 @@ Route::get('/login',[loginController::class,'index'])->name('login');
 
 Route::get('/register',[registerController::class,'index'])->name('register');
 
-Route::get('/search',[searchController::class,'index'])->name('search');
+Route::post('/search',[searchController::class,'index'])->name('search');

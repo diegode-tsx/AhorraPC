@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 class searchController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
-        return view('search.index');
+        $search = $request->input('busqueda');
+        $search = str_replace(' ', '+', $search);
+        return   /* $request->all() */ /* view('search.index') */;
     }
 }
