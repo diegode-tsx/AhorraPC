@@ -13,7 +13,10 @@
 
         <form action="{{route('search')}}" method="POST">
             @csrf
-            <input type="text" name="busqueda">
+            <div class="buscador-container">
+                <input type="text" name="busqueda">
+                <i class="fas fa-search"></i>
+            </div>
             <input type="submit" value="Buscar">
         </form>
 

@@ -28,14 +28,33 @@ main form{
      column-gap: 20px;
 }
 
-main form input[type="text"]{
+main form .buscador-container{
      grid-column-start: 1;
      grid-column-end: 7;
+     margin: 50px 0;
+     position:relative;
+}
+
+main form .buscador-container i{
+     position: absolute;
+     top: 50%;
+     left: 0;
+     z-index: 1;
+     font-weight: 500;
+     font-size: 18px;
+     line-height: 22px;
+     color: var(--negro);
+     transform: translate(0, -50%);
+     margin-left: 15px;
+}
+
+main form input[type="text"]{
      outline: none;
      background: none;
 
+     width: 100%;
      padding: 15px 15px;
-     margin: 50px 0;
+     padding-left: 40px;
      border: 3px solid var(--primario);
      border-radius: 10px;
      font-family: Quicksand;
@@ -46,7 +65,7 @@ main form input[type="text"]{
 }
 
 main form input[type="text"]:hover{
-     filter: drop-shadow(0px 0px 7px rgba(231, 29, 54, 0.15));
+     filter: drop-shadow(0px 0px 7px rgba(231, 29, 54, 0.5));
      transition: all ease 0.1s;
 }
 
@@ -55,6 +74,10 @@ main form input[type="text"]:focus{
      border: 3px solid var(--negro);
      color: var(--blanco);
      transition: all ease 0.1s;
+}
+
+main form input[type="text"]:focus + i{
+     color: var(--blanco);  
 }
 
 main form input[type="submit"]{
