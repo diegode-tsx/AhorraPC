@@ -1,5 +1,9 @@
 @import url("global.css");
 
+footer{
+     display: none;
+}
+
 main{
      grid-column-start: 5;
      grid-column-end: 9;
@@ -57,7 +61,7 @@ main form input[type="text"]{
      padding-left: 40px;
      border: 3px solid var(--primario);
      border-radius: 10px;
-     font-family: Quicksand;
+     font-family: 'Quicksand';
      font-weight: 500;
      font-size: 18px;
      line-height: 22px;
@@ -88,7 +92,7 @@ main form input[type="submit"]{
      padding: 10px;
      border: 3px solid var(--primario);
      border-radius: 10px;
-     font-family: Quicksand;
+     font-family: 'Quicksand';
      font-weight: 500;
      font-size: 24px;
      line-height: 30px;
@@ -106,7 +110,7 @@ main form input[type="submit"]:hover{
 /*ESTILOS PARA EL TEXTO PRINCIPAL*/
 main h1{
      margin-top: 50px;
-     font-family: Rubik;
+     font-family: 'Rubik';
      font-weight: 500;
      font-size: 48px;
      line-height: 57px;

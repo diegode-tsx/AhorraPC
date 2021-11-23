@@ -54,6 +54,11 @@ header .logo img{
 }
 
 @media screen and (max-width: 1400px) {
+     header .logo{
+          grid-column-start: 1;
+          grid-column-end: 3; 
+     }
+
      .menu a{
           font-size: 18px;
      }
