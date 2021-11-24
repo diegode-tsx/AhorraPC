@@ -2,20 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use Facade\FlareClient\Http\Client;
+//use Facade\FlareClient\Http\Client;
 use Illuminate\Http\Request;
 use App\MyClasses\ProductoClass;
+use Goutte\Client;
 
 class searchController extends Controller
 {
-    public static $ListaProductos = [];
+    public static $ListProduCyberPuerta = [];//Lista de productos de la categoria CyberPuerta
+    public static $ListProduDdTech = [];
+    public static $ListProduPcMig = [];
+    public static $ListProduPcel = [];
     function index(Request $request, Client $client)
     {
         $search = $request->input('busqueda');
         $search = str_replace(' ', '+', $search);
-        return   /* $request->all() */ view('search.index');
-    }
 
+        $identificador = 1;
+        $classDiv = 'searchList';
+        $cyberpuertaProductos = $client->request('GET', 'https://www.cyberpuerta.mx/index.php?cl=search&searchparam=ryzen+3600');
+        $pcCelProductos=$client->request('GET', 'https://pcel.com/index.php?route=product/search&filter_name=ryzen%205600');
+        //$digitaLifeProductos=$client->request('GET', 'https://www.digitalife.com.mx/buscar/t_ryzen-3600');
+        $pcMigProductos=$client->request('GET', 'https://pcmig.com.mx/?s=ryzen+3600&post_type=product');
+        $ddTechProductos=$client->request('GET', 'https://ddtech.mx/buscar/ryzen+5+3600');
+        //$mercLibreProductos=$client->request('GET','https://listado.mercadolibre.com.mx/amd-ryzen-5-3600');
+        //llama la funcion si utilizas algun scrapeo como abajo
+        //$this->getProductosMercLibre($mercLibreProductos);
+
+        
+        return   /* $request->all() */ view('search.index');
+
+    }
 
 
 
@@ -36,11 +53,9 @@ class searchController extends Controller
             $precioProducto = $caracteristicas->children('div')->filter('[class="product-price"]')->first()->children('span')->first()->text();
             $linkCompra=$caracteristicas->children('h3')->children('a')->first()->attr('href');
             $linkImagen=$node->children('div')->filter('[class="image"]');
-            echo $nombreProducto."<br>";
-            echo $precioProducto."<br>";
-            echo $linkImagen->html()."<br>";
-            echo '<a href="'.$linkCompra.'">Link</a>'."<br>";
-            echo "<hr>";
+
+            $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$linkImagen,$linkCompra);
+            array_push(self::$ListProduDdTech,$ProductoObte);
         });
         
     }
@@ -54,11 +69,9 @@ class searchController extends Controller
             $linkImagen=$nodeProducto->filter('[class="product-image"]')->first()->filter('img')->first()->attr('src');
             $linkCompra=$nodeProducto->filter('[class="product-name"]')->first()->filter('a')->attr('href');
             $precio=$nodeProducto->filter('[class="price-box"]')->first()->text();
-            echo '<a href="'.$linkCompra.'">Link</a>'."<br>";
-            echo '<img src="'.$linkImagen.'">'."<br>";
-            echo $nombre."<br>";
-            echo $precio."<br>";
-            echo '<hr>';
+
+            $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
+            array_push(self::$ListProduPcMig,$ProductoObte);
         });
     }
 
@@ -80,7 +93,7 @@ class searchController extends Controller
             $linkImgCom=$linkCyberpuerta.$linkImgCom;
     
             $ProductoObte=new ProductoClass($nombre,$price,$linkImgCom,$linkCompra);
-            array_push(self::$ListaProductos,$ProductoObte);
+            array_push(self::$ListProduCyberPuerta,$ProductoObte);
             //return $ProductoObte;
             });
          
@@ -101,29 +114,11 @@ public function getProductosPcel($productos2)
                 $preciopar=explode(" ",$precioProducto);
                 $precioProducto=$preciopar[1];
             }
-            
-            echo "<br>";
-            echo $precioProducto."<br>";
-            echo '<a href='.$linkProducto.'>'.$nombreProducto.'</a>';
-            echo '<img scr="'.$LinkImagen.'">';
-            echo "<hr>";
 
-            
+            $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$LinkImagen,$linkProducto);
+            array_push(self::$$ListProduPcel,$ProductoObte);
         }
     });
-
-
-   /*  foreach($productos2 as $index => $producto){
-        echo $index;
-        Crawler $producto1= $producto;
-        if(!($index % 2)){
-            $nombreProducto=$producto->filter('[class="name"]')->first()->children('a')->text();
-            echo ($nombreProducto);
-        }else{
-            continue;
-        }
-    }   */ 
-    
 
 }
 
