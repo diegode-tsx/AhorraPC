@@ -88,10 +88,10 @@ main{
 
 .registration-login .input-group .input{
      position: relative;
-     margin-bottom: 25px;
+     margin-bottom: 15px;
 }
 
-.registration-login .input-group .input:last-child{
+.registration-login .input-group .input:last-of-type{
      margin-bottom: 0;
 }
 
@@ -107,11 +107,27 @@ main{
 }
 
 .forgot{
-     margin-top: -10px;
+     margin-top: 10px;
      text-decoration: none;
      color: var(--negro);
      display: block;
      text-align: left;
+}
+
+.espaciado{
+     visibility: hidden;
+}
+
+span.error,
+strong.error{
+     display: block;
+     text-align: left;
+     color: #FD151B;
+}
+
+span.error + .espaciado,
+strong.error + .espaciado{
+     display: none;
 }
 
 /*ESTILOS DEL BOTÓN*/
@@ -161,7 +177,7 @@ main{
      }
 
      .registration-login .input-group{
-          margin-top: 25px;
+          margin-top: 15px;
      }
 
      .registration-login .input-group .input{
@@ -172,6 +188,8 @@ main{
      .registration-login .input-group input[type="email"],
      .registration-login .input-group input[type="password"]{
           font-size: 14px;
+          padding: 10px;
+          padding-left: 38px;
      }
 
      .registration-login input[type="submit"]{

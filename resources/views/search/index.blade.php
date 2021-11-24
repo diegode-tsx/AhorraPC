@@ -1,4 +1,4 @@
-@extends('layouts.plantilla-defecto')
+@extends('layouts.plantilla-usuario')
 
 @section('title','Busqueda')
 @section('styles')

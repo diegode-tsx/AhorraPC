@@ -18,27 +18,31 @@
             @csrf <!-- esta mierda es mortal xd-->
             <h1>Crea una cuenta</h1>
             <div class="input-group">
+                @if ($errors->has('username'))
+                        <span class="error">{{$errors->first('username')}}</span>
+                @endif
+                <span class="espaciado">.</span>
                 <div class="input">
                     <input type="text" name="username" placeholder="Usuario">
                     <i class="fas fa-user"></i>
-                    @if ($errors->has('username'))
-                        <span>{{$errors->first('username')}}</span>
-                    @endif
                 </div>
+                @if ($errors->has('email'))
+                        <span class="error">{{$errors->first('email')}}</span>
+                @endif
+                <span class="espaciado">.</span>
                 <div class="input">
                     <input type="email" name="email" placeholder="Correo">
                     <i class="fas fa-at"></i>
-                    @if ($errors->has('email'))
-                        <span>{{$errors->first('email')}}</span>
-                    @endif
                 </div>
+                @error('password')
+                        <strong class="error">{{$message}}</strong>
+                @enderror
+                <span class="espaciado">.</span>
                 <div class="input">
                     <input type="password" name="password" placeholder="Contraseña">
                     <i class="fas fa-key"></i>
-                    @error('password')
-                        <strong>{{$message}}</strong>
-                    @enderror
                 </div>
+                <span class="espaciado">.</span>
                 <div class="input">
                     <input type="password" name="password_confirmation" placeholder="Repetir contraseña">
                     <i class="fas fa-key"></i>

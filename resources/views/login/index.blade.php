@@ -17,11 +17,13 @@
         <form class="registration-login" method="POST">
             @csrf <!-- esta mierda es mortal xd-->
             <h1>Inicia sesión</h1>
+            <span class="espaciado">.</span>
             <div class="input-group">
                 <div class="input">
                     <input type="text" name="username" placeholder="Usuario" required>
                     <i class="fas fa-user"></i>
                 </div>
+                <span class="espaciado">.</span>
                 <div class="input">
                     <input type="password" name="password" placeholder="Contraseña" required>
                     <i class="fas fa-key"></i>

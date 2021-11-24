@@ -14,50 +14,13 @@ main{
 }
 
 /*ESTILOS DEL BANNER*/
-.product-banner{
-     grid-column-start: 1;
-     grid-column-end: 13;
-
-     display: grid;
-     grid-template-columns: repeat(10, 1fr);
-     grid-template-rows: auto 1fr;
-     height: fit-content;
-     column-gap: 20px;
-}
-
-.product-banner .banner{
-     grid-column-start: 1;
-     grid-column-end: 7;
-
-     padding: 15px;
-     border-radius: 15px;
-     background: #0066BB;
-}
-
-.product-banner .banner h2{
-     font-family: 'Rubik';
+main h1{
+     font-family: Rubik;
+     font-style: normal;
+     font-weight: normal;
      font-size: 40px;
      line-height: 47px;
-     color: var(--blanco);
-}
-
-.product-banner a{
-     grid-column-start: 7;
-     grid-column-end: 8;
-
-     text-decoration: none;
-     font-weight: 500;
-     font-size: 18px;
-     line-height: 30px;
-     text-align: center;
-     align-self: center;
-     color: var(--negro);
-     cursor: pointer;
-}
-
-.product-banner a:hover{
-     transition: all ease 0.2s;
-     color: var(--primario);
+     color: var(--secundario);
 }
 
 /*ESTILOS DEL CONTENEDOR DE LOS PRODUCTOS*/
@@ -139,6 +102,27 @@ main{
      -webkit-text-stroke: 2px var(--primario);
 }
 
+.products-container .card .card-details .card-icons .fa-heart{
+     color: var(--primario);
+}
+
+.products-container .card .card-details .card-icons a:hover .fa-heart{
+     transition: all ease 0.2s;
+     color: var(--secundario);
+     -webkit-text-stroke: 2px var(--secundario);
+}
+
+.products-container .card .card-details .card-shop{
+     padding: 10px;
+     margin-top: 20px;
+     background: #0066BB;
+     border-radius: 10px;
+     font-weight: 500;
+     font-size: 24px;
+     line-height: 30px;
+     color: var(--blanco);
+}
+
 /*ESTILOS DE LA PAGINACIÓN*/
 .pagination{
      grid-column-start: 1;
@@ -179,4 +163,31 @@ main{
 .pagination li.page-number.active a{
      background: var(--primario);
      color: var(--blanco);
+}
+
+@media screen and (max-width: 1400px) {
+     .products-container .card .card-details .card-info .product-price{
+          margin-top: 10px;
+     }
+
+     .products-container .card .card-details .card-info .product-name,
+     .products-container .card .card-details .card-info .product-price{
+          font-size: 16px;
+          line-height: 16px;
+     }
+
+     .products-container .card .card-details .card-icons a{
+          margin-top: 30px;
+     }
+
+     .products-container .card .card-details .card-icons i{
+          font-size: 26px;
+          line-height: 26px;
+     }
+
+     .products-container .card .card-details .card-shop{
+          font-size: 20px;
+          line-height: 25px;
+          margin-top: 10px;
+     }
 }
