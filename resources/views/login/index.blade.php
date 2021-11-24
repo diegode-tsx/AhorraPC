@@ -17,6 +17,9 @@
         <form class="registration-login" method="POST">
             @csrf <!-- esta mierda es mortal xd-->
             <h1>Inicia sesión</h1>
+            @error('message')
+                <strong class="error">{{$message}}</strong><!--Mensaje de error usuario o contraseña-->
+            @enderror
             <span class="espaciado">.</span>
             <div class="input-group">
                 <div class="input">

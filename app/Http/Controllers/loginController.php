@@ -22,7 +22,7 @@ class loginController extends Controller
     public function store(){
         if(auth()->attempt(request(['username', 'password']))==false){
             return back()->withErrors([
-                'message'=>'The email or password is incorrect, please try again'
+                'message'=>'El correo electrónico o la contraseña son incorrectos, inténtelo de nuevo.'
             ]);
         }else
         return redirect()->to('/');
