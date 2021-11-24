@@ -10,6 +10,6 @@ class searchController extends Controller
     {
         $search = $request->input('busqueda');
         $search = str_replace(' ', '+', $search);
-        return   /* $request->all() */ /* view('search.index') */;
+        return   /* $request->all() */ view('search.index');
     }
 }

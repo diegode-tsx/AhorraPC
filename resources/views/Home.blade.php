@@ -1,4 +1,4 @@
-@extends('layouts.plantilla-usuario')
+@extends('layouts.plantilla-defecto')
 
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/home.css')}}">
@@ -13,7 +13,10 @@
 
         <form action="{{route('search')}}" method="POST">
             @csrf
-            <input type="text" name="busqueda">
+            <div class="buscador-container">
+                <input type="text" name="busqueda">
+                <i class="fas fa-search"></i>
+            </div>
             <input type="submit" value="Buscar">
         </form>
 
