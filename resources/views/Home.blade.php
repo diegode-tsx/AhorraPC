@@ -1,4 +1,4 @@
-@extends('layouts.plantilla-usuario')
+@extends('layouts.plantilla-defecto')
 
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/home.css')}}">

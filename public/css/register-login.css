@@ -1,0 +1,184 @@
+@import url("global.css");
+
+.menu, footer{
+     display: none !important;
+}
+
+main{
+     grid-column-start: 1;
+     grid-column-end: 13;
+     font-family: 'Quicksand';
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.logo{
+     grid-column-start: 6 !important;
+     grid-column-end: 8 !important;
+}
+
+/*ESTILOS DEL FORMULARIO*/
+.registration-login{
+     width: 25%;
+     
+     padding: 50px;
+     background: #FFFFFF;
+     box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.09);
+     border-radius: 30px;
+     text-align: center;
+}
+
+.registration-login h1{
+     font-family: Rubik;
+     font-weight: 500;
+     font-size: 48px;
+     line-height: 57px;
+     text-align: center;
+     color: var(--primario);
+}
+
+/*ESTILOS DE LOS INPUTS DE TEXTO*/
+.registration-login .input-group{
+     margin-top: 40px;
+}
+
+.registration-login .input-group input[type="text"],
+.registration-login .input-group input[type="email"],
+.registration-login .input-group input[type="password"]{
+     width: 100%;
+     background: none;
+     outline: none;
+     border: none;
+
+     padding: 15px 10px 15px 38px;
+     border: 2px solid var(--negro);
+     border-radius: 10px;
+     background: var(--blanco);
+
+     font-family: 'Quicksand';
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: 700;
+     
+     color: var(--negro);
+}
+
+.registration-login .input-group input[type="text"]:focus,
+.registration-login .input-group input[type="email"]:focus,
+.registration-login .input-group input[type="password"]:focus{
+     border: 2px solid var(--primario);
+     transition: all ease 0.2s;
+}
+
+.registration-login .input-group input[type="text"]:focus + i,
+.registration-login .input-group input[type="email"]:focus + i,
+.registration-login .input-group input[type="password"]:focus + i{
+     color: var(--primario);
+     transition: all ease 0.15s;
+}
+
+.registration-login .input-group input[type="text"]::placeholder,
+.registration-login .input-group input[type="email"]::placeholder,
+.registration-login .input-group input[type="password"]::placeholder{
+     font-weight: 500;
+     color: var(--gris);
+}
+
+.registration-login .input-group .input{
+     position: relative;
+     margin-bottom: 25px;
+}
+
+.registration-login .input-group .input:last-child{
+     margin-bottom: 0;
+}
+
+.registration-login .input-group i{
+     position: absolute;
+     left: 0;
+     top: 50%;
+     transform: translate(0, -50%);
+
+     font-size: 18px;
+     margin-left: 10px;
+     color: var(--gris);
+}
+
+.forgot{
+     margin-top: -10px;
+     text-decoration: none;
+     color: var(--negro);
+     display: block;
+     text-align: left;
+}
+
+/*ESTILOS DEL BOTÓN*/
+.registration-login input[type="submit"]{
+     background: none;
+     outline: none;
+     border: none;
+     cursor: pointer;
+
+     padding: 10px 50px;
+     margin-top: 40px;
+     border-radius: 8px;
+     background: var(--negro);
+     
+     font-family: 'Quicksand';
+     font-weight: 500;
+     font-size: 18px;
+     line-height: 22px;
+     color: var(--blanco);
+}
+
+.registration-login input[type="submit"]:hover{
+     background: var(--primario);
+     transition: all ease 0.2s;
+}
+
+/*ESTILOS DEL TEXTO INFERIOR*/
+.registration-login .sign-in-out{
+     margin-top: 40px;
+}
+
+.registration-login .sign-in-out a{
+     text-decoration: none;
+     color: var(--primario);
+     font-weight: 500;
+}
+
+@media screen and (max-width: 1400px) {
+     .registration-login{
+          width: 30%;
+          padding: 30px;
+     }
+
+     .registration-login h1{
+          font-size: 38;
+          line-height: 45px;
+     }
+
+     .registration-login .input-group{
+          margin-top: 25px;
+     }
+
+     .registration-login .input-group .input{
+          margin-bottom: 15px;
+     }
+
+     .registration-login .input-group input[type="text"],
+     .registration-login .input-group input[type="email"],
+     .registration-login .input-group input[type="password"]{
+          font-size: 14px;
+     }
+
+     .registration-login input[type="submit"]{
+          margin-top: 25px;
+     }
+
+     .registration-login .sign-in-out{
+          margin-top: 25px;
+     }
+}
