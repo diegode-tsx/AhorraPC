@@ -28,8 +28,13 @@ Route::get('/favorite', [favoriteController::class,'index'])->name('favorite');
 
 Route::get('/settings', [settingController::class,'index'])->name('settings');
 
-Route::get('/login',[loginController::class,'index'])->name('login');
+Route::get('/login',[loginController::class,'index'])->middleware('guest')->name('login');
+Route::post('/login',[loginController::class,'store'])->name('login.store');
 
-Route::get('/register',[registerController::class,'index'])->name('register');
+Route::get('/register',[registerController::class,'index'])->middleware('guest')->name('register');
+Route::post('/register',[registerController::class,'store'])->name('register.store');
+
+Route::get('/logout', [loginController::class, 'destroy'])->middleware('auth')->name('login.destroy');
 
 Route::post('/search',[searchController::class,'index'])->name('search');
+

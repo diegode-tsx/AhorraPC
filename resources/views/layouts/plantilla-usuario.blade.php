@@ -28,7 +28,7 @@
                 <i class="far fa-info-circle"></i>
                 Nosotros
             </a>
-            <a href="/">
+            <a href="{{route('login.destroy')}}">
                 <i class="far fa-sign-out-alt"></i>
                 Salir
             </a>
