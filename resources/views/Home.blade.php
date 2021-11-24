@@ -1,4 +1,4 @@
-@extends('layouts.plantilla-defecto')
+@extends('layouts.plantilla-'.$plantilla)<!--se escribe la variable recivida del controlador tal cual-->
 
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/home.css')}}">

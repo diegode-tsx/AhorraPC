@@ -17,8 +17,8 @@ class UserSedder extends Seeder
         //datos del admin
         $user = new User;
 
-        $user->name ="AhorroManager";
-        $user->email ="Admin";
+        $user->username ="Admin";
+        $user->email ="AhorroManager";
         $user->password ="admin";
 
         $user->save();

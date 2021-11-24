@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect()->to('/');
+                return redirect()->to('/');//desde el login redirecciona si estas logeado 
             }
         }
 
