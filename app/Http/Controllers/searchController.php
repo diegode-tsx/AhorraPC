@@ -16,15 +16,15 @@ class searchController extends Controller
     public static $ListProduPcel = [];
     function index(Request $request, Client $client)
     {
-        $search = $request->input('busqueda');
-        $search = str_replace(' ', '+', $search);
-
+        $searchGlobal = $request->input('busqueda');
+        $search = str_replace(' ', '+', $searchGlobal);
+        $search2 = str_replace(' ', '%20', $searchGlobal);
         $identificador = 1;
         $classDiv = 'searchList';
-        $cyberpuertaProductos = $client->request('GET', 'https://www.cyberpuerta.mx/index.php?cl=search&searchparam=ryzen+3600');
+        $cyberpuertaProductos = $client->request('GET', 'https://www.cyberpuerta.mx/index.php?cl=search&searchparam='.$search);
         $pcCelProductos=$client->request('GET', 'https://pcel.com/index.php?route=product/search&filter_name=ryzen%205600');
         //$digitaLifeProductos=$client->request('GET', 'https://www.digitalife.com.mx/buscar/t_ryzen-3600');
-        $pcMigProductos=$client->request('GET', 'https://pcmig.com.mx/?s=ryzen+3600&post_type=product');
+        $pcMigProductos=$client->request('GET', 'https://pcmig.com.mx/?s='.$search.'&post_type=product');
         $ddTechProductos=$client->request('GET', 'https://ddtech.mx/buscar/ryzen+5+3600');
         //$mercLibreProductos=$client->request('GET','https://listado.mercadolibre.com.mx/amd-ryzen-5-3600');
         //llama la funcion si utilizas algun scrapeo como abajo
