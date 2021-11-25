@@ -14,6 +14,19 @@
     </div>
 @endsection
 
+
+
+@foreach ($suma as $item)
+    <h1>{{$item->$nombre}}</h5>
+@endforeach
+
+    {{-- <php echo ($xcosa); ?> Aqui pasaba el parametro de tipo texto y agarro--}} 
+
+    <?php print_r ($suma); ?> <!--Aqui imprimo el array pero sale vacii al igual que con el foreach-->
+
+
+
+
 @section('content')
     <main>
         <div class="product-banner">
