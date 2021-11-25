@@ -77,6 +77,61 @@
             {{-- Termina Cyberpuerta --}}
 
 
+
+            {{-- Empieza ddtech --}}
+            {{-- @foreach ($ddtech as $item)
+            
+            <div class="card">
+                <div class="img-card">
+                    <img src="{{$item->imagenLink}}">
+                </div>
+
+                <div class="card-details">
+                    <div class="card-info">
+                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+    
+                        <p class="product-price">{{$item->precio}}</p>
+                    </div>
+    
+                    <div class="card-icons">
+                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                    </div>
+                </div>
+            </div>
+            @endforeach --}}
+            {{-- Termina ddtech --}}
+
+
+
+            {{-- Empieza pcCel --}}
+            @foreach ($pcCel as $item)
+            
+            <div class="card">
+                <div class="img-card">
+                    <img src="{{$item->imagenLink}}">
+                </div>
+
+                <div class="card-details">
+                    <div class="card-info">
+                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+    
+                        <p class="product-price">{{$item->precio}}</p>
+                    </div>
+    
+                    <div class="card-icons">
+                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            {{-- Termina pcCel --}}
+
+
+
+
+
             <div class="card">
                 <div class="img-card">
                     <img src="{{asset('img/ram.jpg')}}" alt="">

@@ -35,6 +35,18 @@ class searchController extends Controller
         $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
         $cyberpuerta = self::$ListProduCyberPuerta;
 
+        // $this->getProductosMercLibre($mercLibreProductos);
+        // $mercadolibre = self::$List;
+
+        $this->getProductosDdTech($ddTechProductos);
+        $ddtech = self::$ListProduDdTech;
+
+        $this->getProductosPcel($pcCelProductos);
+        $pcCel = self::$ListProduPcel;
+
+
+
+
         // $xcosa = "Cadena de texto"; Parametro de prueba
         //control de session //cambio de plantilla
         if(Auth::check()){//si el usuario esta logeado usara tal plantilla
@@ -43,7 +55,7 @@ class searchController extends Controller
             $plantilla='defecto';
         }
 
-        return   /* $request->all() */ view('search.index', compact('PcMig','cyberpuerta'), compact('plantilla'));
+        return   /* $request->all() */ view('search.index', compact('PcMig','cyberpuerta','ddtech','pcCel'), compact('plantilla'));
 
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
@@ -132,7 +144,7 @@ public function getProductosPcel($productos2)
             }
 
             $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$LinkImagen,$linkProducto);
-            array_push(self::$$ListProduPcel,$ProductoObte);
+            array_push(self::$ListProduPcel,$ProductoObte);
         }
     });
 
