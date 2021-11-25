@@ -17,11 +17,11 @@
         <form class="registration-login" method="POST">
             @csrf <!-- esta mierda es mortal xd-->
             <h1>Inicia sesión</h1>
-            @error('message')
-                <strong class="error">{{$message}}</strong><!--Mensaje de error usuario o contraseña-->
-            @enderror
-            <span class="espaciado">.</span>
             <div class="input-group">
+                @error('message')
+                <strong class="error">{{$message}}</strong><!--Mensaje de error usuario o contraseña-->
+                @enderror
+                <span class="espaciado">.</span>
                 <div class="input">
                     <input type="text" name="username" placeholder="Usuario" required>
                     <i class="fas fa-user"></i>
