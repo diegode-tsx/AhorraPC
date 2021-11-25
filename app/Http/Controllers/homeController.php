@@ -16,6 +16,9 @@ class homeController extends Controller
         }else{
             $plantilla='defecto';
         }
+        
+        //$useract = Auth::user();
+        //echo $useract;
         return view('home', compact('plantilla'));//requiere el compact xd aun nose paque
     }
 

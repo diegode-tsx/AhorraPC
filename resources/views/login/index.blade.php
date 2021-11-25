@@ -38,11 +38,8 @@
                 ¿No tienes cuenta?
                 <a href="{{route('register')}}">Regístrate ahora</a>
             </div>
+            
         </form>
-        <script>
-            if ( window.history.replaceState ) {
-                 window.history.replaceState( null, null, window.location.href );
-            }
-       </script>
+        
     </main>
 @endsection
