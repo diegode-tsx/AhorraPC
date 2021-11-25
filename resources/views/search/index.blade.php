@@ -17,7 +17,7 @@
 
 
 @foreach ($suma as $item)
-    <h1>{{$item->$nombre}}</h5>
+    <h1>{{$item->nombre}}</h5>
 @endforeach
 
     {{-- <php echo ($xcosa); ?> Aqui pasaba el parametro de tipo texto y agarro--}} 

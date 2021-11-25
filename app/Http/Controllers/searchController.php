@@ -28,7 +28,7 @@ class searchController extends Controller
         $ddTechProductos=$client->request('GET', 'https://ddtech.mx/buscar/ryzen+5+3600');
         //$mercLibreProductos=$client->request('GET','https://listado.mercadolibre.com.mx/amd-ryzen-5-3600');
         //llama la funcion si utilizas algun scrapeo como abajo
-        //$this->getProductosMercLibre($mercLibreProductos);
+        $this->getProductosPcMig($pcMigProductos);
 
         
         $suma = self::$ListProduPcMig;
