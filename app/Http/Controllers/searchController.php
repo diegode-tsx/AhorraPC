@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\MyClasses\ProductoClass;
 use Goutte\Client;
+use Illuminate\Support\Facades\Auth;
 
 class searchController extends Controller
 {
@@ -33,8 +34,14 @@ class searchController extends Controller
         $suma = self::$ListProduPcMig;
 
         // $xcosa = "Cadena de texto"; Parametro de prueba
+        //control de session //cambio de plantilla
+        if(Auth::check()){//si el usuario esta logeado usara tal plantilla
+            $plantilla='usuario';
+        }else{
+            $plantilla='defecto';
+        }
 
-        return   /* $request->all() */ view('search.index', compact('suma'));
+        return   /* $request->all() */ view('search.index', compact('suma'), compact('plantilla'));
 
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista

@@ -1,4 +1,4 @@
-@extends('layouts.plantilla-usuario')
+@extends('layouts.plantilla-'.$plantilla)
 
 @section('title','Busqueda')
 @section('styles')

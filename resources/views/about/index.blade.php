@@ -1,4 +1,4 @@
-@extends('layouts.plantilla-defecto')
+@extends('layouts.plantilla-'.$plantilla)
 
 @section('title','Acerca de nosotros')
     
