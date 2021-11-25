@@ -20,13 +20,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        //$this->call(UserSedder::class); //conecta el seeder del modelo user
+        //si borras la llamada no ejecuta el seeder
+        $this->call(UserSedder::class); //conecta el seeder del modelo user
         //User::factory(499)->create();//el numero modifica la creacion de registros usando database\factories\Userfactory.php
 
-        //$this->call(ProductSeeder::class);
+        $this->call(ProductSeeder::class);
         //Product::factory(499)->create();
     
-        //$this->call(FavoriteSeeder::class);
+        $this->call(FavoriteSeeder::class);
         //Favorite::factory(50)->create();
         
         

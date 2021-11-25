@@ -25,8 +25,8 @@ class loginController extends Controller
                 'message'=>'El correo electrónico o la contraseña son incorrectos, inténtelo de nuevo.'
             ]);
         }else
-        $username = session('username');
-        return redirect()->to('/', compact('username'));
+        //$username = auth()->request(['username']);
+        return redirect()->to('/');
     }
 
     public function destroy(){
