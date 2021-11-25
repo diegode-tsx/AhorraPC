@@ -30,7 +30,14 @@ class searchController extends Controller
         //$this->getProductosMercLibre($mercLibreProductos);
 
         
-        return   /* $request->all() */ view('search.index');
+        $suma = self::$ListProduPcMig;
+
+        // $xcosa = "Cadena de texto"; Parametro de prueba
+
+        return   /* $request->all() */ view('search.index', compact('suma'));
+
+        
+        // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
 
     }
 
