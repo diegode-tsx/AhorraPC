@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('url_pagina');
             $table->string('url_imagen');
             $table->string('precio');
+            $table->foreignId('idpagina')->constrained()->onUpdate('cascade');
+            $table->foreign('idPagina')->references('idPagina')->on('pages');
         });
     }
 

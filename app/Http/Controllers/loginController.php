@@ -20,12 +20,13 @@ class loginController extends Controller
 
 
     public function store(){
-        if(auth()->attempt(request(['username', 'password']))==false){
+        if(auth()->attempt(request(['username', 'password']))==false){//El attemptmétodo regresará truesi la autenticación fue exitosa. De lo contrario, falseserá devuelto.
             return back()->withErrors([
                 'message'=>'El correo electrónico o la contraseña son incorrectos, inténtelo de nuevo.'
             ]);
         }else
-        return redirect()->to('/');
+        $username = session('username');
+        return redirect()->to('/', compact('username'));
     }
 
     public function destroy(){
