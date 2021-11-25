@@ -29,9 +29,11 @@ class searchController extends Controller
         //$mercLibreProductos=$client->request('GET','https://listado.mercadolibre.com.mx/amd-ryzen-5-3600');
         //llama la funcion si utilizas algun scrapeo como abajo
         $this->getProductosPcMig($pcMigProductos);
+        $PcMig = self::$ListProduPcMig;
 
-        
-        $suma = self::$ListProduPcMig;
+
+        $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
+        $cyberpuerta = self::$ListProduCyberPuerta;
 
         // $xcosa = "Cadena de texto"; Parametro de prueba
         //control de session //cambio de plantilla
@@ -41,7 +43,7 @@ class searchController extends Controller
             $plantilla='defecto';
         }
 
-        return   /* $request->all() */ view('search.index', compact('suma'), compact('plantilla'));
+        return   /* $request->all() */ view('search.index', compact('PcMig','cyberpuerta'), compact('plantilla'));
 
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
