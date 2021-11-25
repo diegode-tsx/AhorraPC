@@ -7,6 +7,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\searchController;
 use App\Http\Controllers\settingController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +25,9 @@ Route::get('/', homeController::class)->name('home');
 
 Route::get('/about', [aboutController::class,'index'])->name('about');
 
-Route::get('/favorite', [favoriteController::class,'index'])->name('favorite');
+Route::get('/favorite', [favoriteController::class,'index'])->Middleware('auth')->name('favorite');
 
-Route::get('/settings', [settingController::class,'index'])->name('settings');
+Route::get('/settings', [settingController::class,'index'])->Middleware('auth')->name('settings');
 
 Route::get('/login',[loginController::class,'index'])->middleware('guest')->name('login');
 Route::post('/login',[loginController::class,'store'])->name('login.store');
