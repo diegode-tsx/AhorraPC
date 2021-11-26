@@ -36,8 +36,8 @@ class searchController extends Controller
         $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
         $cyberpuerta = self::$ListProduCyberPuerta;
 
-        // $this->getProductosMercLibre($mercLibreProductos);
-        // $mercadolibre = self::$List;
+        $this->getProductosMercLibre($mercLibreProductos);
+        $mercadolibre = self::$ListProduMercLibre;
 
         $this->getProductosDdTech($ddTechProductos);
         $ddtech = self::$ListProduDdTech;
@@ -56,7 +56,7 @@ class searchController extends Controller
             $plantilla='defecto';
         }
 
-        return   /* $request->all() */ view('search.index', compact('PcMig','cyberpuerta','ddtech','pcCel'), compact('plantilla'));
+        return   /* $request->all() */ view('search.index', compact('PcMig','cyberpuerta','ddtech','pcCel','mercadolibre'), compact('plantilla'));
 
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
