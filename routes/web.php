@@ -28,6 +28,7 @@ Route::get('/about', [aboutController::class,'index'])->name('about');
 Route::get('/favorite', [favoriteController::class,'index'])->Middleware('auth')->name('favorite');
 
 Route::get('/settings', [settingController::class,'index'])->Middleware('auth')->name('settings');
+Route::post('/settings', [settingController::class,'store'])->name('settings.store');
 
 Route::get('/login',[loginController::class,'index'])->middleware('guest')->name('login');
 Route::post('/login',[loginController::class,'store'])->name('login.store');
