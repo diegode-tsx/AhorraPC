@@ -15,11 +15,14 @@ main{
 
 /*ESTILOS DEL BANNER*/
 main h1{
+     grid-column-start: 1;
+     grid-column-end: 13;
      font-family: Rubik;
      font-style: normal;
      font-weight: normal;
      font-size: 40px;
      line-height: 47px;
+     text-align: center;
      color: var(--secundario);
 }
 
