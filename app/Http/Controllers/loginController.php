@@ -23,15 +23,14 @@ class loginController extends Controller
     public function store(){
         $username = $_POST['username'];
         $user = DB::table('users')->select('username')->where('username','=',$username)->get();
-                
+        if(isset($user->first()->username)){        
         $username_db = $user->first()->username;
 
         
         if($username_db === $username){
         
         if(auth()->attempt(request(['username', 'password']))==false){//El attemptmétodo regresará truesi la autenticación fue exitosa. De lo contrario, falseserá devuelto.
-            return back()->withErrors([
-                'message'=>'El correo electrónico o la contraseña son incorrectos, inténtelo de nuevo.'
+            return back()->withErrors(['message'=>'El correo electrónico o la contraseña son incorrectos, inténtelo de nuevo.'
             ]);
         }else{
         //$username = auth()->request(['username']);
@@ -42,7 +41,10 @@ class loginController extends Controller
             'message'=>'El correo electrónico o la contraseña son incorrectos, inténtelo de nuevo.'
         ]);
     }
-
+}
+    return back()->withErrors([//nos deja enviar cualquier mensaje a la vista mediante @errors
+        'message'=>'El correo electrónico o la contraseña son incorrectos, inténtelo de nuevo.'
+    ]);
     
     }
 
