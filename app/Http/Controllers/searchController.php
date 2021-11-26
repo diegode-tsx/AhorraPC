@@ -14,6 +14,7 @@ class searchController extends Controller
     public static $ListProduDdTech = [];
     public static $ListProduPcMig = [];
     public static $ListProduPcel = [];
+    public static $ListProduMercLibre = [];
     function index(Request $request, Client $client)
     {
         $searchGlobal = $request->input('busqueda');
@@ -35,6 +36,18 @@ class searchController extends Controller
         $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
         $cyberpuerta = self::$ListProduCyberPuerta;
 
+        $this->getProductosMercLibre($mercLibreProductos);
+        $mercadolibre = self::$ListProduMercLibre;
+
+        $this->getProductosDdTech($ddTechProductos);
+        $ddtech = self::$ListProduDdTech;
+
+        $this->getProductosPcel($pcCelProductos);
+        $pcCel = self::$ListProduPcel;
+
+
+
+
         // $xcosa = "Cadena de texto"; Parametro de prueba
         //control de session //cambio de plantilla
         if(Auth::check()){//si el usuario esta logeado usara tal plantilla
@@ -43,7 +56,7 @@ class searchController extends Controller
             $plantilla='defecto';
         }
 
-        return   /* $request->all() */ view('search.index', compact('PcMig','cyberpuerta'), compact('plantilla'));
+        return   /* $request->all() */ view('search.index', compact('PcMig','cyberpuerta','ddtech','pcCel','mercadolibre'), compact('plantilla'));
 
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
@@ -53,11 +66,17 @@ class searchController extends Controller
 
 
     public function getProductosMercLibre($productos){
-        $productos->filter('[class="ui-search-main ui-search-main--only-products"]')->first()->children('section')->children('ol')->first()->filter('li.ui-search-layout__item')->each(function($node){
-           $caracteristicas = $node->children('div')->filter('[class="ui-search-result__wrapper"]')->first()->filter('[class="andes-card andes-card--flat andes-card--default ui-search-result ui-search-result--core andes-card--padding-default"]')->first();
-            $nombre = $caracteristicas->filter('[class="ui-search-result__content-wrapper"]')->filter('div.ui-search-item__group ui-search-item__group--title');//->first()->filter('a');//->first()->children('div')->first()->children('a')->text();
-            echo $nombre->html()."<br>";
-            echo "<hr>";
+        $productos->filter('[class="ui-search-main ui-search-main--exhibitor ui-search-main--only-products"]')->first()->children('section')->children('ol')->first()->filter('li.ui-search-layout__item')->each(function($node){
+            $caracteristicas = $node->children('div')->filter('[class="ui-search-result__content-wrapper"]')->first();
+            $nombre=$caracteristicas->filter('[class="ui-search-item__group ui-search-item__group--title"]')->first()->text();
+            $linkCompra=$caracteristicas->filter('[class="ui-search-item__group ui-search-item__group--title"]')->first()->children('a')->first()->attr('href');
+            $precio=$node->filter('[class="ui-search-result__content-columns"]')->first()->filter('[class="ui-search-item__group ui-search-item__group--price"]')->first()->text();
+            $linkImagen=$node->filter('[class="ui-search-result__image"]')->first()->children('a')->first()->filter('[class="carousel-container arrow-visible"]')->children('div')->filter('[class="slick-slide slick-active"]')->first()->children('img')->first()->attr('data-src');
+            $preciopar=explode(" ",$precio);
+            $precio=$preciopar[0];
+    
+            $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
+            array_push(self::$ListProduMercLibre,$ProductoObte);
         });
     }
 
@@ -68,7 +87,7 @@ class searchController extends Controller
             $nombreProducto = $caracteristicas->children('h3')->children('a')->first()->text();
             $precioProducto = $caracteristicas->children('div')->filter('[class="product-price"]')->first()->children('span')->first()->text();
             $linkCompra=$caracteristicas->children('h3')->children('a')->first()->attr('href');
-            $linkImagen=$node->children('div')->filter('[class="image"]');
+            $linkImagen=$node->children('div')->filter('[class="image"]')->children('a')->first()->children('img')->first()->attr('src');
 
             $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$linkImagen,$linkCompra);
             array_push(self::$ListProduDdTech,$ProductoObte);
@@ -132,7 +151,7 @@ public function getProductosPcel($productos2)
             }
 
             $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$LinkImagen,$linkProducto);
-            array_push(self::$$ListProduPcel,$ProductoObte);
+            array_push(self::$ListProduPcel,$ProductoObte);
         }
     });
 
