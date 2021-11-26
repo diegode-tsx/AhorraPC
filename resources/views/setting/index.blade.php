@@ -28,19 +28,35 @@
                     <i class="far fa-lock-open"></i>
                     <h2>Cambiar contraseña</h2>
                 </div>
-                <form action="">
+                <form method="POST">
+                    @csrf
                     <div class="input">
-                        <input type="password" name="actual-password" placeholder="Contraseña actual" required>
+                        
+                        <input type="password" name="actual-password" placeholder="Contraseña actual" required autofocus>
                         <i class="fas fa-key"></i>
+                        @if(session('fail'))
+            <strong class="error">{{session('fail')}}</strong>
+        @endif
+                        @if ($errors->has('password'))
+                        <span class="error">{{$errors->first('password')}}</span>
+                @endif
                     </div>
                     <div class="input">
+                        
                         <input type="password" name="new_password" placeholder="Contraseña nueva" required>
                         <i class="fas fa-lock"></i>
+                        @error('new_password')
+            <strong>{{$message}}</strong>
+        @enderror
                     </div>
                     <div class="input">
                         <input type="password" name="new_password_confirmation" placeholder="Repetir contraseña" required>
                         <i class="fas fa-lock"></i>
                     </div>
+                    @if(session('success'))
+            <strong class="error">{{session('success')}}</strong>
+        @endif
+        
                     <input type="submit" value="Cambiar">
                 </form>
             </div>
@@ -62,7 +78,7 @@
 
             <div class="log-out">
                 <div class="title">
-                    <a href="#">
+                    <a href="{{route('login.destroy')}}">
                         <i class="far fa-power-off"></i>
                         <h2>Cerrar sesión</h2>
                     </a>

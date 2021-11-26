@@ -39,8 +39,8 @@ class settingController extends Controller
 
 
         
-        $password = $_POST['password'];
-        $newpassword = $_POST['newpassword'];
+        $password = $_POST['actual-password'];
+        $newpassword = $_POST['new_password'];
         $userpass = Auth::user()->getAuthPassword();
         $id = Auth::user()->id;
 

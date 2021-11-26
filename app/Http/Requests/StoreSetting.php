@@ -24,16 +24,16 @@ class StoreSetting extends FormRequest
     public function rules()
     {
         return [
-            'password' =>  'required',
-            'newpassword'=> 'required|confirmed|min:6'
+            'actual-password' =>  'required',
+            'new_password'=> 'required|confirmed|min:6'
         ];
     }
 
     public function messages()
     {
         return [
-            'password' => 'Campo requerido',
-            'newpassword' => 'Su nueva contraseña debe incluir al menos 6 digitos'
+            'actual-password' => 'Campo requerido',
+            'new_password' => 'Su nueva contraseña debe incluir al menos 6 digitos'
         ];
     }
 }
