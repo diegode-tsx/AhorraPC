@@ -74,13 +74,7 @@ class searchController extends Controller
             $linkImagen=$node->filter('[class="ui-search-result__image"]')->first()->children('a')->first()->filter('[class="carousel-container arrow-visible"]')->children('div')->filter('[class="slick-slide slick-active"]')->first()->children('img')->first()->attr('data-src');
             $preciopar=explode(" ",$precio);
             $precio=$preciopar[0];
-            echo( $nombre)."<br>";
-            echo $linkCompra."<br>";
-            echo $precio."<br>";
-            echo $linkImagen."<br>";
-            echo "<hr>";
-
-
+    
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
             array_push(self::$ListProduMercLibre,$ProductoObte);
         });
