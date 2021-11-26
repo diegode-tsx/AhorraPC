@@ -80,7 +80,7 @@ class searchController extends Controller
             $nombreProducto = $caracteristicas->children('h3')->children('a')->first()->text();
             $precioProducto = $caracteristicas->children('div')->filter('[class="product-price"]')->first()->children('span')->first()->text();
             $linkCompra=$caracteristicas->children('h3')->children('a')->first()->attr('href');
-            $linkImagen=$node->children('div')->filter('[class="image"]');
+            $linkImagen=$node->children('div')->filter('[class="image"]')->children('a')->first()->children('img')->first()->attr('src');
 
             $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$linkImagen,$linkCompra);
             array_push(self::$ListProduDdTech,$ProductoObte);

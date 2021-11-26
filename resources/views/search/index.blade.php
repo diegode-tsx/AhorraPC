@@ -79,7 +79,7 @@
 
 
             {{-- Empieza ddtech --}}
-            {{-- @foreach ($ddtech as $item)
+            @foreach ($ddtech as $item)
             
             <div class="card">
                 <div class="img-card">
@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            @endforeach --}}
+            @endforeach
             {{-- Termina ddtech --}}
 
 
