@@ -13,6 +13,73 @@ main{
      margin-top: 80px;
 }
 
+/* INICIO DE LAS PESTAÑAS */
+
+.tabs{
+	overflow: hidden;
+}
+
+.tabs .controls{
+	display: flex;
+}
+
+.tabs .controls button{
+	flex: 1;
+	transition: all 0.2s;
+     max-width: 25vh;
+     height: 10vh;
+     border: none;
+     cursor: pointer;
+     background: rgb(255, 255, 255);
+     margin-bottom: 7px;
+     border-radius: 5px;
+     font-weight: bold;
+     font-size: 3vh;
+}
+
+.tabs .controls button:hover{
+	background: red;
+     color: #fff;
+     
+}
+
+
+
+/* .tabs .controls img{
+     
+	width: 100%;
+     height: 100%;
+     padding: 0;
+     object-fit:scale-down;
+     background: #0066BB;
+} */
+
+.tabs .controls button.active{
+     border: 2px solid red;
+	border-bottom: solid 5px red;
+	
+}
+
+.tabs .tabs-container{
+	/* display: flex; */
+	display: grid;
+	grid-template-columns: 100% 100% 100% 100% 100%;
+	/* flex-wrap: nowrap; */
+	transform: translateX(0);
+	transition: all 0.2s ease-in;
+}
+
+.tabs .tabs-container .tab{
+	background-color: red;
+	width: 100%;
+	/* flex-shrink: 0; */
+}
+
+/* FIN DE LAS PESTAÑAS */
+
+
+
+
 /*ESTILOS DEL BANNER*/
 .product-banner{
      grid-column-start: 1;
