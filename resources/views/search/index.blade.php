@@ -17,14 +17,13 @@
 
 @section('content')
     <main>
-        <div class="product-banner">
-            <div class="banner">
-                <h2>CyberPuerta</h2>
-            </div>
-            <a href="#">Ver los productos más baratos</a>
+        <div class="tab-container">
+            <button>CyberPuerta</button>
+            <button>DDTech</button>
+            <button>MercadoLibre</button>
         </div>
 
-        <div class="products-container">
+        <div class="products-container pcmig">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PcMig --}}
             @foreach ($PcMig as $item)
@@ -50,9 +49,30 @@
             @endforeach
             {{-- Termina PcMig --}}
             {{---------AQUÍ TERMINA----------}}
-            
 
-            {{-- Empieza Cyberpuerta --}}
+            <div class="card">
+                <div class="img-card">
+                    <img src="{{asset('img/ram.jpg')}}" alt="">
+                </div>
+
+                <div class="card-details">
+                    <div class="card-info">
+                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
+    
+                        <p class="product-price">$3,269.00</p>
+                    </div>
+    
+                    <div class="card-icons">
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-container cyberpuerta">
+            {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
+            {{-- Empieza CyberPuerta --}}
             @foreach ($cyberpuerta as $item)
             
             <div class="card">
@@ -74,11 +94,13 @@
                 </div>
             </div>
             @endforeach
-            {{-- Termina Cyberpuerta --}}
-
-
-
-            {{-- Empieza ddtech --}}
+            {{-- Termina CyberPuerta --}}
+            {{---------AQUÍ TERMINA----------}}
+        </div>
+        
+        <div class="products-container ddtech">
+            {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
+            {{-- Empieza DDTech --}}
             @foreach ($ddtech as $item)
             
             <div class="card">
@@ -100,11 +122,13 @@
                 </div>
             </div>
             @endforeach
-            {{-- Termina ddtech --}}
+            {{-- Termina DDTech --}}
+            {{---------AQUÍ TERMINA----------}}
+        </div>   
 
-
-
-            {{-- Empieza pcCel --}}
+        <div class="products-container pcel">
+            {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
+            {{-- Empieza PCEL --}}
             @foreach ($pcCel as $item)
             
             <div class="card">
@@ -126,13 +150,15 @@
                 </div>
             </div>
             @endforeach
-            {{-- Termina pcCel --}}
+            {{-- Termina PCEL --}}
+            {{---------AQUÍ TERMINA----------}}
+        </div>   
 
-
-            
-            {{-- Empieza mercadolibre --}}
+        <div class="products-container mercadolibre">
+            {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
+            {{-- Empieza MercadoLibre --}}
             @foreach ($mercadolibre as $item)
-                        
+            
             <div class="card">
                 <div class="img-card">
                     <img src="{{$item->imagenLink}}">
@@ -141,10 +167,10 @@
                 <div class="card-details">
                     <div class="card-info">
                         <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
-
+    
                         <p class="product-price">{{$item->precio}}</p>
                     </div>
-
+    
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
@@ -152,30 +178,9 @@
                 </div>
             </div>
             @endforeach
-            {{-- Termina mercadolibre --}}
-
-
-
-
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
-
-                <div class="card-details">
-                    <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
-    
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            {{-- Termina MercadoLibre --}}
+            {{---------AQUÍ TERMINA----------}}
+        </div>   
 
         <ul class="pagination">
             <li><a href="#" class="prev">< Atrás</a></li>
