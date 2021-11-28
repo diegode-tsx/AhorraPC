@@ -48,11 +48,11 @@ main{
      column-gap: 20px;
 
      margin-top: 50px;
-     display: none;
+     display: none;/*Lo puse para que todo esté desactivado por defecto*/
 }
 
-.products-container.pcmig{
-     display: grid;
+.products-container.cyberpuerta{
+     display: grid;/*En css solo se accede a la tienda que se desea activar*/
 }
 
 .products-container .card{
