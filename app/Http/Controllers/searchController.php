@@ -27,7 +27,7 @@ class searchController extends Controller
         //$digitaLifeProductos=$client->request('GET', 'https://www.digitalife.com.mx/buscar/t_ryzen-3600');
         $pcMigProductos=$client->request('GET', 'https://pcmig.com.mx/?s='.$search.'&post_type=product');
         $ddTechProductos=$client->request('GET', 'https://ddtech.mx/buscar/ryzen+5+3600');
-        //$mercLibreProductos=$client->request('GET','https://listado.mercadolibre.com.mx/amd-ryzen-5-3600');
+        $mercLibreProductos=$client->request('GET','https://listado.mercadolibre.com.mx/amd-ryzen-5-3600');
         //llama la funcion si utilizas algun scrapeo como abajo
         $this->getProductosPcMig($pcMigProductos);
         $PcMig = self::$ListProduPcMig;
