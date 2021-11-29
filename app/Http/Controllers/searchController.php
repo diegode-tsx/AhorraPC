@@ -39,7 +39,7 @@ class searchController extends Controller
         
         $PcMig = $this->getProductosPcMig($pcMigProductos);
 
-        $amazon = $this->getProductosAmazon($amz_query);
+        $amazon = $this->getProductosAmazon($amazonProductos);
         
         $cyberpuerta = $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
 
@@ -63,7 +63,7 @@ class searchController extends Controller
             $plantilla='defecto';
         }
 
-        return   /* $request->all() */ view('search.index', compact('PcMig','cyberpuerta','ddtech','pcCel','mercadolibre'), compact('plantilla'));
+        return   /* $request->all() */ view('search.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel'), compact('plantilla'));
 
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
@@ -87,7 +87,7 @@ class searchController extends Controller
             continue;
         }
         }
-        return $$ListProductos;
+        return $ListProductos;
     }
 
     public function getProductosMercLibre($productos){
@@ -103,7 +103,7 @@ class searchController extends Controller
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
             array_push($ListProductos,$ProductoObte);
         }
-        return $$ListProductos;
+        return $ListProductos;
     }
 
 

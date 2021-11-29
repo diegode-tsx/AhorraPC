@@ -29,6 +29,7 @@ var cyberpuerta = document.getElementById("cyberpuerta");
 var ddtech = document.getElementById("ddtech");
 var pcel = document.getElementById("pcel");
 var mercadolibre = document.getElementById("mercadolibre");
+var amazon = document.getElementById("amazon");
 
 ActivarPcmig();
 
@@ -39,6 +40,7 @@ function ActivarPcmig(){
 	ddtech.style.display = 'none';
 	pcel.style.display = 'none';
 	mercadolibre.style.display = 'none';
+	amazon.style.display = 'none';
 	MostrarScroll();
 }
 
@@ -49,6 +51,7 @@ function ActivarCyberpuerta(){
 	ddtech.style.display = 'none';
 	pcel.style.display = 'none';
 	mercadolibre.style.display = 'none';
+	amazon.style.display = 'none';
 	MostrarScroll();
 }
 
@@ -59,6 +62,7 @@ function ActivarDdtech(){
 	ddtech.style.display = 'grid';
 	pcel.style.display = 'none';
 	mercadolibre.style.display = 'none';
+	amazon.style.display = 'none';
 	MostrarScroll();
 }
 
@@ -69,6 +73,7 @@ function ActivarPcel(){
 	ddtech.style.display = 'none';
 	pcel.style.display = 'grid';
 	mercadolibre.style.display = 'none';
+	amazon.style.display = 'none';
 }
 
 function ActivarMercadolibre(){
@@ -78,6 +83,17 @@ function ActivarMercadolibre(){
 	ddtech.style.display = 'none';
 	pcel.style.display = 'none';
 	mercadolibre.style.display = 'grid';
+	amazon.style.display = 'none';
+}
+
+function ActivarAmazon(){
+
+	pcmig.style.display = 'none';
+	cyberpuerta.style.display = 'none';
+	ddtech.style.display = 'none';
+	pcel.style.display = 'none';
+	mercadolibre.style.display = 'none';
+	amazon.style.display = 'grid';
 }
 
 
