@@ -18,12 +18,14 @@
 @section('content')
     <main>
         <div class="tab-container">
-            <button>CyberPuerta</button>
-            <button>DDTech</button>
-            <button>MercadoLibre</button>
+            <button onclick="ActivarPcmig()" class="active">PcMig</button>
+            <button onclick="ActivarCyberpuerta()">CyberPuerta</button>
+            <button onclick="ActivarDdtech()">DDTech</button>
+            <button onclick="ActivarPcel()">pcCel</button>
+            <button onclick="ActivarMercadolibre()">MercadoLibre</button>
         </div>
 
-        <div class="products-container pcmig">
+        <div class="products-container" id="pcmig">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PcMig --}}
             @foreach ($PcMig as $item)
@@ -70,7 +72,7 @@
             </div>
         </div>
 
-        <div class="products-container cyberpuerta">
+        <div class="products-container" id="cyberpuerta">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza CyberPuerta --}}
             @foreach ($cyberpuerta as $item)
@@ -98,7 +100,7 @@
             {{---------AQUÍ TERMINA----------}}
         </div>
         
-        <div class="products-container ddtech">
+        <div class="products-container" id="ddtech">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza DDTech --}}
             @foreach ($ddtech as $item)
@@ -126,7 +128,7 @@
             {{---------AQUÍ TERMINA----------}}
         </div>   
 
-        <div class="products-container pcel">
+        <div class="products-container" id="pcel">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PCEL --}}
             @foreach ($pcCel as $item)
@@ -154,7 +156,7 @@
             {{---------AQUÍ TERMINA----------}}
         </div>   
 
-        <div class="products-container mercadolibre">
+        <div class="products-container" id="mercadolibre">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza MercadoLibre --}}
             @foreach ($mercadolibre as $item)
@@ -192,5 +194,7 @@
             <li class="page-number"><a href="#">6</a></li>
             <li><a href="#" class="next">Siguiente ></a></li>
         </ul>--}}
+        <script src="{{asset('scripts/scriptpestañas.js')}}"></script>
+        
     </main>
 @endsection
