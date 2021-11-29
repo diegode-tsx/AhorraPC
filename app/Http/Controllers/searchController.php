@@ -169,6 +169,7 @@ class searchController extends Controller
 
 public function getProductosPcel($productos2)
 {
+    $ListProductos = [];
     foreach ($productos2->find('div[class="product-list"]',0)->find('table',0)->find('tr') as $indice => $producto) {
         if(($indice+1) % 2!=0){
             $nombreLinkProducto =$producto->find('div[class="name"]',0)->find('a',0);
