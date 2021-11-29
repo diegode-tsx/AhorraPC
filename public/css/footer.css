@@ -13,3 +13,9 @@ footer{
      color: var(--blanco);
      margin-top: 50px;
 }
+
+@media screen and (max-width: 1400px) {
+     footer{
+          padding: 15px 0;
+     }
+}
