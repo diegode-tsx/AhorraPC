@@ -78,6 +78,7 @@ class searchController extends Controller
             $linkCompra=$element->find('a[class="a-link-normal a-text-normal"]',0)->attr['href'];
             $precio=$element->find('div[class="a-section a-spacing-none"]',0)->plaintext;
             $linkImagen=$element->find('div[class="a-section aok-relative s-image-square-aspect"]',0)->find('img',0)->attr['src'];
+            $linkCompra= "https://www.amazon.com.mx".$linkCompra;
             $preciopar=explode("$",$precio);
             $precio=$preciopar[1];
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
