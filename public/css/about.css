@@ -1,0 +1,75 @@
+main{
+     grid-column-start: 1;
+     grid-column-end: 13;
+     align-self: center;
+
+     display: grid;
+     grid-template-columns: repeat(12, 1fr);
+     grid-template-rows: auto 1fr;
+     height: fit-content;
+     column-gap: 20px;
+     font-family: 'Quicksand';
+}
+
+main h1{
+     grid-column-start: 2;
+     grid-column-end: 12;
+     text-align: center;
+
+     font-family: 'Rubik';
+     font-weight: 500;
+     font-size: 48px;
+     line-height: 57px;
+     color: var(--secundario);
+}
+
+main .red{
+     color: var(--primario);
+}
+
+.features-container{
+     margin-top: 50px;
+     grid-column-start: 3;
+     grid-column-end: 11;
+
+     display: grid;
+     grid-template-columns: 3fr 2fr 3fr;
+     grid-template-rows: 1fr 1fr;
+     column-gap: 20px;
+     row-gap: 50px;
+     grid-template-areas: 
+     "first . second"
+     "third . fourth";
+}
+
+.features-container .feature{
+     text-align: center;
+}
+
+.features-container .feature.first{
+     grid-area: first;
+}
+
+.features-container .feature.second{
+     grid-area: second;
+}
+
+.features-container .feature.third{
+     grid-area: third;
+}
+
+.features-container .feature.fourth{
+     grid-area: fourth;
+}
+
+.features-container .feature img{
+     width: 100px;
+     margin-bottom: 30px;
+}
+
+.features-container .feature p{
+     font-size: 24px;
+     line-height: 30px;
+     font-weight: 800;
+     color: var(--negro);
+}
