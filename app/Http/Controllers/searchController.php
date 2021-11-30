@@ -34,16 +34,23 @@ class searchController extends Controller
         $searchGlobal = $request->input('busqueda');
         $search = str_replace(' ', '+', $searchGlobal);
         $search2 = str_replace(' ', '%20', $searchGlobal);
+        $search3 = str_replace(' ', '-', $searchGlobal);
         $identificador = 1;
         $searchtext = 'ryzen 5 3600';
         $searchtext = str_replace(' ', '%20', $searchtext);
         $amz_str1="https://www.amazon.com.mx/s?k=";
         $amz_str2="&ref=nb_sb_noss_2";
 
+        $amz_query=$amz_str1.$search2.$amz_str2;
+        $cyberpuertaProductos = file_get_html('https://www.cyberpuerta.mx/index.php?cl=search&searchparam='.$search);
+        $pcCelProductos=file_get_html('https://pcel.com/index.php?route=product/search&filter_name='.$search2);
         $amz_query=$amz_str1.$searchtext.$amz_str2;
         $cyberpuertaProductos = file_get_html('https://www.cyberpuerta.mx/index.php?cl=search&searchparam=ryzen+3600');
         $pcCelProductos=file_get_html('https://pcel.com/index.php?route=product/search&filter_name=ryzen%205600');
         //$digitaLifeProductos=file_get_html('https://www.digitalife.com.mx/buscar/t_ryzen-3600');
+        $pcMigProductos=file_get_html('https://pcmig.com.mx/?s='.$search.'&post_type=product');
+        $ddTechProductos=file_get_html('https://ddtech.mx/buscar/'.$search);
+        $mercLibreProductos=file_get_html('https://listado.mercadolibre.com.mx/'.$search3);
         $pcMigProductos=file_get_html('https://pcmig.com.mx/?s=ryzen+3600&post_type=product');
         $ddTechProductos=file_get_html('https://ddtech.mx/buscar/ryzen+5+3600');
         $mercLibreProductos=file_get_html('https://listado.mercadolibre.com.mx/amd-ryzen-5-5600');
