@@ -169,8 +169,30 @@ main h1{
 }
 
 @media screen and (max-width: 1400px) {
+     main{
+          margin-top: 40px;
+     }
+
+     main h1{
+          font-size: 30px;
+          line-height: 36px;
+     }
+
+     main h2{
+          font-size: 20px !important;
+          line-height: 25px !important;
+     }
+
+     .content .notification .checkbox label{
+          font-size: 16px;
+          line-height: 20px;
+     }
+
      .content .change-pass .input input[type="password"]{
           width: 20%;
+          font-size: 14px;
+          padding: 10px;
+          padding-left: 38px;
      }
 
      .content .change-pass input[type="submit"]{

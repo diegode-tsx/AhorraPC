@@ -21,12 +21,12 @@
     
 @section('content')
     <main>
-        <h1>Preferencias</h1>
+        <h1 class="tit-secundario">Preferencias</h1>
         <div class="content">
             <div class="change-pass">
                 <div class="title">
                     <i class="far fa-lock-open"></i>
-                    <h2>Cambiar contraseña</h2>
+                    <h2 class="tit-terciario">Cambiar contraseña</h2>
                 </div>
                 <form method="POST">
                     @csrf
@@ -64,7 +64,7 @@
             <div class="notification">
                 <div class="title">
                     <i class="far fa-bell"></i>
-                    <h2>Notificaciones</h2>
+                    <h2 class="tit-terciario">Notificaciones</h2>
                 </div>
                 <div class="checkbox">
                     <label for="alert">
@@ -80,7 +80,7 @@
                 <div class="title">
                     <a href="{{route('login.destroy')}}">
                         <i class="far fa-power-off"></i>
-                        <h2>Cerrar sesión</h2>
+                        <h2 class="tit-terciario">Cerrar sesión</h2>
                     </a>
                 </div>
             </div>

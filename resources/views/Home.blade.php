@@ -23,9 +23,9 @@
                 <input type="text" name="busqueda">
                 <i class="fas fa-search"></i>
             </div>
-            <input type="submit" value="Buscar">
+            <input type="submit" value="Buscar" class="tit-terciario">
         </form>
 
-        <h1>Arma tu<span class="red"> PC </span>ideal y<span class="red"> ahorra </span>dinero</h1>
+        <h1 class="tit-principal">Arma tu<span class="red"> PC </span>ideal y<span class="red"> ahorra </span>dinero</h1>
     </main>
 @endsection

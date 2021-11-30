@@ -90,13 +90,13 @@ main{
 }
 
 .products-container .card .card-details .card-info .product-name{
-     font-size: 20px;
+     font-size: 16px;
      line-height: 20px;
      font-weight: normal;
 }
 
 .products-container .card .card-details .card-info .product-price{
-     font-size: 20px;
+     font-size: 16px;
      line-height: 20px;
      margin-top: 20px;
      color: var(--negro);
