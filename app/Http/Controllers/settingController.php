@@ -48,7 +48,7 @@ class settingController extends Controller
             $user = User::find($id);
             $user->password = $newpassword;
             $user->save();
-            return redirect()->to('/logout');
+            return back()->with('success', 'La contrasela se ha cambiado correctamente');
         }else{
             return back()->with('fail' , 'Credenciales incorrectas');
         }
