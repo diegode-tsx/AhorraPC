@@ -14,24 +14,35 @@
 @section('content')
     <main>
         <form class="form" method="POST">
+            @csrf
+
             <h1 class="txt-principal">Recuperar contraseña</h1>
             <div class="input-group">
+                @if (session('fail'))
+                <span>{{session('fail')}}</span>
+                 @endif
+                 
                 <span class="espaciado">.</span>
                 <div class="input">
                     <input type="text" name="code" placeholder="Código" required>
                     <i class="fas fa-shield-alt"></i>
                 </div>
+                
                 <span class="espaciado">.</span>
                 <div class="input">
-                    <input type="password" name="password" placeholder="Contraseña nueva" required>
+                    <input type="password" name="new_password" placeholder="Contraseña nueva" required>
                     <i class="fas fa-lock"></i>
                 </div>
                 <span class="espaciado">.</span>
                 <div class="input">
-                    <input type="password" name="password_confirmation" placeholder="Repetir contraseña" required>
+                    <input type="password" name="new_password_confirmation" placeholder="Repetir contraseña" required>
                     <i class="fas fa-lock"></i>
                 </div>
             </div>
+            @if ($errors->has('new_password'))
+            <span>{{$errors->first('new_password')}}</span> <!--contraseña confirmation -->
+            @endif
+    <span class="espaciado">.</span>
             <input type="submit" value="Listo">
             <div class="text">
                 <a href="{{route('home')}}">Regresar</a>
