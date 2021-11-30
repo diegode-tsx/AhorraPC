@@ -17,14 +17,15 @@
             @csrf
 
             <h1 class="txt-principal">Recuperar contraseña</h1>
+            
             <div class="input-group">
+                
                 @if (session('fail'))
                 <span>{{session('fail')}}</span>
                  @endif
-                 
                 <span class="espaciado">.</span>
                 <div class="input">
-                    <input type="text" name="code" placeholder="Código" required>
+                    <input type="text" name="token" placeholder="Código" required>
                     <i class="fas fa-shield-alt"></i>
                 </div>
                 

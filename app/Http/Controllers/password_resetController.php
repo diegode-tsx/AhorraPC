@@ -37,14 +37,8 @@ class password_resetController extends Controller
                 DB::table('password_resets')->where('email','=',$mail)->delete();
                 return redirect()->to('login');
                 
-            }else{
-                
-
-        
-    }
-    return "xd";
-        
-    }
-
+            }
+        }
+        return back()->with('fail','El codigo ingresado es incorrecto');
     }
 }

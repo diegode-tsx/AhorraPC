@@ -14,9 +14,16 @@
 @section('content')
     <main>
         <form class="form" method="POST">
+            @csrf
             <h1 class="txt-principal">Recuperar contraseña</h1>
             <p class="txt-tiny">Ingresa el correo registrado a tu cuenta</p>
             <div class="input-group">
+                @if (session('fail'))
+                <strong>{{session('fail')}}</strong> <!--password controller return whit('fail')-->
+                @endif
+                @if (session('status'))
+                <strong>{{session('status')}}</strong>  <!--password controller return whit('status')-->
+                @endif
                 <span class="espaciado">.</span>
                 <div class="input">
                     <input type="email" name="email" placeholder="Correo" required>
