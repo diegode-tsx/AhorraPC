@@ -3,7 +3,7 @@
 @section('title','Registro')
 
 @section('styles')
-<link rel="stylesheet" href="{{asset('css/register-login.css')}}">
+<link rel="stylesheet" href="{{asset('css/forms.css')}}">
     
 @section('logo')
     <div class="logo">
@@ -14,7 +14,7 @@
 
 @section('content')
     <main>
-        <form action="" class="registration-login" method="POST">
+        <form action="" class="form" method="POST">
             @csrf <!-- esta mierda es mortal xd-->
             <h1>Crea una cuenta</h1>
             <div class="input-group">

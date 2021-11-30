@@ -1,4 +1,45 @@
-<br><br>
+@extends('layouts.plantilla-defecto')
+
+@section('title','Recuperación')
+    
+@section('styles')
+<link rel="stylesheet" href="{{asset('css/forms.css')}}">
+    
+@section('logo')
+    <div class="logo">
+        <a href="{{route('home')}}"><img src="{{asset('img/logo.png')}}" alt=""></a>
+    </div>
+@endsection
+
+@section('content')
+    <main>
+        <form class="form" method="POST">
+            <h1 class="txt-principal">Recuperar contraseña</h1>
+            <div class="input-group">
+                <span class="espaciado">.</span>
+                <div class="input">
+                    <input type="text" name="code" placeholder="Código" required>
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <span class="espaciado">.</span>
+                <div class="input">
+                    <input type="password" name="password" placeholder="Contraseña nueva" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <span class="espaciado">.</span>
+                <div class="input">
+                    <input type="password" name="password_confirmation" placeholder="Repetir contraseña" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+            </div>
+            <input type="submit" value="Listo">
+            <div class="text">
+                <a href="{{route('home')}}">Regresar</a>
+            </div>
+        </form>
+    </main>
+@endsection
+{{--<br><br>
 <form  method="POST">
     @csrf
 
@@ -21,4 +62,4 @@
     @endif
     
 </form><br>
-<a href="{{route('home')}}">Regresar</a>
+<a href="{{route('home')}}">Regresar</a>--}}

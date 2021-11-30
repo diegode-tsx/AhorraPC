@@ -3,7 +3,7 @@
 @section('title','Inicio de sesión')
     
 @section('styles')
-<link rel="stylesheet" href="{{asset('css/register-login.css')}}">
+<link rel="stylesheet" href="{{asset('css/forms.css')}}">
     
 @section('logo')
     <div class="logo">
@@ -14,7 +14,7 @@
 
 @section('content')
     <main>
-        <form class="registration-login" method="POST">
+        <form class="form" method="POST">
             @csrf <!-- esta mierda es mortal xd-->
             <h1>Inicia sesión</h1>
             <div class="input-group">
@@ -31,7 +31,7 @@
                     <input type="password" name="password" id="pass" placeholder="Contraseña" required> 
                     
                     <i class="fas fa-key"></i>
-                </div><input type="checkbox" onclick="viewPassword()">
+                </div>
                 <a href="{{route('password')}}" class="forgot">¿Olvidaste tu contraseña?</a>
             </div>
             <input type="submit" value="Ingresar">
@@ -39,18 +39,6 @@
                 ¿No tienes cuenta?
                 <a href="{{route('register')}}">Regístrate ahora</a>
             </div>
-            
         </form>
-        
     </main>
-    <script type="text/javascript">
-    function viewPassword(){
-        var x = document.getElementById("pass");
-        if(x.type=="password"){
-            x.type="text";
-        }else{
-            x.type="password";
-        }
-    }
-    </script>
 @endsection

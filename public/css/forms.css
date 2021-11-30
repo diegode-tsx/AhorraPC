@@ -20,7 +20,7 @@ main{
 }
 
 /*ESTILOS DEL FORMULARIO*/
-.registration-login{
+.form{
      width: 25%;
      
      padding: 50px;
@@ -30,7 +30,7 @@ main{
      text-align: center;
 }
 
-.registration-login h1{
+.form h1{
      font-family: Rubik;
      font-weight: 500;
      font-size: 48px;
@@ -40,13 +40,13 @@ main{
 }
 
 /*ESTILOS DE LOS INPUTS DE TEXTO*/
-.registration-login .input-group{
+.form .input-group{
      margin-top: 40px;
 }
 
-.registration-login .input-group input[type="text"],
-.registration-login .input-group input[type="email"],
-.registration-login .input-group input[type="password"]{
+.form .input-group input[type="text"],
+.form .input-group input[type="email"],
+.form .input-group input[type="password"]{
      width: 100%;
      background: none;
      outline: none;
@@ -65,37 +65,37 @@ main{
      color: var(--negro);
 }
 
-.registration-login .input-group input[type="text"]:focus,
-.registration-login .input-group input[type="email"]:focus,
-.registration-login .input-group input[type="password"]:focus{
+.form .input-group input[type="text"]:focus,
+.form .input-group input[type="email"]:focus,
+.form .input-group input[type="password"]:focus{
      border: 2px solid var(--primario);
      transition: all ease 0.2s;
 }
 
-.registration-login .input-group input[type="text"]:focus + i,
-.registration-login .input-group input[type="email"]:focus + i,
-.registration-login .input-group input[type="password"]:focus + i{
+.form .input-group input[type="text"]:focus + i,
+.form .input-group input[type="email"]:focus + i,
+.form .input-group input[type="password"]:focus + i{
      color: var(--primario);
      transition: all ease 0.15s;
 }
 
-.registration-login .input-group input[type="text"]::placeholder,
-.registration-login .input-group input[type="email"]::placeholder,
-.registration-login .input-group input[type="password"]::placeholder{
+.form .input-group input[type="text"]::placeholder,
+.form .input-group input[type="email"]::placeholder,
+.form .input-group input[type="password"]::placeholder{
      font-weight: 500;
      color: var(--gris);
 }
 
-.registration-login .input-group .input{
+.form .input-group .input{
      position: relative;
      margin-bottom: 15px;
 }
 
-.registration-login .input-group .input:last-of-type{
+.form .input-group .input:last-of-type{
      margin-bottom: 0;
 }
 
-.registration-login .input-group i{
+.form .input-group i{
      position: absolute;
      left: 0;
      top: 50%;
@@ -106,6 +106,7 @@ main{
      color: var(--gris);
 }
 
+/*ESTILO ÚNICAMENTE PARA LA VISTA DE LOGIN*/
 .forgot{
      margin-top: 10px;
      text-decoration: none;
@@ -114,6 +115,9 @@ main{
      text-align: left;
 }
 
+/*-----------------------------------------*/
+
+/*ESTILOS PARA LOS MENSAJES DE ERROR*/
 .espaciado{
      visibility: hidden;
 }
@@ -129,9 +133,27 @@ span.error + .espaciado,
 strong.error + .espaciado{
      display: none;
 }
+/*-----------------------------------------*/
+
+/*ESTILOS ÚNICAMENTE PARA LA VISTA RECOVERY*/
+.txt-tiny{
+     margin-top: 10px;
+}
+
+.text{
+     margin-top: 30px;
+}
+
+.text a{
+     margin: 5px 0;
+     display: block;
+     text-decoration: none;
+     color: var(--primario);
+}
+/*-----------------------------------------*/
 
 /*ESTILOS DEL BOTÓN*/
-.registration-login input[type="submit"]{
+.form input[type="submit"]{
      background: none;
      outline: none;
      border: none;
@@ -149,54 +171,54 @@ strong.error + .espaciado{
      color: var(--blanco);
 }
 
-.registration-login input[type="submit"]:hover{
+.form input[type="submit"]:hover{
      background: var(--primario);
      transition: all ease 0.2s;
 }
 
 /*ESTILOS DEL TEXTO INFERIOR*/
-.registration-login .sign-in-out{
+.form .sign-in-out{
      margin-top: 40px;
 }
 
-.registration-login .sign-in-out a{
+.form .sign-in-out a{
      text-decoration: none;
      color: var(--primario);
      font-weight: 500;
 }
 
 @media screen and (max-width: 1400px) {
-     .registration-login{
+     .form{
           width: 30%;
           padding: 30px;
      }
 
-     .registration-login h1{
+     .form h1{
           font-size: 34px;
           line-height: 40px;
      }
 
-     .registration-login .input-group{
+     .form .input-group{
           margin-top: 15px;
      }
 
-     .registration-login .input-group .input{
+     .form .input-group .input{
           margin-bottom: 15px;
      }
 
-     .registration-login .input-group input[type="text"],
-     .registration-login .input-group input[type="email"],
-     .registration-login .input-group input[type="password"]{
+     .form .input-group input[type="text"],
+     .form .input-group input[type="email"],
+     .form .input-group input[type="password"]{
           font-size: 14px;
           padding: 10px;
           padding-left: 38px;
      }
 
-     .registration-login input[type="submit"]{
+     .form input[type="submit"]{
           margin-top: 25px;
      }
 
-     .registration-login .sign-in-out{
+     .form .sign-in-out{
           margin-top: 25px;
      }
 }

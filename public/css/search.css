@@ -111,6 +111,7 @@ main{
      font-size: 16px;
      line-height: 20px;
      font-weight: normal;
+     word-wrap: break-word
 }
 
 .products-container .card .card-details .card-info .product-price{
@@ -183,14 +184,20 @@ main{
 
 .mostrarArriba {
      animation: mostrarArriba 1s;
- }
+}
  
- @keyframes mostrarArriba{
+@keyframes mostrarArriba{
      0%{
-         transform: translateY(60px);
+          transform: translateY(60px);
      }
  
      100%{
          transform: translateY(0);
      }
- }
+}
+
+@media screen and (max-width: 1400px) {
+     .products-container{
+          grid-template-columns: repeat(3, 1fr);
+     }
+}
