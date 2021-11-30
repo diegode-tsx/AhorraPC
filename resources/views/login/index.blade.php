@@ -31,7 +31,7 @@
                     <input type="password" name="password" placeholder="Contraseña" required>
                     <i class="fas fa-key"></i>
                 </div>
-                <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+                <a href="{{route('password.reset')}}" class="forgot">¿Olvidaste tu contraseña?</a>
             </div>
             <input type="submit" value="Ingresar">
             <div class="sign-in-out">

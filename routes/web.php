@@ -7,8 +7,11 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\searchController;
 use App\Http\Controllers\settingController;
+use App\Http\Controllers\passwordController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Mail\RecoveryMailable;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +43,11 @@ Route::get('/logout', [loginController::class, 'destroy'])->middleware('auth')->
 
 Route::post('/search',[searchController::class,'index'])->name('search');
 
+/*Route::get('/recovery', function(){
+    Mail::to('chato4010@gmail.com')->send(new RecoveryMailable());
+    return "Mensaje enviado";
+}); pa las pruebas*/
+
+Route::get('/password-reset', [passwordController::class, 'index'])->name('password.reset');
+Route::post('/password-reset', [passwordController::class, 'request'])->name('password.request');
+Route::post('/password-code', [passwordController::class, 'reset_pass'])->name('password.code');

@@ -23,8 +23,11 @@ class UserSedder extends Seeder
 
         $user->save();
 
-        //$user2 = new User;
-
+        $user2 = new User;
+        $user2->username ="CorreoTest";
+        $user2->email ="chato4010@gmail.com";
+        $user2->password ="admin";
+        $user2->save();
         
 
 

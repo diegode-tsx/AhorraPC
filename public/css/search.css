@@ -37,6 +37,20 @@ main{
      border: none;
 }
 
+.tab-container button:hover{
+     background: rgb(179, 179, 179);
+     color: black;
+     
+     transition: all 0.2s ease-in-out;
+}
+
+.tab-container button.active{
+     background: none;
+     color: black;
+     border: 3px solid #0066BB;
+     transition: all 0.2s ease-in-out;
+}
+
 /*ESTILOS DEL CONTENEDOR DE LOS PRODUCTOS*/
 .products-container{
      grid-column-start: 1;
@@ -51,9 +65,10 @@ main{
      display: none;/*Lo puse para que todo esté desactivado por defecto*/
 }
 
-.products-container.cyberpuerta{
-     display: grid;/*En css solo se accede a la tienda que se desea activar*/
-}
+/* .products-container.cyberpuerta{ */
+     /*display: grid;*/ /*En css solo se accede a la tienda que se desea activar*/
+/* } */
+
 
 .products-container .card{
      padding: 40px 20px;
@@ -66,6 +81,9 @@ main{
      justify-content: space-between;
      align-items: center;
      flex-wrap: wrap;
+
+     opacity: 0;
+     transition: all 0.5s;
 }
 
 .products-container .card .img-card{
@@ -162,3 +180,17 @@ main{
      background: var(--primario);
      color: var(--blanco);
 }
+
+.mostrarArriba {
+     animation: mostrarArriba 1s;
+ }
+ 
+ @keyframes mostrarArriba{
+     0%{
+         transform: translateY(60px);
+     }
+ 
+     100%{
+         transform: translateY(0);
+     }
+ }
