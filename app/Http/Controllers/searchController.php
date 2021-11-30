@@ -64,7 +64,7 @@ class searchController extends Controller
         }
 
         return   /* $request->all() */ view('search.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel'), compact('plantilla'));
-
+        return   /* $request->all() */ view('search2.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel'), compact('plantilla'));
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
 
