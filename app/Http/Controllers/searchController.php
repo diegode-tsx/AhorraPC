@@ -16,6 +16,10 @@ class searchController extends Controller
     public static $ListProduPcMig = [];
     public static $ListProduPcel = [];
     public static $ListProduMercLibre = []; */
+    function viewSearch2(){
+        return   /* $request->all() */ view('search2.index');
+    }
+
     function index(Request $request, Client $client)
     {
         $searchGlobal = $request->input('busqueda');
@@ -64,7 +68,7 @@ class searchController extends Controller
         }
 
         return   /* $request->all() */ view('search.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel'), compact('plantilla'));
-        return   /* $request->all() */ view('search2.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel'), compact('plantilla'));
+       
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
 
