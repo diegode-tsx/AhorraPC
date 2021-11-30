@@ -14,42 +14,6 @@ main{
 }
 
 /*ESTILOS DEL BANNER*/
-.tab-container{
-     grid-column-start: 1;
-     grid-column-end: 13;
-
-     display: flex;
-     justify-content: space-between;
-     gap: 20px;
-}
-
-.tab-container button{
-     flex: auto;
-     font-family: 'Quicksand';
-     font-size: 24px;
-     font-weight: 800;
-     padding: 20px;
-     background: #0066BB;
-     color: var(--blanco);
-     border-radius: 10px;
-     cursor: pointer;
-     outline: none;
-     border: none;
-}
-
-.tab-container button:hover{
-     background: rgb(179, 179, 179);
-     color: black;
-     
-     transition: all 0.2s ease-in-out;
-}
-
-.tab-container button.active{
-     background: none;
-     color: black;
-     border: 3px solid #0066BB;
-     transition: all 0.2s ease-in-out;
-}
 
 /*ESTILOS DEL CONTENEDOR DE LOS PRODUCTOS*/
 .products-container{
@@ -82,8 +46,8 @@ main{
      align-items: center;
      flex-wrap: wrap;
 
-     opacity: 0;
-     transition: all 0.5s;
+     /* opacity: 0;
+     transition: all 0.5s; */
 }
 
 .products-container .card .img-card{

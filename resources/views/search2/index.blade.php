@@ -17,14 +17,6 @@
 
 @section('content')
     <main>
-        {{-- <div class="tab-container">
-            <button onclick="ActivarPcmig()" class="active">PcMig</button>
-            <button onclick="ActivarCyberpuerta()">CyberPuerta</button>
-            <button onclick="ActivarDdtech()">DDTech</button>
-            <button onclick="ActivarPcel()">pcCel</button>
-            <button onclick="ActivarMercadolibre()">MercadoLibre</button>
-            <button onclick="ActivarAmazon()">Amazon</button>
-        </div> --}}
 
         <div class="products-container" id="pcmig">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
