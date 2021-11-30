@@ -73,7 +73,6 @@
                         <input type="checkbox" name="alert" id="alert">
                         <div class="checkbox-box"></div>
                     </label>
-                    
                 </div>
             </div>
 
