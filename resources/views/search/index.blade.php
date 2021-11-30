@@ -31,7 +31,7 @@
             {{-- Empieza PcMig --}}
             @foreach ($PcMig as $item)
             
-            <div class="card">
+            <div class="card" id ="{{ $loop->index }}">
                 <div class="img-card">
                     <img src="{{$item->imagenLink}}">
                 </div>
