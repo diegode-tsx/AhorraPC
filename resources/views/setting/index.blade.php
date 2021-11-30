@@ -46,18 +46,19 @@
                         <input type="password" name="new_password" placeholder="Contraseña nueva" required>
                         <i class="fas fa-lock"></i>
                         @error('new_password')
-            <strong>{{$message}}</strong>
-        @enderror
+                         <strong>{{$message}}</strong>
+                         @enderror
                     </div>
                     <div class="input">
                         <input type="password" name="new_password_confirmation" placeholder="Repetir contraseña" required>
                         <i class="fas fa-lock"></i>
                     </div>
-                    @if(session('success'))
-            <strong class="error">{{session('success')}}</strong>
-        @endif
-        
                     <input type="submit" value="Cambiar">
+                    @if(session('success'))
+                    <strong class="error">{{session('success')}}</strong>
+                     @endif
+        
+                    
                 </form>
             </div>
 
