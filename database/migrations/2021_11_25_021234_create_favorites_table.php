@@ -14,17 +14,11 @@ class CreateFavoritesTable extends Migration
     public function up()
     {
         Schema::create('favorites', function (Blueprint $table) {
-            $table->id('idFav');
-            $table->foreignId('idPage')->constrained()->onUpdate('cascade');
-            $table->foreignId('idUser')->constrained()->onUpdate('cascade');
-            $table->string('nomProducto');
-            $table->string('url_page');
-            $table->string('url_image');
-            $table->string('price');
+            $table->foreignId('id_user')->constrained()->onUpdate('cascade');
+            $table->foreign('id_user')->references('id')->on('users');
 
-            
-            $table->foreign('idUser')->references('id')->on('users');
-            $table->foreign('idPage')->references('idPage')->on('products');
+            $table->foreignId('idProducto')->constrained()->onUpdate('cascade');
+            $table->foreign('idProducto')->references('idProducto')->on('products');
         });
     }
 

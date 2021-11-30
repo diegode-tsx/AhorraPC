@@ -29,8 +29,6 @@ class DatabaseSeeder extends Seeder
     
         $this->call(FavoriteSeeder::class);
         //Favorite::factory(50)->create();
-
-        $this->call(PageSeeder::class);
         
         
 
