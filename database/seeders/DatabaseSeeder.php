@@ -24,11 +24,13 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSedder::class); //conecta el seeder del modelo user
         //User::factory(499)->create();//el numero modifica la creacion de registros usando database\factories\Userfactory.php
 
-        $this->call(ProductSeeder::class);
+        //$this->call(ProductSeeder::class);
         //Product::factory(499)->create();
     
         $this->call(FavoriteSeeder::class);
         //Favorite::factory(50)->create();
+
+        $this->call(PageSeeder::class);
         
         
 
