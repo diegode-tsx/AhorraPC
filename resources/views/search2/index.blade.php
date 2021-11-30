@@ -17,59 +17,36 @@
 
 @section('content')
     <main>
-
-        <div class="products-container" id="pcmig">
-            {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
-            {{-- Empieza PcMig --}}
-            @foreach ($PcMig as $item)
-            
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{$item->imagenLink}}">
-                </div>
-
-                <div class="card-details">
-                    <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
-    
-                        <p class="product-price">{{$item->precio}}</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-            {{-- Termina PcMig --}}
-            {{---------AQUÍ TERMINA----------}}
-        </div>
+            <h1>Search2</h1>
 
         <div class="products-container" id="cyberpuerta">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza CyberPuerta --}}
-            @foreach ($cyberpuerta as $item)
             
+            @if ($xd)
+                Hay elemento
+            @else
+                No hay
+            @endif
             <div class="card">
                 <div class="img-card">
-                    <img src="{{$item->imagenLink}}">
+                    <img src="">
                 </div>
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="#"><h3 class="product-name">sgdhsetbeba</h3></a>
     
-                        <p class="product-price">{{$item->precio}}</p>
+                        <p class="product-price">9778</p>
                     </div>
     
                     <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href=""><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
                     </div>
                 </div>
             </div>
-            @endforeach
+            
             {{-- Termina CyberPuerta --}}
             {{---------AQUÍ TERMINA----------}}
         </div>
@@ -77,27 +54,27 @@
         <div class="products-container" id="ddtech">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza DDTech --}}
-            @foreach ($ddtech as $item)
+            
             
             <div class="card">
                 <div class="img-card">
-                    <img src="{{$item->imagenLink}}">
+                    <img src="">
                 </div>
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="#"><h3 class="product-name">sggsdgsgdczc</h3></a>
     
-                        <p class="product-price">{{$item->precio}}</p>
+                        <p class="product-price">6765</p>
                     </div>
     
                     <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href=""><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
                     </div>
                 </div>
             </div>
-            @endforeach
+            
             {{-- Termina DDTech --}}
             {{---------AQUÍ TERMINA----------}}
         </div>   
@@ -105,93 +82,32 @@
         <div class="products-container" id="pcel">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PCEL --}}
-            @foreach ($pcCel as $item)
             
             <div class="card">
                 <div class="img-card">
-                    <img src="{{$item->imagenLink}}">
+                    <img src="">
                 </div>
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="#"><h3 class="product-name">Memoria ram No se que xxs ssaas</h3></a>
     
-                        <p class="product-price">{{$item->precio}}</p>
+                        <p class="product-price">56565</p>
                     </div>
     
                     <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href=""><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
                     </div>
                 </div>
             </div>
-            @endforeach
+            
             {{-- Termina PCEL --}}
             {{---------AQUÍ TERMINA----------}}
         </div>   
 
-        <div class="products-container" id="mercadolibre">
-            {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
-            {{-- Empieza MercadoLibre --}}
-            @foreach ($mercadolibre as $item)
-            
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{$item->imagenLink}}">
-                </div>
-
-                <div class="card-details">
-                    <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
-    
-                        <p class="product-price">{{$item->precio}}</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-            {{-- Termina MercadoLibre --}}
-            {{---------AQUÍ TERMINA----------}}
-        </div>   
-
-
-        <div class="products-container" id="amazon">
-            @foreach ($amazon as $item)
-            
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{$item->imagenLink}}">
-                </div>
-
-                <div class="card-details">
-                    <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
-    
-                        <p class="product-price">{{$item->precio}}</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>  
-        {{--<ul class="pagination">
-            <li><a href="#" class="prev">< Atrás</a></li>
-            <li class="page-number active"><a href="#">1</a></li>
-            <li class="page-number"><a href="#">2</a></li>
-            <li class="page-number"><a href="#">3</a></li>
-            <li class="page-number"><a href="#">4</a></li>
-            <li class="page-number"><a href="#">5</a></li>
-            <li class="page-number"><a href="#">6</a></li>
-            <li><a href="#" class="next">Siguiente ></a></li>
-        </ul>--}}
+        
+        
         {{-- <script src="{{asset('scripts/scriptpestañas.js')}}"></script> --}}
         
     </main>

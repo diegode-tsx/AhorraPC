@@ -11,13 +11,21 @@ use Illuminate\Support\Facades\Auth;
 
 class searchController extends Controller
 {
-    /* public static $ListProduCyberPuerta = [];//Lista de productos de la categoria CyberPuerta
-    public static $ListProduDdTech = [];
-    public static $ListProduPcMig = [];
-    public static $ListProduPcel = [];
-    public static $ListProduMercLibre = []; */
+     var $ListProduCyberPuertav2;//Lista de productos de la categoria CyberPuerta
+     Public $ListProduDdTechv2 = [];
+     Public $ListProduPcMigv2 = [];
+     Public $ListProduPcelv2 = [];
+     Public $ListProduMercLibrev2 = []; 
     function viewSearch2(){
-        return   /* $request->all() */ view('search2.index');
+        
+        $xd = $this->ListProduCyberPuertav2;
+
+        if(Auth::check()){//si el usuario esta logeado usara tal plantilla
+            $plantilla='usuario';
+        }else{
+            $plantilla='defecto';
+        }
+        return   /* $request->all() */ view('search2.index',compact('xd'), compact('plantilla'));
     }
 
     function index(Request $request, Client $client)
@@ -42,11 +50,11 @@ class searchController extends Controller
         //llama la funcion si utilizas algun scrapeo como abajo
         
         $PcMig = $this->getProductosPcMig($pcMigProductos);
-
+        
         $amazon = $this->getProductosAmazon($amazonProductos);
         
         $cyberpuerta = $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
-
+        $this->ListProduCyberPuertav2 = "xs";
         
         $mercadolibre = $this->getProductosMercLibre($mercLibreProductos);
 
