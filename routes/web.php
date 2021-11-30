@@ -4,6 +4,7 @@ use App\Http\Controllers\aboutController;
 use App\Http\Controllers\favoriteController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\password_resetController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\searchController;
 use App\Http\Controllers\settingController;
@@ -11,7 +12,9 @@ use App\Http\Controllers\passwordController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Mail\RecoveryMailable;
+use App\Models\password_reset;
 use Illuminate\Support\Facades\Mail;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +51,8 @@ Route::post('/search',[searchController::class,'index'])->name('search');
     return "Mensaje enviado";
 }); pa las pruebas*/
 
-Route::get('/password-reset', [passwordController::class, 'index'])->name('password.reset');
-Route::post('/password-reset', [passwordController::class, 'request'])->name('password.request');
-Route::post('/password-code', [passwordController::class, 'reset_pass'])->name('password.code');
+Route::get('/recovery', [passwordController::class, 'index'])->name('password');
+Route::post('/recovery', [passwordController::class, 'request'])->name('password.request');
+
+Route::get('/code', [password_resetController::class, 'index'])->name('code');
+Route::post('/code', [password_resetController::class, 'recovery'])->name('code.recovery');

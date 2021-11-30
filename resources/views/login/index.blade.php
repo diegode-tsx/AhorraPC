@@ -28,10 +28,11 @@
                 </div>
                 <span class="espaciado">.</span>
                 <div class="input">
-                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="password" name="password" id="pass" placeholder="Contraseña" required> 
+                    
                     <i class="fas fa-key"></i>
-                </div>
-                <a href="{{route('password.reset')}}" class="forgot">¿Olvidaste tu contraseña?</a>
+                </div><input type="checkbox" onclick="viewPassword()">
+                <a href="{{route('password')}}" class="forgot">¿Olvidaste tu contraseña?</a>
             </div>
             <input type="submit" value="Ingresar">
             <div class="sign-in-out">
@@ -42,4 +43,14 @@
         </form>
         
     </main>
+    <script type="text/javascript">
+    function viewPassword(){
+        var x = document.getElementById("pass");
+        if(x.type=="password"){
+            x.type="text";
+        }else{
+            x.type="password";
+        }
+    }
+    </script>
 @endsection

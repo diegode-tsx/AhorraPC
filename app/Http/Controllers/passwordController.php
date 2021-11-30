@@ -9,7 +9,6 @@ use App\Models\password_reset;
 use App\Mail\RecoveryMailable;//pa enviar correo new RecoveryMailable
 use Illuminate\Support\Facades\Mail;;//pa enviar correo MAIL::to
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\StoreSetting;
 
 class passwordController extends Controller
 {
@@ -22,7 +21,7 @@ class passwordController extends Controller
         $token= Str::random(12);
         $mail= $_POST['email'];
 
-        $verify = DB::table('password_resets')->select('email')->where('email','=',$mail)->get();
+        $verify = DB::table('password_resets')->select('email', 'id')->where('email','=',$mail)->get();
 
         $user = DB::table('users')->select('email')->where('email','=',$mail)->get();
 
@@ -31,21 +30,22 @@ class passwordController extends Controller
 
 
             //actualiza el toquen
-            DB::table('password_resets')->where('email','=',$mail)->update([
-                'email'=>$mail,
-                'token'=>$token
-
-            ]);
+            $id = $verify->first()->id;
+            $recovery = Password_reset::find($id);
+            $recovery->email = $mail;
+            $recovery->token = $token;
+            $recovery->save();
+            
 
             Mail::to($mail)->send(new RecoveryMailable($token));
             return back()->with('status','Se ha enviado un correo a la direccion que proporcionaste');
 
         }else{ //crea un nuevo token
             
-        $email = new Password_reset;
-        $email->email = $mail;
-        $email->token = $token;
-        $email->save();
+        $recovery = new Password_reset;
+        $recovery->email = $mail;
+        $recovery->token = $token;
+        $recovery->save();
         Mail::to($mail)->send(new RecoveryMailable($token));
 
         return back()->with('status','Se ha enviado un correo a la direccion que proporcionaste');
@@ -56,23 +56,7 @@ class passwordController extends Controller
         return back()->with('fail','El correo ingresado no esta registrado');
     }
 
-    function reset_pass(StoreSetting $request){
-        $token = $_POST['token'];
-        $verify = DB::table('password_resets')->select('token','email')->where('token','=',$token)->get();
-        if(isset($verify->first()->token)){
-            $token_db = $verify->first()->token;
-
-            if($token_db==$token){
-                $password = $_POST['new_password'];
-                $mail = $verify->first()->email;
-                DB::table('users')->where('email','=',$mail)->update(['password'=>$password]);
-                DB::table('password_resets')->where('email','=',$mail)->delete();
-                return redirect()->to('login');
-            }
-        }
-        return back()->with('fail_pass','El codigo ingresado es incorrecto');
-
-    }
+    
 
 
 }
