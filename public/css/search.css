@@ -29,8 +29,9 @@ main{
      font-size: 24px;
      font-weight: 800;
      padding: 20px;
-     background: #0066BB;
-     color: var(--blanco);
+     background: none;
+     border: 3px solid var(--secundario) !important;
+     color: var(--negro);
      border-radius: 10px;
      cursor: pointer;
      outline: none;
@@ -38,16 +39,15 @@ main{
 }
 
 .tab-container button:hover{
-     background: rgb(179, 179, 179);
-     color: black;
+     background: var(--secundario);
+     color: var(--blanco);
      
      transition: all 0.2s ease-in-out;
 }
 
 .tab-container button.active{
-     background: none;
-     color: black;
-     border: 3px solid #0066BB;
+     background: var(--secundario);
+     color: var(--blanco);
      transition: all 0.2s ease-in-out;
 }
 

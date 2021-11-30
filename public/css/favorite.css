@@ -14,16 +14,41 @@ main{
 }
 
 /*ESTILOS DEL BANNER*/
-main h1{
+main .head{
      grid-column-start: 1;
      grid-column-end: 13;
-     font-family: Rubik;
+     text-align: center;
+}
+
+main h1{
+     font-family: 'Rubik';
      font-style: normal;
      font-weight: normal;
      font-size: 40px;
      line-height: 47px;
-     text-align: center;
      color: var(--secundario);
+     margin-bottom: 15px;
+}
+
+main button{
+     background: none;
+     outline: none;
+     border: none;
+     cursor: pointer;
+     font-family: 'Quicksand';
+     font-weight: 500;
+     font-size: 18px;
+     line-height: 22px;
+     color: var(--negro);
+     padding: 10px 15px;
+     border-radius: 8px;
+     border: 3px solid var(--secundario);
+}
+
+main button:hover{
+     background: var(--secundario);
+     color: var(--blanco);
+     transition: 0.2s ease all;
 }
 
 /*ESTILOS DEL CONTENEDOR DE LOS PRODUCTOS*/
@@ -86,9 +111,14 @@ main h1{
      color: var(--negro);
 }
 
+.products-container .card .card-details .card-icons{
+     display: flex;
+     align-items: center;
+     margin-top: 40px;
+}
+
 .products-container .card .card-details .card-icons a{
      display: inline-block;
-     margin-top: 40px;
 }
 
 .products-container .card .card-details .card-icons a:hover i{
@@ -114,6 +144,50 @@ main h1{
      color: var(--secundario);
      -webkit-text-stroke: 2px var(--secundario);
 }
+
+/*ESTILOS DEL CHECKBOX*/
+.checkbox{
+     display: inline-block;
+}
+
+.checkbox label{
+     display: inline-flex;
+     align-items: center;
+     cursor: pointer;
+}
+
+.checkbox label input[type="checkbox"]{
+     display: none;
+}
+
+.checkbox label .checkbox-box{
+     width: 1.5em;
+     height: 1.5em;
+     border: 2px solid var(--primario);
+     border-radius: 5px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-shrink: 0;
+     transition: background 0.2s, border-color 0.2s;
+}
+
+.checkbox label .checkbox-box::after{
+     content: '\2714';
+     color: var(--blanco);
+     transform: scale(0);
+     transition: transform 0.2s;
+}
+
+.checkbox label input[type="checkbox"]:checked + .checkbox-box{
+     background: var(--primario);
+     border-color: var(--primario);
+}
+
+.checkbox label input[type="checkbox"]:checked + .checkbox-box:after{
+     transform: scale(1);
+}
+/*-------------------*/
 
 .products-container .card .card-details .card-shop{
      padding: 10px;
@@ -178,7 +252,7 @@ main h1{
           
      }
 
-     .products-container .card .card-details .card-icons a{
+     .products-container .card .card-details .card-icons{
           margin-top: 30px;
      }
 
