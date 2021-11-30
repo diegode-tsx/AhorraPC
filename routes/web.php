@@ -45,6 +45,7 @@ Route::post('/register',[registerController::class,'store'])->name('register.sto
 Route::get('/logout', [loginController::class, 'destroy'])->middleware('auth')->name('login.destroy');
 
 Route::post('/search',[searchController::class,'index'])->name('search');
+Route::get('/search2',[searchController::class,'index'])->name('search2');
 
 /*Route::get('/recovery', function(){
     Mail::to('chato4010@gmail.com')->send(new RecoveryMailable());

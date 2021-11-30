@@ -14,17 +14,6 @@ main{
 }
 
 /*ESTILOS DEL BANNER*/
-main h1{
-     grid-column-start: 1;
-     grid-column-end: 13;
-     font-family: Rubik;
-     font-style: normal;
-     font-weight: normal;
-     font-size: 40px;
-     line-height: 47px;
-     text-align: center;
-     color: var(--secundario);
-}
 
 /*ESTILOS DEL CONTENEDOR DE LOS PRODUCTOS*/
 .products-container{
@@ -37,7 +26,13 @@ main h1{
      column-gap: 20px;
 
      margin-top: 50px;
+     display: grid;/*Lo puse para que todo esté desactivado por defecto*/
 }
+
+/* .products-container.cyberpuerta{ */
+     /*display: grid;*/ /*En css solo se accede a la tienda que se desea activar*/
+/* } */
+
 
 .products-container .card{
      padding: 40px 20px;
@@ -50,6 +45,9 @@ main h1{
      justify-content: space-between;
      align-items: center;
      flex-wrap: wrap;
+
+     /* opacity: 0;
+     transition: all 0.5s; */
 }
 
 .products-container .card .img-card{
@@ -105,27 +103,6 @@ main h1{
      -webkit-text-stroke: 2px var(--primario);
 }
 
-.products-container .card .card-details .card-icons .fa-heart{
-     color: var(--primario);
-}
-
-.products-container .card .card-details .card-icons a:hover .fa-heart{
-     transition: all ease 0.2s;
-     color: var(--secundario);
-     -webkit-text-stroke: 2px var(--secundario);
-}
-
-.products-container .card .card-details .card-shop{
-     padding: 10px;
-     margin-top: 20px;
-     background: #0066BB;
-     border-radius: 10px;
-     font-weight: 500;
-     font-size: 24px;
-     line-height: 30px;
-     color: var(--blanco);
-}
-
 /*ESTILOS DE LA PAGINACIÓN*/
 .pagination{
      grid-column-start: 1;
@@ -168,28 +145,16 @@ main h1{
      color: var(--blanco);
 }
 
-@media screen and (max-width: 1400px) {
-     .products-container .card .card-details .card-info .product-price{
-          margin-top: 10px;
+.mostrarArriba {
+     animation: mostrarArriba 1s;
+ }
+ 
+ @keyframes mostrarArriba{
+     0%{
+         transform: translateY(60px);
      }
-
-     .products-container .card .card-details .card-info .product-name,
-     .products-container .card .card-details .card-info .product-price{
-          
+ 
+     100%{
+         transform: translateY(0);
      }
-
-     .products-container .card .card-details .card-icons a{
-          margin-top: 30px;
-     }
-
-     .products-container .card .card-details .card-icons i{
-          font-size: 26px;
-          line-height: 26px;
-     }
-
-     .products-container .card .card-details .card-shop{
-          font-size: 20px;
-          line-height: 25px;
-          margin-top: 10px;
-     }
-}
+ }

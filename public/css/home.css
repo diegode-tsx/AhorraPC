@@ -136,7 +136,17 @@ main h1{
      }
 
      main h1{
-          font-size: 40px;
+          font-size: 34px;
+          line-height: 40px;
      }
      
+     main form input[type="text"]{
+          padding: 10px 10px;
+          padding-left: 40px;
+     }
+
+     main form input[type="submit"]{
+          font-size: 20px;
+          line-height: 25px;
+     }
 }

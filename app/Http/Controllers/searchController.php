@@ -1,49 +1,56 @@
 <?php
 
 namespace App\Http\Controllers;
-
+require 'simple_html_dom.php';
 //use Facade\FlareClient\Http\Client;
 use Illuminate\Http\Request;
 use App\MyClasses\ProductoClass;
+use Exception;
 use Goutte\Client;
 use Illuminate\Support\Facades\Auth;
 
 class searchController extends Controller
 {
-    public static $ListProduCyberPuerta = [];//Lista de productos de la categoria CyberPuerta
+    /* public static $ListProduCyberPuerta = [];//Lista de productos de la categoria CyberPuerta
     public static $ListProduDdTech = [];
     public static $ListProduPcMig = [];
     public static $ListProduPcel = [];
-    public static $ListProduMercLibre = [];
+    public static $ListProduMercLibre = []; */
     function index(Request $request, Client $client)
     {
         $searchGlobal = $request->input('busqueda');
         $search = str_replace(' ', '+', $searchGlobal);
         $search2 = str_replace(' ', '%20', $searchGlobal);
         $identificador = 1;
-        $classDiv = 'searchList';
-        $cyberpuertaProductos = $client->request('GET', 'https://www.cyberpuerta.mx/index.php?cl=search&searchparam='.$search);
-        $pcCelProductos=$client->request('GET', 'https://pcel.com/index.php?route=product/search&filter_name=ryzen%205600');
-        //$digitaLifeProductos=$client->request('GET', 'https://www.digitalife.com.mx/buscar/t_ryzen-3600');
-        $pcMigProductos=$client->request('GET', 'https://pcmig.com.mx/?s='.$search.'&post_type=product');
-        $ddTechProductos=$client->request('GET', 'https://ddtech.mx/buscar/ryzen+5+3600');
-        $mercLibreProductos=$client->request('GET','https://listado.mercadolibre.com.mx/amd-ryzen-5-3600');
+        $searchtext = 'ryzen 5 3600';
+        $searchtext = str_replace(' ', '%20', $searchtext);
+        $amz_str1="https://www.amazon.com.mx/s?k=";
+        $amz_str2="&ref=nb_sb_noss_2";
+
+        $amz_query=$amz_str1.$searchtext.$amz_str2;
+        $cyberpuertaProductos = file_get_html('https://www.cyberpuerta.mx/index.php?cl=search&searchparam=ryzen+3600');
+        $pcCelProductos=file_get_html('https://pcel.com/index.php?route=product/search&filter_name=ryzen%205600');
+        //$digitaLifeProductos=file_get_html('https://www.digitalife.com.mx/buscar/t_ryzen-3600');
+        $pcMigProductos=file_get_html('https://pcmig.com.mx/?s=ryzen+3600&post_type=product');
+        $ddTechProductos=file_get_html('https://ddtech.mx/buscar/ryzen+5+3600');
+        $mercLibreProductos=file_get_html('https://listado.mercadolibre.com.mx/amd-ryzen-5-5600');
+        $amazonProductos=file_get_html($amz_query);
         //llama la funcion si utilizas algun scrapeo como abajo
-        $this->getProductosPcMig($pcMigProductos);
-        $PcMig = self::$ListProduPcMig;
+        
+        $PcMig = $this->getProductosPcMig($pcMigProductos);
 
+        $amazon = $this->getProductosAmazon($amazonProductos);
+        
+        $cyberpuerta = $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
 
-        $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
-        $cyberpuerta = self::$ListProduCyberPuerta;
+        
+        $mercadolibre = $this->getProductosMercLibre($mercLibreProductos);
 
-        $this->getProductosMercLibre($mercLibreProductos);
-        $mercadolibre = self::$ListProduMercLibre;
+       
+        $ddtech =  $this->getProductosDdTech($ddTechProductos);
 
-        $this->getProductosDdTech($ddTechProductos);
-        $ddtech = self::$ListProduDdTech;
-
-        $this->getProductosPcel($pcCelProductos);
-        $pcCel = self::$ListProduPcel;
+        
+        $pcCel = $this->getProductosPcel($pcCelProductos);
 
 
 
@@ -56,69 +63,94 @@ class searchController extends Controller
             $plantilla='defecto';
         }
 
-        return   /* $request->all() */ view('search.index', compact('PcMig','cyberpuerta','ddtech','pcCel','mercadolibre'), compact('plantilla'));
-
+        return   /* $request->all() */ view('search.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel'), compact('plantilla'));
+        return   /* $request->all() */ view('search2.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel'), compact('plantilla'));
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
 
     }
 
-
+    public function getProductosAmazon($productos){
+         $ListProductos = [];
+        foreach ($productos->find('div[class="sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20"]') as $element) {
+            try{
+                $nombre=$element->find('a[class="a-link-normal a-text-normal"]',0)->plaintext;
+            $linkCompra=$element->find('a[class="a-link-normal a-text-normal"]',0)->attr['href'];
+            $precio=$element->find('div[class="a-section a-spacing-none"]',0)->plaintext;
+            $linkImagen=$element->find('div[class="a-section aok-relative s-image-square-aspect"]',0)->find('img',0)->attr['src'];
+            $linkCompra= "https://www.amazon.com.mx".$linkCompra;
+            $preciopar=explode("$",$precio);
+            $precio=$preciopar[1];
+            $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
+            array_push($ListProductos,$ProductoObte);
+        }
+        catch(Exception $e){
+            continue;
+        }
+        }
+        return $ListProductos;
+    }
 
     public function getProductosMercLibre($productos){
-        $productos->filter('[class="ui-search-main ui-search-main--exhibitor ui-search-main--only-products"]')->first()->children('section')->children('ol')->first()->filter('li.ui-search-layout__item')->each(function($node){
-            $caracteristicas = $node->children('div')->filter('[class="ui-search-result__content-wrapper"]')->first();
-            $nombre=$caracteristicas->filter('[class="ui-search-item__group ui-search-item__group--title"]')->first()->text();
-            $linkCompra=$caracteristicas->filter('[class="ui-search-item__group ui-search-item__group--title"]')->first()->children('a')->first()->attr('href');
-            $precio=$node->filter('[class="ui-search-result__content-columns"]')->first()->filter('[class="ui-search-item__group ui-search-item__group--price"]')->first()->text();
-            $linkImagen=$node->filter('[class="ui-search-result__image"]')->first()->children('a')->first()->filter('[class="carousel-container arrow-visible"]')->children('div')->filter('[class="slick-slide slick-active"]')->first()->children('img')->first()->attr('data-src');
+        $ListProductos = [];
+        foreach ($productos->find('li[class="ui-search-layout__item"]') as $element) {
+            $caracteristicas = $element->find('div[class="ui-search-result__content-wrapper"]',0);
+            $nombre=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0)->plaintext;
+            $linkCompra=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0)->find('a',0)->attr['href'];
+            $precio=$element->find('div[class="ui-search-item__group ui-search-item__group--price"]',0)->plaintext;
+            $linkImagen=$element->find('div[class="slick-slide slick-active"]',0)->find('img',0)->attr['data-src'];
             $preciopar=explode(" ",$precio);
             $precio=$preciopar[0];
-    
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
-            array_push(self::$ListProduMercLibre,$ProductoObte);
-        });
+            array_push($ListProductos,$ProductoObte);
+        }
+        return $ListProductos;
     }
 
 
     public function getProductosDdTech($productos){
-        $productos->filter('[class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"]')->children()->filter('[class="product"]')->each(function ($node) {
-            $caracteristicas =$node->children()->filter('[class="product-info text-left"]')->first();
-            $nombreProducto = $caracteristicas->children('h3')->children('a')->first()->text();
-            $precioProducto = $caracteristicas->children('div')->filter('[class="product-price"]')->first()->children('span')->first()->text();
-            $linkCompra=$caracteristicas->children('h3')->children('a')->first()->attr('href');
-            $linkImagen=$node->children('div')->filter('[class="image"]')->children('a')->first()->children('img')->first()->attr('src');
-
+        $ListProductos = [];
+        foreach ($productos->find('div[class="product"]') as $element) {
+            $caracteristicas =$element->find('div[class="product-info text-left"]',0);
+            $nombreProducto = $caracteristicas->find('a',0)->plaintext;
+            $precioProducto = $caracteristicas->find('div[class="product-price"]',0)->find('span',0)->plaintext;
+            $linkCompra=$caracteristicas->find('h3',0)->find('a',0)->attr['href'];
+            $linkImagen=$element->find('div[class="image"]',0)->find('a',0)->find('img',0)->src;
             $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$linkImagen,$linkCompra);
-            array_push(self::$ListProduDdTech,$ProductoObte);
-        });
+            array_push($ListProductos,$ProductoObte);
+        }
         
+        return $ListProductos;
     }
 
 
 
     public function getProductosPcMig($productos)
     {
-        $productos->filter('[class="shop-products products row grid-view fullwidth"]')->filter('[class="product-wrapper"]')->each(function ($nodeProducto) {
-            $nombre=$nodeProducto->filter('[class="product-name"]')->first()->text();
-            $linkImagen=$nodeProducto->filter('[class="product-image"]')->first()->filter('img')->first()->attr('src');
-            $linkCompra=$nodeProducto->filter('[class="product-name"]')->first()->filter('a')->attr('href');
-            $precio=$nodeProducto->filter('[class="price-box"]')->first()->text();
-
+        $ListProductos = [];
+        foreach ($productos->find('div[class="product-wrapper"]') as $element) {
+            $nombre = $element->find('h2[class="product-name"]',0)->plaintext;
+            $precio = $element->find('div[class="price-box"]',0)->plaintext;
+            $linkImagen = $element->find('div[class="product-image"]',0)->find('img',0)->src;
+            $linkCompra = $element->find('h2[class="product-name]',0)->find('a',0)->href;
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
-            array_push(self::$ListProduPcMig,$ProductoObte);
-        });
+            array_push($ListProductos,$ProductoObte);
+        }
+        return $ListProductos;
     }
 
     public function getProductosCyberpuerta($identificador,$productos)
     {
-        $productos->filter('[class="cell productData small-12 small-order-'.strval($identificador).'"]')->each(function ($ProducNode) {
-            $nombre=$ProducNode->filter('[class="emproduct_right"]')->first();
-            $nombre=$nombre->children()->filter('a')->first()->text();
-            $linkImg=$ProducNode->filter('[class="catSlider"]')->first()->attr('data-cp-prod-slider');
-            $price=$ProducNode->filter('[class="emproduct_right_price_left"]')->first()->filter('[class="price"]')->first()->text();
-    
-            $linkCompra=$ProducNode->filter('[class="emproduct_left"]')->first()->children()->filter('a')->first()->attr('href');
+        $ListProductos = [];
+        foreach ($productos->find('li[class="cell productData small-12 small-order-'.strval($identificador).'"]') as $element) {
+            /* echo $element->plaintext;
+            echo "<hr>"; */
+            $nombre=$element->find('div[class="emproduct_right"]',0)->find('a',0)->plaintext;
+            $linkImg=$element->find('div[class="catSlider"]',0)->attr['data-cp-prod-slider'];
+            $price=$element->find('label[class="price"]',0)->plaintext;
+            $linkCompra=$element->find('div[class="emproduct_left"]',0)->find('a',0)->attr['href'];
+
+            $linkCompra=$element->find('[class="emproduct_left"]',0)->find('a',0)->attr['href'];
             $linkCyberpuerta="https://www.cyberpuerta.mx/img/product/S/";
             $LinkpartsImg=explode("https",$linkImg);
             $linkImgCom=$LinkpartsImg[1];
@@ -126,11 +158,11 @@ class searchController extends Controller
             $linkImgCom=trim($linkImgCom[1],"\/");
             $linkImgCom=trim($linkImgCom,'","]');
             $linkImgCom=$linkCyberpuerta.$linkImgCom;
-    
+
             $ProductoObte=new ProductoClass($nombre,$price,$linkImgCom,$linkCompra);
-            array_push(self::$ListProduCyberPuerta,$ProductoObte);
-            //return $ProductoObte;
-            });
+            array_push($ListProductos,$ProductoObte);
+        }
+        return $ListProductos;
          
     
 }
@@ -138,22 +170,25 @@ class searchController extends Controller
 
 public function getProductosPcel($productos2)
 {
-    $productos2->filter('[class="product-list"]')->filter('table')->filter('tr')->each(function( $ProducNode, $i){
-        if(($i+1) % 2!=0){
-            $nombreLinkProducto =$ProducNode->filter('[class="name"]')->first()->children('a');
-            $LinkImagen =$ProducNode->filter('[class="image"]')->first()->children('a')->children('img')->attr('src'); 
-            $precioProducto =$ProducNode->filter('[class="price"]')->text();
-            $nombreProducto=$nombreLinkProducto->text();
-            $linkProducto=$nombreLinkProducto->attr('href');  
+    $ListProductos = [];
+    foreach ($productos2->find('div[class="product-list"]',0)->find('table',0)->find('tr') as $indice => $producto) {
+        if(($indice+1) % 2!=0){
+            $nombreLinkProducto =$producto->find('div[class="name"]',0)->find('a',0);
+            $LinkImagen =$producto->find('div[class="image"]',0)->find('a',0)->find('img',0)->src; 
+            $precioProducto =$producto->find('div[class="price"]',0)->plaintext;
+            $nombreProducto=$nombreLinkProducto->plaintext;
+            $linkProducto=$nombreLinkProducto->attr['href'];  
             if(str_contains($precioProducto, ' ')){
                 $preciopar=explode(" ",$precioProducto);
                 $precioProducto=$preciopar[1];
             }
-
-            $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$LinkImagen,$linkProducto);
-            array_push(self::$ListProduPcel,$ProductoObte);
+        }else{
+            continue;
         }
-    });
+        $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$LinkImagen,$linkProducto);
+        array_push($ListProductos,$ProductoObte);
+    }
+    return $ListProductos;
 
 }
 

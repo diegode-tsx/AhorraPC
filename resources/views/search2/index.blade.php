@@ -2,7 +2,7 @@
 
 @section('title','Busqueda')
 @section('styles')
-<link rel="stylesheet" href="{{asset('css/search.css')}}">
+<link rel="stylesheet" href="{{asset('css/search2.css')}}">
     
 @endsection
 
@@ -17,21 +17,13 @@
 
 @section('content')
     <main>
-        <div class="tab-container">
-            <button onclick="ActivarPcmig()" class="active">PcMig</button>
-            <button onclick="ActivarCyberpuerta()">CyberPuerta</button>
-            <button onclick="ActivarDdtech()">DDTech</button>
-            <button onclick="ActivarPcel()">pcCel</button>
-            <button onclick="ActivarMercadolibre()">MercadoLibre</button>
-            <button onclick="ActivarAmazon()">Amazon</button>
-        </div>
 
         <div class="products-container" id="pcmig">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PcMig --}}
             @foreach ($PcMig as $item)
             
-            <div class="card" id ="{{ $loop->index }}">
+            <div class="card">
                 <div class="img-card">
                     <img src="{{$item->imagenLink}}">
                 </div>
@@ -200,7 +192,7 @@
             <li class="page-number"><a href="#">6</a></li>
             <li><a href="#" class="next">Siguiente ></a></li>
         </ul>--}}
-        <script src="{{asset('scripts/scriptpestañas.js')}}"></script>
+        {{-- <script src="{{asset('scripts/scriptpestañas.js')}}"></script> --}}
         
     </main>
 @endsection
