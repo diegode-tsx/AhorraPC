@@ -350,4 +350,16 @@
             <li><a href="#" class="next">Siguiente ></a></li>
         </ul>
     </main>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        Swal.fire({
+            title: 'Sweet!',
+            text: 'Modal with a custom image.',
+            imageUrl: 'https://unsplash.it/400/200',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+        })
+    </script>
 @endsection
