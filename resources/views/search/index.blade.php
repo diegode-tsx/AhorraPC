@@ -44,13 +44,13 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
                     </div>
                 </div>
@@ -71,13 +71,17 @@
 
                 <div class="card-details">
                     <div class="card-info">
+<<<<<<< HEAD
                         <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
+=======
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
+>>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
                     </div>
                 </div>
@@ -99,13 +103,17 @@
 
                 <div class="card-details">
                     <div class="card-info">
+<<<<<<< HEAD
                         <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
+=======
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
+>>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
                     </div>
                 </div>
@@ -127,13 +135,17 @@
 
                 <div class="card-details">
                     <div class="card-info">
+<<<<<<< HEAD
                         <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
+=======
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
+>>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
                     </div>
                 </div>
@@ -155,13 +167,17 @@
 
                 <div class="card-details">
                     <div class="card-info">
+<<<<<<< HEAD
                         <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
+=======
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
+>>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
                     </div>
                 </div>
@@ -183,13 +199,17 @@
 
                 <div class="card-details">
                     <div class="card-info">
+<<<<<<< HEAD
                         <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
+=======
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
+>>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
                     </div>
                 </div>
@@ -210,13 +230,17 @@
 
                 <div class="card-details">
                     <div class="card-info">
+<<<<<<< HEAD
                         <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
+=======
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
+>>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
-                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         <a href="#"><i class="fas fa-heart"></i></a>
                     </div>
                 </div>
