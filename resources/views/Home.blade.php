@@ -20,7 +20,7 @@
         <form action="{{route('search')}}" method="POST">
             @csrf
             <div class="buscador-container">
-                <input type="text" name="busqueda">
+                <input type="text" name="busqueda" class="txt-normal">
                 <i class="fas fa-search"></i>
             </div>
             <input type="submit" value="Buscar" class="titulo-terciario">

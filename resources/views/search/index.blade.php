@@ -44,7 +44,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
@@ -71,11 +71,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-<<<<<<< HEAD
-                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-=======
-                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
->>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
@@ -103,11 +99,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-<<<<<<< HEAD
-                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-=======
-                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
->>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
@@ -135,11 +127,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-<<<<<<< HEAD
-                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-=======
-                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
->>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
@@ -167,11 +155,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-<<<<<<< HEAD
-                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-=======
-                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
->>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
@@ -199,11 +183,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-<<<<<<< HEAD
-                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-=======
-                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
->>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
@@ -230,11 +210,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-<<<<<<< HEAD
-                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-=======
-                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name">{{$item->nombre}}</h3></a>
->>>>>>> 96bdb362e6fd0adf6a0d9646aad8d5d049a2d901
+                        <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
                         <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
