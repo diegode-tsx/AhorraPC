@@ -23,3 +23,31 @@ body{
      margin: 0 50px;
 }
 
+.titulo-secundario{
+     font-family: 'Rubik';
+     font-size: 40px;
+     line-height: 47px;
+     font-weight: normal;
+}
+
+.titulo-terciario{
+     font-family: Quicksand;
+     font-size: 24px;
+     line-height: 30px;
+     font-weight: 500;
+}
+
+.txt-normal{
+     font-family: 'Quicksand';
+     font-size: 18px;
+     line-height: 22px;
+     font-weight: 500;
+}
+
+.txt-tiny{
+     font-family: 'Quicksand';
+     font-size: 16px;
+     line-height: 20px;
+     font-weight: normal;
+}
+

@@ -23,7 +23,7 @@
     <main>
         <div class="head">
             <h1 class="titulo-secundario">Favoritos</h1>
-            <button class="txt-normal">Cotizar seleccionados</button>
+            <button class="txt-normal" id="cotizar">Cotizar seleccionados</button>
         </div>
         <div class="products-container">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
@@ -141,225 +141,147 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
+        </div>
 
-                <div class="card-details">
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h2 class="titulo-terciario">Productos</h2>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{asset('img/ram.jpg')}}" alt="">
+                    </div>
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
     
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <div class="checkbox-box"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="card-shop">
-                        <p>CyberPuerta</p>
+                        <p class="product-price txt-tiny">$3,269.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
-
-                <div class="card-details">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{asset('img/ram.jpg')}}" alt="">
+                    </div>
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
     
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <div class="checkbox-box"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="card-shop">
-                        <p>CyberPuerta</p>
+                        <p class="product-price txt-tiny">$3,269.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
-
-                <div class="card-details">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{asset('img/ram.jpg')}}" alt="">
+                    </div>
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
     
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <div class="checkbox-box"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="card-shop">
-                        <p>CyberPuerta</p>
+                        <p class="product-price txt-tiny">$3,269.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
-
-                <div class="card-details">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{asset('img/ram.jpg')}}" alt="">
+                    </div>
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
     
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <div class="checkbox-box"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="card-shop">
-                        <p>CyberPuerta</p>
+                        <p class="product-price txt-tiny">$3,269.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
-
-                <div class="card-details">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{asset('img/ram.jpg')}}" alt="">
+                    </div>
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
     
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <div class="checkbox-box"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="card-shop">
-                        <p>CyberPuerta</p>
+                        <p class="product-price txt-tiny">$3,269.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
-
-                <div class="card-details">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{asset('img/ram.jpg')}}" alt="">
+                    </div>
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
     
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <div class="checkbox-box"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="card-shop">
-                        <p>CyberPuerta</p>
+                        <p class="product-price txt-tiny">$3,269.00</p>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
-
-                <div class="card-details">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{asset('img/ram.jpg')}}" alt="">
+                    </div>
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
     
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <div class="checkbox-box"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="card-shop">
-                        <p>CyberPuerta</p>
+                        <p class="product-price txt-tiny">$3,269.00</p>
                     </div>
                 </div>
+                <p class="total txt-normal">Total: $3500</p>
+                <i class="fas fa-times" id="close"></i>
             </div>
         </div>
 
-        <ul class="pagination">
-            <li><a href="#" class="prev">< Atrás</a></li>
-            <li class="page-number active"><a href="#">1</a></li>
-            <li class="page-number"><a href="#">2</a></li>
-            <li class="page-number"><a href="#">3</a></li>
-            <li class="page-number"><a href="#">4</a></li>
-            <li class="page-number"><a href="#">5</a></li>
-            <li class="page-number"><a href="#">6</a></li>
-            <li><a href="#" class="next">Siguiente ></a></li>
-        </ul>
     </main>
 
-    <script src="{{ asset('js/app.js') }}"></script>
     <script>
-        Swal.fire({
-            title: 'Sweet!',
-            text: 'Modal with a custom image.',
-            imageUrl: 'https://unsplash.it/400/200',
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: 'Custom image',
-        })
+        var modal = document.getElementById("modal");
+        var open = document.getElementById("cotizar");
+        var close = document.getElementById("close");
+
+        open.onclick = function(){
+            modal.style.display = "block";
+        }
+
+        close.onclick = function(){
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal){
+                modal.style.display = "none";
+            }
+        }
     </script>
+
+   {{--<script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        var num = 300;
+        var num2 = 3200;
+        var xd = '<div class="card">\
+                <div class="img-card">\
+                    <img src="{{asset("img/ram.jpg")}}" alt="">\
+                </div>\
+                <div class="card-details">\
+                    <div class="card-info">\
+                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>\
+                        <p class="product-price">$3,269.00</p>\
+                    </div>\
+                </div>\
+            </div>'
+            const link1 = document.createElement('a');
+const link2 = document.createElement('a');
+link1.innerHTML = 'How do I logout?';
+link2.innerHTML = "How do I example?";
+
+const container = document.createElement("div");
+// You could also use container.innerHTML to set the content.
+container.append(link1);
+container.append(document.createElement("br"));
+container.append(link2);
+            let frutas = [xd+"<s", "/s"+xd]
+        Swal.fire({
+  title: '<strong>HTML <u class="prueba">example</u></strong>',
+  icon: 'info',
+  html: container,
+  showCloseButton: true,
+  showCancelButton: true,
+  focusConfirm: false,
+  confirmButtonText:
+    '<i class="fa fa-thumbs-up"></i> Great!',
+  confirmButtonAriaLabel: 'Thumbs up, great!',
+  cancelButtonText:
+    '<i class="fa fa-thumbs-down"></i>',
+  cancelButtonAriaLabel: 'Thumbs down'
+})
+    </script>--}}
 @endsection
