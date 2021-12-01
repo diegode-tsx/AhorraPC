@@ -46,7 +46,7 @@ document.querySelectorAll(".tab-container button").forEach(button=>{
 
 if (document.querySelectorAll(".tab-container .active")) {
 	console.log("Esto solo se ejecuta si el elemento con id 'nombre' tiene la clase 'clase2'")
-	MostrarScroll();
+	// MostrarScroll();
   } else {
 	console.log("Se ejecuta si no la tiene");
   }

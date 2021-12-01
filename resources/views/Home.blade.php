@@ -12,6 +12,9 @@
 @section('title','Inicio')
     
 @section('content')
+<div id="pantalla_carga" class="pantalla">
+    <img src="{{asset('img/piggy (1).svg')}}" alt="">
+</div>
     <main>
         <div class="logo">
             <img src="{{asset('img/logo.png')}}" alt="">
@@ -28,4 +31,5 @@
 
         <h1 class="titulo-principal">Arma tu<span class="red"> PC </span>ideal y<span class="red"> ahorra </span>dinero</h1>
     </main>
+    <script src="{{asset('scripts/pantallasdecarga.js')}}"></script>
 @endsection
