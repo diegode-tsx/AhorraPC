@@ -9,7 +9,6 @@ main{
      grid-template-rows: auto 1fr;
      height: fit-content;
      column-gap: 20px;
-     font-family: 'Quicksand';
      margin-top: 80px;
 }
 main .head{
@@ -19,13 +18,8 @@ main .head{
 }
 
 main h1{
-     font-family: 'Rubik';
-     font-style: normal;
-     font-weight: normal;
-     font-size: 40px;
-     line-height: 47px;
-     color: var(--secundario);
-     margin-bottom: 15px;
+     color: var(--negro);
+     margin-bottom: 10px;
 }
 
 /*ESTILOS DEL BANNER*/
@@ -36,13 +30,11 @@ main h1{
      display: flex;
      justify-content: space-between;
      gap: 20px;
+     margin-top: 25px;
 }
 
 .tab-container button{
      flex: auto;
-     font-family: 'Quicksand';
-     font-size: 24px;
-     font-weight: 800;
      padding: 20px;
      background: none;
      border: 3px solid var(--secundario) !important;
@@ -51,6 +43,7 @@ main h1{
      cursor: pointer;
      outline: none;
      border: none;
+     font-weight: 800;
 }
 
 .tab-container button:hover{
@@ -72,8 +65,8 @@ main h1{
 
 .tab-container a{
      outline: none;
-     font-size: 22px;
      color: var(--secundario);
+     text-decoration: none;
 }
 
 .tab-container a:active{
@@ -137,25 +130,20 @@ main h1{
      width: 58%;
 }
 
-.products-container .card .card-details .card-info a{
+a{
      text-decoration: none;
      color: var(--negro);
 }
 
-.products-container .card .card-details .card-info a:hover{
+a:hover{
      color: var(--primario);
 }
 
 .products-container .card .card-details .card-info .product-name{
-     font-size: 16px;
-     line-height: 20px;
-     font-weight: normal;
      word-wrap: break-word
 }
 
 .products-container .card .card-details .card-info .product-price{
-     font-size: 16px;
-     line-height: 20px;
      margin-top: 20px;
      color: var(--negro);
 }
@@ -177,48 +165,6 @@ main h1{
      margin-right: 20px;
      color: #fff;
      -webkit-text-stroke: 2px var(--primario);
-}
-
-/*ESTILOS DE LA PAGINACIÓN*/
-.pagination{
-     grid-column-start: 1;
-     grid-column-end: 13;
-     justify-self: center;
-     text-align: center;
-
-     position: relative;
-     background: #fff;
-     display: flex;
-     padding: 10px 20px;
-     margin-top: 50px;
-     border-radius: 50px;
-     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.pagination li{
-     list-style:none;
-     line-height: 50px;
-     margin: 0 5px;
-}
-
-.pagination li.page-number{
-     width: 50px;
-     height: 50px;
-     line-height: 50px;
-}
-
-.pagination li a{
-     display: block;
-     text-decoration: none;
-     color: var(--gris);
-     font-weight: 600;
-     border-radius: 15px;
-}
-
-.pagination li.page-number:hover a,
-.pagination li.page-number.active a{
-     background: var(--primario);
-     color: var(--blanco);
 }
 
 .mostrarArriba {

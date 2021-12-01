@@ -18,18 +18,18 @@
 @section('content')
     <main>
         <div class="head">
-            <h1 class="titulo-secundario" id="titulo-pestañas">Tiendas</h1>
-            <h1 class="titulo-secundario" id="titulo-precio">Mejores Precios</h1>
+            <h1 class="titulo-principal" id="titulo-pestañas">Tiendas</h1>
+            <h1 class="titulo-principal" id="titulo-precio">Mejores Precios</h1>
+            <a onclick="ActivarMenorPrecio()" href="#" id="btn-menorprecio" id="btn" class="txt-normal">Ver los productos mas baratos</a>
+            <a href="#" onclick="ActivarPcmig()" class="" id="btn-pestañas" id="btn" class="txt-normal">Ver los productos por tienda</a>
         </div>
         <div class="tab-container">
-            <button onclick="ActivarPcmig()" class="active btn-btn" id="btn">PcMig</button>
-            <button onclick="ActivarCyberpuerta()" class=" btn-btn" id="btn">CyberPuerta</button>
-            <button onclick="ActivarDdtech()" class=" btn-btn" id="btn">DDTech</button>
-            <button onclick="ActivarPcel()" class=" btn-btn" id="btn">pcCel</button>
-            <button onclick="ActivarMercadolibre()" class=" btn-btn" id="btn">MercadoLibre</button>
-            <button onclick="ActivarAmazon()" class=" btn-btn" id="btn">Amazon</button>
-            <a onclick="ActivarMenorPrecio()" href="#" id="btn-menorprecio" id="btn">Ve los productos mas baratos</a>
-            <a href="#" onclick="ActivarPcmig()" class="" id="btn-pestañas" id="btn">Ve los productos por tienda</a>
+            <button onclick="ActivarPcmig()" class="active btn-btn titulo-terciario" id="btn">PCMIG</button>
+            <button onclick="ActivarCyberpuerta()" class=" btn-btn titulo-terciario" id="btn">CyberPuerta</button>
+            <button onclick="ActivarDdtech()" class=" btn-btn titulo-terciario" id="btn">DDTech</button>
+            <button onclick="ActivarPcel()" class=" btn-btn titulo-terciario" id="btn">PCEL</button>
+            <button onclick="ActivarMercadolibre()" class=" btn-btn titulo-terciario" id="btn">MercadoLibre</button>
+            <button onclick="ActivarAmazon()" class=" btn-btn titulo-terciario" id="btn">Amazon</button>
         </div>
         
         <div class="products-container" id="global">
@@ -44,9 +44,9 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -71,9 +71,9 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -99,9 +99,9 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -127,9 +127,9 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -155,9 +155,9 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -183,9 +183,9 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -210,9 +210,9 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">{{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">

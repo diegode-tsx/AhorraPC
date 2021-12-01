@@ -23,6 +23,14 @@ body{
      margin: 0 50px;
 }
 
+/*ESTILOS DE LOS TEXTOS*/
+.titulo-principal{
+     font-family: 'Rubik';
+     font-size: 48px;
+     line-height: 57px;
+     font-weight: 500;
+}
+
 .titulo-secundario{
      font-family: 'Rubik';
      font-size: 40px;
@@ -31,7 +39,7 @@ body{
 }
 
 .titulo-terciario{
-     font-family: Quicksand;
+     font-family: 'Quicksand';
      font-size: 24px;
      line-height: 30px;
      font-weight: 500;
@@ -51,3 +59,31 @@ body{
      font-weight: normal;
 }
 
+@media screen and (max-width: 1400px) {
+     .titulo-principal{
+          font-size: 34px;
+          line-height: 40px;
+     }
+     
+     .titulo-secundario{
+          font-size: 30px;
+          line-height: 36px;
+     }
+     
+     .titulo-terciario{
+          font-size: 20px;
+          line-height: 25px;
+     }
+     
+     .txt-normal{
+          font-size: 16px;
+          line-height: 20px;
+     }
+     
+     .txt-tiny{
+          font-family: 'Quicksand';
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: normal;
+     }
+}
