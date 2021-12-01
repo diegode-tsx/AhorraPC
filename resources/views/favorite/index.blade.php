@@ -34,9 +34,9 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
+                        <a href="#"><h3 class="product-name txt-tiny">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
     
-                        <p class="product-price">$3,269.00</p>
+                        <p class="product-price txt-tiny">$3,269.00</p>
                     </div>
     
                     <div class="card-icons">
@@ -51,96 +51,11 @@
                     </div>
 
                     <div class="card-shop">
-                        <p>CyberPuerta</p>
+                        <p class="titulo-terciario">CyberPuerta</p>
                     </div>
                 </div>
             </div>
             {{---------AQUÍ TERMINA----------}}
-
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
-
-                <div class="card-details">
-                    <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
-    
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <div class="checkbox-box"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="card-shop">
-                        <p>CyberPuerta</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
-
-                <div class="card-details">
-                    <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
-    
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <div class="checkbox-box"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="card-shop">
-                        <p>CyberPuerta</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img-card">
-                    <img src="{{asset('img/ram.jpg')}}" alt="">
-                </div>
-
-                <div class="card-details">
-                    <div class="card-info">
-                        <a href="#"><h3 class="product-name">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
-    
-                        <p class="product-price">$3,269.00</p>
-                    </div>
-    
-                    <div class="card-icons">
-                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <div class="checkbox-box"></div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="card-shop">
-                        <p>CyberPuerta</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div id="modal" class="modal">
