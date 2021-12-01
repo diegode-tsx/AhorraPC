@@ -272,8 +272,11 @@ main button:hover{
 }
 
 .modal-content .total{
+     padding-top: 10px;
+     border-top: 2px solid var(--negro);
      color: var(--negro);
      margin-top: 20px;
+     text-align: left;
 }
 
 @media screen and (max-width: 1400px) {
