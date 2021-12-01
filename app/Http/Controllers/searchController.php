@@ -177,7 +177,8 @@ class searchController extends Controller
             $nombreProducto = $caracteristicas->find('a',0)->plaintext;
             $precioProducto = $caracteristicas->find('div[class="product-price"]',0)->find('span',0)->plaintext;
             $linkCompra=$caracteristicas->find('h3',0)->find('a',0)->attr['href'];
-            $linkImagen=$element->find('div[class="image"]',0)->find('a',0)->find('img',0)->src;
+            /*$linkImagen=$element->find('div[class="image"]',0)->find('a',0)->find('img',0)->src;*/
+            $linkImagen = 'img/box.png';
             $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$linkImagen,$linkCompra);
             array_push($ListProductos,$ProductoObte);
         }
@@ -193,7 +194,8 @@ class searchController extends Controller
         foreach ($productos->find('div[class="product-wrapper"]') as $element) {
             $nombre = $element->find('h2[class="product-name"]',0)->plaintext;
             $precio = $element->find('div[class="price-box"]',0)->plaintext;
-            $linkImagen = $element->find('div[class="product-image"]',0)->find('img',0)->src;
+            /*$linkImagen = $element->find('div[class="product-image"]',0)->find('img',0)->src;*/
+            $linkImagen = 'img/box.png';
             $linkCompra = $element->find('h2[class="product-name]',0)->find('a',0)->href;
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
             array_push($ListProductos,$ProductoObte);
@@ -220,6 +222,9 @@ class searchController extends Controller
             $linkImgCom=trim($linkImgCom[1],"\/");
             $linkImgCom=trim($linkImgCom,'","]');
             $linkImgCom=$linkCyberpuerta.$linkImgCom;
+            $linkImgCom = str_replace('&quot;,&quot;', '', $linkImgCom);
+            $linkImgCom = str_replace('&quot;', '', $linkImgCom);
+            $linkImgCom = str_replace(',', '', $linkImgCom);
 
             $ProductoObte=new ProductoClass($nombre,$price,$linkImgCom,$linkCompra);
             array_push($ListProductos,$ProductoObte);
