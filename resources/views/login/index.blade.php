@@ -21,6 +21,9 @@
                 @error('message')
                 <strong class="error">{{$message}}</strong><!--Mensaje de error usuario o contraseña-->
                 @enderror
+                @if (session('email_v'))
+                    <strong class="error"><center>{{session('email_v')}}</center></strong>
+                @endif
                 <span class="espaciado">.</span>
                 <div class="input">
                     <input type="text" name="username" placeholder="Usuario" required>

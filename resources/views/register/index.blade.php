@@ -14,6 +14,9 @@
 
 @section('content')
     <main>
+        @if (session('send'))
+            <strong>{{session('send')}}</strong>
+        @endif
         <form action="" class="form" method="POST">
             @csrf <!-- esta mierda es mortal xd-->
             <h1>Crea una cuenta</h1>
@@ -48,11 +51,18 @@
                     <i class="fas fa-key"></i>
                 </div>
             </div>
-            <input type="submit" value="Continuar">
+            <input type="submit" value="Continuar" name="form_data">
             <div class="sign-in-out">
                 ¿Ya tienes cuenta?
                 <a href="{{route('login')}}">Inicia sesión</a>
             </div>
         </form>
     </main>
+
+    <form method="POST">
+        @csrf
+        <input type="text" placeholder="Ingresa tu codigo" name="token">
+        <br>
+        <input type="submit" name="register">
+    </form>
 @endsection

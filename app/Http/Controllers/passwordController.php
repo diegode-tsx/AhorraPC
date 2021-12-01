@@ -36,8 +36,8 @@ class passwordController extends Controller
             $recovery->token = $token;
             $recovery->save();
             
-
             Mail::to($mail)->send(new RecoveryMailable($token));
+            
             return back()->with('status','Se ha enviado un correo a la direccion que proporcionaste');
 
         }else{ //crea un nuevo token
@@ -47,7 +47,9 @@ class passwordController extends Controller
         $recovery->token = $token;
         $recovery->save();
         Mail::to($mail)->send(new RecoveryMailable($token));
+        
 
+        
         return back()->with('status','Se ha enviado un correo a la direccion que proporcionaste');
 
         }}
