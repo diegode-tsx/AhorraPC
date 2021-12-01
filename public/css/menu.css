@@ -14,7 +14,10 @@ header{
 
 header .logo{
      grid-column-start: 1;
-     grid-column-end: 2;
+     grid-column-end: 3; 
+     max-width: 200px;
+     display: inline-block;
+     align-self: center;
 }
 
 header .logo img{
@@ -24,14 +27,11 @@ header .logo img{
 .menu{
      grid-column-start: 9;
      grid-column-end: 13;
+     display: inline-block;
      align-self: center;
 }
 
 .menu a{
-     font-family: 'Quicksand';
-     font-weight: 500;
-     font-size: 24px;
-     line-height: 30px;
      text-decoration: none;
      color: var(--negro);
      margin-left: 15px;
@@ -54,12 +54,5 @@ header .logo img{
 }
 
 @media screen and (max-width: 1400px) {
-     header .logo{
-          grid-column-start: 1;
-          grid-column-end: 3; 
-     }
-
-     .menu a{
-          font-size: 18px;
-     }
+     
 }

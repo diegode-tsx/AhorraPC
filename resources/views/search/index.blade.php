@@ -21,9 +21,9 @@
             <h1 class="titulo-principal" id="titulo-pestañas">Tiendas</h1>
             <h1 class="titulo-principal" id="titulo-precio">Mejores Precios</h1>
             <a onclick="ActivarMenorPrecio()" href="#" id="btn-menorprecio" id="btn" class="txt-normal">Ver los productos mas baratos</a>
-            <a href="#" onclick="ActivarPcmig()" class="" id="btn-pestañas" id="btn" class="txt-normal">Ver los productos por tienda</a>
+            <a href="#" onclick="ActivarPcmig()" class="txt-normal" id="btn-pestañas" id="btn">Ver los productos por tienda</a>
         </div>
-        <div class="tab-container">
+        <div class="tab-container" id="tab-container">
             <button onclick="ActivarPcmig()" class="active btn-btn titulo-terciario" id="btn">PCMIG</button>
             <button onclick="ActivarCyberpuerta()" class=" btn-btn titulo-terciario" id="btn">CyberPuerta</button>
             <button onclick="ActivarDdtech()" class=" btn-btn titulo-terciario" id="btn">DDTech</button>

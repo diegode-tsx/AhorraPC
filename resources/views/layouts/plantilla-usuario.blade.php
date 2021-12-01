@@ -16,19 +16,19 @@
     <header>
         @yield('logo')
         <nav class="menu">
-            <a href="{{ route('favorite') }}">
+            <a href="{{ route('favorite') }}" class="titulo-terciario">
                 <i class="far fa-heart"></i>
                 Favoritos
             </a>
-            <a href="{{ route('settings') }}">
+            <a href="{{ route('settings') }}" class="titulo-terciario">
                 <i class="far fa-cog"></i>
                 Ajustes
             </a>
-            <a href="{{ route('about') }}">
+            <a href="{{ route('about') }}" class="titulo-terciario">
                 <i class="far fa-info-circle"></i>
                 Nosotros
             </a>
-            <a href="{{route('login.destroy')}}">
+            <a href="{{route('login.destroy')}}" class="titulo-terciario">
                 <i class="far fa-sign-out-alt"></i>
                 Salir
             </a>

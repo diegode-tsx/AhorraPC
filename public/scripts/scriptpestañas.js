@@ -65,7 +65,8 @@ var todo = document.getElementById("global");
 var pestañas = document.getElementById("btn-pestañas");
 var menorprecio = document.getElementById("btn-menorprecio");
 var titulotiendas = document.getElementById("titulo-pestañas");
-var titulo_menor_precio = document.getElementById("titulo-precio") 
+var titulo_menor_precio = document.getElementById("titulo-precio");
+var tab_container = document.getElementById("tab-container");
 
 window.onload = ActivarPcmig();
 window.onload = MostrarScroll();
@@ -89,6 +90,7 @@ function ActivarPcmig(){
 	menorprecio.style.display = "grid";
 	titulotiendas.style.display = 'grid';
 	titulo_menor_precio.style.display = 'none';
+	tab_container.style.display = 'flex';
 	MostrarScroll();
 }
 
@@ -176,6 +178,7 @@ function ActivarMenorPrecio(){
 	menorprecio.style.display = "none";
 	titulotiendas.style.display = 'none';
 	titulo_menor_precio.style.display = 'grid';
+	tab_container.style.display= 'none';
 	MostrarScroll();
 }
 

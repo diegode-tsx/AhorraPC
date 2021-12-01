@@ -18,11 +18,11 @@
     <header>
         @yield('logo')
         <nav class="menu">
-            <a href="{{ route('login') }}">
+            <a href="{{ route('login') }}" class="titulo-terciario">
                 <i class="far fa-sign-in-alt"></i>
                 Ingresar
             </a>
-            <a href="{{ route('about') }}">
+            <a href="{{ route('about') }}" class="titulo-terciario">
                 <i class="far fa-info-circle"></i>
                 Nosotros
             </a>
