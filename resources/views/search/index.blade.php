@@ -44,7 +44,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="{{$item->LinkCompra}}"><h3 class="product-name">{{$item->nombre}}</h3></a>
     
                         <p class="product-price">{{$item->precio}}</p>
                     </div>
@@ -71,7 +71,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="{{$item->LinkCompra}}"><h3 class="product-name">{{$item->nombre}}</h3></a>
     
                         <p class="product-price">{{$item->precio}}</p>
                     </div>
@@ -99,7 +99,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="{{$item->LinkCompra}}"><h3 class="product-name">{{$item->nombre}}</h3></a>
     
                         <p class="product-price">{{$item->precio}}</p>
                     </div>
@@ -127,7 +127,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="{{$item->LinkCompra}}"><h3 class="product-name">{{$item->nombre}}</h3></a>
     
                         <p class="product-price">{{$item->precio}}</p>
                     </div>
@@ -155,7 +155,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="{{$item->LinkCompra}}"><h3 class="product-name">{{$item->nombre}}</h3></a>
     
                         <p class="product-price">{{$item->precio}}</p>
                     </div>
@@ -183,7 +183,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="{{$item->LinkCompra}}"><h3 class="product-name">{{$item->nombre}}</h3></a>
     
                         <p class="product-price">{{$item->precio}}</p>
                     </div>
@@ -210,7 +210,7 @@
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+                        <a href="{{$item->LinkCompra}}"><h3 class="product-name">{{$item->nombre}}</h3></a>
     
                         <p class="product-price">{{$item->precio}}</p>
                     </div>
