@@ -17,6 +17,7 @@ main{
 .logo{
      grid-column-start: 6 !important;
      grid-column-end: 8 !important;
+     justify-self: center;
 }
 
 /*ESTILOS DEL FORMULARIO*/
@@ -31,17 +32,13 @@ main{
 }
 
 .form h1{
-     font-family: Rubik;
-     font-weight: 500;
-     font-size: 48px;
-     line-height: 57px;
      text-align: center;
      color: var(--primario);
 }
 
 /*ESTILOS DE LOS INPUTS DE TEXTO*/
 .form .input-group{
-     margin-top: 40px;
+     margin-top: 30px;
 }
 
 .form .input-group input[type="text"],
@@ -57,9 +54,6 @@ main{
      border-radius: 10px;
      background: var(--blanco);
 
-     font-family: 'Quicksand';
-     font-size: 16px;
-     line-height: 20px;
      font-weight: 700;
      
      color: var(--negro);
@@ -106,6 +100,37 @@ main{
      color: var(--gris);
 }
 
+/*ESTILOS DEL BOTÓN*/
+.form input[type="submit"]{
+     background: none;
+     outline: none;
+     border: none;
+     cursor: pointer;
+
+     padding: 10px 50px;
+     margin-top: 40px;
+     border-radius: 8px;
+     background: var(--negro);
+     
+     color: var(--blanco);
+}
+
+.form input[type="submit"]:hover{
+     background: var(--primario);
+     transition: all ease 0.2s;
+}
+
+/*ESTILOS DEL TEXTO INFERIOR*/
+.form .sign-in-out{
+     margin-top: 40px;
+}
+
+.form .sign-in-out a{
+     text-decoration: none;
+     color: var(--primario);
+     font-weight: 500;
+}
+
 /*ESTILO ÚNICAMENTE PARA LA VISTA DE LOGIN*/
 .forgot{
      margin-top: 10px;
@@ -127,6 +152,7 @@ strong.error{
      display: block;
      text-align: left;
      color: #FD151B;
+     margin-bottom: 5px;
 }
 
 span.error + .espaciado,
@@ -136,8 +162,9 @@ strong.error + .espaciado{
 /*-----------------------------------------*/
 
 /*ESTILOS ÚNICAMENTE PARA LA VISTA RECOVERY*/
-.txt-tiny{
-     margin-top: 10px;
+.text-tiny{
+     color: var(--negro);
+     
 }
 
 .text{
@@ -152,50 +179,10 @@ strong.error + .espaciado{
 }
 /*-----------------------------------------*/
 
-/*ESTILOS DEL BOTÓN*/
-.form input[type="submit"]{
-     background: none;
-     outline: none;
-     border: none;
-     cursor: pointer;
-
-     padding: 10px 50px;
-     margin-top: 40px;
-     border-radius: 8px;
-     background: var(--negro);
-     
-     font-family: 'Quicksand';
-     font-weight: 500;
-     font-size: 18px;
-     line-height: 22px;
-     color: var(--blanco);
-}
-
-.form input[type="submit"]:hover{
-     background: var(--primario);
-     transition: all ease 0.2s;
-}
-
-/*ESTILOS DEL TEXTO INFERIOR*/
-.form .sign-in-out{
-     margin-top: 40px;
-}
-
-.form .sign-in-out a{
-     text-decoration: none;
-     color: var(--primario);
-     font-weight: 500;
-}
-
 @media screen and (max-width: 1400px) {
      .form{
           width: 30%;
           padding: 30px;
-     }
-
-     .form h1{
-          font-size: 34px;
-          line-height: 40px;
      }
 
      .form .input-group{
@@ -209,7 +196,6 @@ strong.error + .espaciado{
      .form .input-group input[type="text"],
      .form .input-group input[type="email"],
      .form .input-group input[type="password"]{
-          font-size: 14px;
           padding: 10px;
           padding-left: 38px;
      }

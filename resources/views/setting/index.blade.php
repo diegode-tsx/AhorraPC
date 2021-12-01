@@ -21,18 +21,18 @@
     
 @section('content')
     <main>
-        <h1 class="tit-secundario">Preferencias</h1>
+        <h1 class="titulo-secundario">Preferencias</h1>
         <div class="content">
             <div class="change-pass">
                 <div class="title">
                     <i class="far fa-lock-open"></i>
-                    <h2 class="tit-terciario">Cambiar contraseña</h2>
+                    <h2 class="titulo-terciario">Cambiar contraseña</h2>
                 </div>
                 <form method="POST">
                     @csrf
                     <div class="input">
                         
-                        <input type="password" name="actual-password" placeholder="Contraseña actual" required autofocus>
+                        <input type="password" name="actual-password" placeholder="Contraseña actual" class="txt-tiny" required autofocus>
                         <i class="fas fa-key"></i>
                         @if(session('fail'))
             <strong class="error">{{session('fail')}}</strong>
@@ -43,17 +43,17 @@
                     </div>
                     <div class="input">
                         
-                        <input type="password" name="new_password" placeholder="Contraseña nueva" required>
+                        <input type="password" name="new_password" placeholder="Contraseña nueva" class="txt-tiny" required>
                         <i class="fas fa-lock"></i>
                         @error('new_password')
                          <strong>{{$message}}</strong>
                          @enderror
                     </div>
                     <div class="input">
-                        <input type="password" name="new_password_confirmation" placeholder="Repetir contraseña" required>
+                        <input type="password" name="new_password_confirmation" placeholder="Repetir contraseña" class="txt-tiny" required>
                         <i class="fas fa-lock"></i>
                     </div>
-                    <input type="submit" value="Cambiar">
+                    <input type="submit" value="Cambiar" class="txt-normal">
                     @if(session('success'))
                     <strong class="error">{{session('success')}}</strong>
                      @endif
@@ -65,10 +65,10 @@
             <div class="notification">
                 <div class="title">
                     <i class="far fa-bell"></i>
-                    <h2 class="tit-terciario">Notificaciones</h2>
+                    <h2 class="titulo-terciario">Notificaciones</h2>
                 </div>
                 <div class="checkbox">
-                    <label for="alert">
+                    <label for="alert" class="txt-normal">
                         Enviar notificaciones al correo cuando un producto marcado como favorito baje de precio
                         <input type="checkbox" name="alert" id="alert">
                         <div class="checkbox-box"></div>
@@ -80,7 +80,7 @@
                 <div class="title">
                     <a href="{{route('login.destroy')}}">
                         <i class="far fa-power-off"></i>
-                        <h2 class="tit-terciario">Cerrar sesión</h2>
+                        <h2 class="titulo-terciario">Cerrar sesión</h2>
                     </a>
                 </div>
             </div>

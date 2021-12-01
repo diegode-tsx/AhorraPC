@@ -15,25 +15,24 @@
     <main>
         <form class="form" method="POST">
             @csrf
-            <h1 class="txt-principal">Recuperar contraseña</h1>
-            <p class="txt-tiny">Ingresa el correo registrado a tu cuenta</p>
+            <h1 class="titulo-principal">Recuperar contraseña</h1>
             <div class="input-group">
                 @if (session('fail'))
-                <strong>{{session('fail')}}</strong> <!--password controller return whit('fail')-->
+                <strong class="txt-tiny error">{{session('fail')}}</strong> <!--password controller return whit('fail')-->
                 @endif
                 @if (session('status'))
-                <strong>{{session('status')}}</strong>  <!--password controller return whit('status')-->
+                <strong class="txt-tiny error">{{session('status')}}</strong>  <!--password controller return whit('status')-->
                 @endif
-                <span class="espaciado">.</span>
+                <span class="espaciado txt-tiny">.</span>
                 <div class="input">
-                    <input type="email" name="email" placeholder="Correo" required>
+                    <input type="email" name="email" class="txt-tiny" placeholder="Correo registrado a tu cuenta" required>
                     <i class="fas fa-at"></i>
                 </div>
             </div>
-            <input type="submit" value="Enviar código">
+            <input type="submit" value="Enviar código" class="txt-normal">
             <div class="text">
-                <a href="{{route('home')}}">Regresar</a>
-                <a href="{{route('code')}}">Ya tengo un código</a>
+                <a href="{{route('login')}}" class="txt-tiny">Regresar</a>
+                <a href="{{route('code')}}" class="txt-tiny">Ya tengo un código</a>
             </div>
         </form>
     </main>

@@ -174,7 +174,7 @@ main button:hover{
 .products-container .card .card-details .card-shop{
      padding: 10px;
      margin-top: 20px;
-     background: #0066BB;
+     background: var(--secundario);
      border-radius: 10px;
      font-weight: 500;
      font-size: 24px;
@@ -262,6 +262,10 @@ main button:hover{
 }
 
 @media screen and (max-width: 1400px) {
+     main{
+          margin-top: 40px;
+     }
+
      .products-container{
           grid-template-columns: repeat(3, 1fr);
      }
