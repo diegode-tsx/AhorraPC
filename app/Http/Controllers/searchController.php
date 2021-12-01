@@ -49,25 +49,74 @@ class searchController extends Controller
         $mercLibreProductos=file_get_html('https://listado.mercadolibre.com.mx/'.$search3);
         $amazonProductos=file_get_html($amz_query);
         //llama la funcion si utilizas algun scrapeo como abajo
-        
+        $arrayproductos= [];
         $PcMig = $this->getProductosPcMig($pcMigProductos);
-        
+        foreach($PcMig as $indice => $producto){
+            if($indice<5){
+                array_push($arrayproductos, $producto);
+            }else{
+                break;
+            }
+        }
+
+
         $amazon = $this->getProductosAmazon($amazonProductos);
-        
+        foreach($amazon as $indice => $producto){
+            if($indice<5){
+                array_push($arrayproductos, $producto);
+            }else{
+                break;
+            }
+        }
+
+
         $cyberpuerta = $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
+        foreach($cyberpuerta as $indice => $producto){
+            if($indice<5){
+                array_push($arrayproductos, $producto);
+            }else{
+                break;
+            }
+        }
+
+        
         self::$ListProduCyberPuertav2 =$cyberpuerta;
-        
         $mercadolibre = $this->getProductosMercLibre($mercLibreProductos);
+        foreach($mercadolibre as $indice => $producto){
+            if($indice<5){
+                array_push($arrayproductos, $producto);
+            }else{
+                break;
+            }
+        }
 
-       
+
         $ddtech =  $this->getProductosDdTech($ddTechProductos);
+        foreach($ddtech as $indice => $producto){
+            if($indice<5){
+                array_push($arrayproductos, $producto);
+            }else{
+                break;
+            }
+        }
 
-        
+
         $pcCel = $this->getProductosPcel($pcCelProductos);
+        foreach($pcCel as $indice => $producto){
+            if($indice<5){
+                array_push($arrayproductos, $producto);
+            }else{
+                break;
+            }
+        }
 
 
 
 
+
+        $todo = array_merge($PcMig,$amazon,$cyberpuerta,$mercadolibre,$ddtech,$pcCel); // UNO LOS 6 ARRAYS
+        
+            $contador = 5;
         // $xcosa = "Cadena de texto"; Parametro de prueba
         //control de session //cambio de plantilla
         if(Auth::check()){//si el usuario esta logeado usara tal plantilla
@@ -76,7 +125,7 @@ class searchController extends Controller
             $plantilla='defecto';
         }
 
-        return   /* $request->all() */ view('search.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel'), compact('plantilla'));
+        return   /* $request->all() */ view('search.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel','todo','contador','arrayproductos'), compact('plantilla'));
        
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista

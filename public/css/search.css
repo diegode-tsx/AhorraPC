@@ -12,6 +12,21 @@ main{
      font-family: 'Quicksand';
      margin-top: 80px;
 }
+main .head{
+     grid-column-start: 1;
+     grid-column-end: 13;
+     text-align: center;
+}
+
+main h1{
+     font-family: 'Rubik';
+     font-style: normal;
+     font-weight: normal;
+     font-size: 40px;
+     line-height: 47px;
+     color: var(--secundario);
+     margin-bottom: 15px;
+}
 
 /*ESTILOS DEL BANNER*/
 .tab-container{
@@ -51,6 +66,22 @@ main{
      transition: all 0.2s ease-in-out;
 }
 
+.tab-container button.desactive{
+     display: none;
+}
+
+.tab-container a{
+     outline: none;
+     font-size: 22px;
+     color: var(--secundario);
+}
+
+.tab-container a:active{
+     color: var(--primario);
+}
+
+
+
 /*ESTILOS DEL CONTENEDOR DE LOS PRODUCTOS*/
 .products-container{
      grid-column-start: 1;
@@ -69,6 +100,14 @@ main{
      /*display: grid;*/ /*En css solo se accede a la tienda que se desea activar*/
 /* } */
 
+
+
+/* PARA LA SECCION DE PRECIOS BAJOS */
+
+/* #global{
+     display: grid;
+} */
+/*  */
 
 .products-container .card{
      padding: 40px 20px;

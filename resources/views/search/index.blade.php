@@ -17,13 +17,46 @@
 
 @section('content')
     <main>
+        <div class="head">
+            <h1 class="titulo-secundario" id="titulo-pestañas">Tiendas</h1>
+            <h1 class="titulo-secundario" id="titulo-precio">Mejores Precios</h1>
+        </div>
         <div class="tab-container">
-            <button onclick="ActivarPcmig()" class="active">PcMig</button>
-            <button onclick="ActivarCyberpuerta()">CyberPuerta</button>
-            <button onclick="ActivarDdtech()">DDTech</button>
-            <button onclick="ActivarPcel()">pcCel</button>
-            <button onclick="ActivarMercadolibre()">MercadoLibre</button>
-            <button onclick="ActivarAmazon()">Amazon</button>
+            <button onclick="ActivarPcmig()" class="active btn-btn" id="btn">PcMig</button>
+            <button onclick="ActivarCyberpuerta()" class=" btn-btn" id="btn">CyberPuerta</button>
+            <button onclick="ActivarDdtech()" class=" btn-btn" id="btn">DDTech</button>
+            <button onclick="ActivarPcel()" class=" btn-btn" id="btn">pcCel</button>
+            <button onclick="ActivarMercadolibre()" class=" btn-btn" id="btn">MercadoLibre</button>
+            <button onclick="ActivarAmazon()" class=" btn-btn" id="btn">Amazon</button>
+            <a onclick="ActivarMenorPrecio()" href="#" id="btn-menorprecio" id="btn">Ve los productos mas baratos</a>
+            <a href="#" onclick="ActivarPcmig()" class="" id="btn-pestañas" id="btn">Ve los productos por tienda</a>
+        </div>
+        
+        <div class="products-container" id="global">
+            {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
+            {{-- Empieza PcMig --}}
+            @foreach ($arrayproductos as $item)
+            
+            <div class="card" id ="{{ $loop->index }}">
+                <div class="img-card">
+                    <img src="{{$item->imagenLink}}">
+                </div>
+
+                <div class="card-details">
+                    <div class="card-info">
+                        <a href="#"><h3 class="product-name">{{$item->nombre}}</h3></a>
+    
+                        <p class="product-price">{{$item->precio}}</p>
+                    </div>
+    
+                    <div class="card-icons">
+                        <a href="{{$item->LinkCompra}}"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"><i class="fas fa-heart"></i></a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            
         </div>
 
         <div class="products-container" id="pcmig">
@@ -189,7 +222,9 @@
                 </div>
             </div>
             @endforeach
-        </div>  
+        </div>
+        
+        
         {{--<ul class="pagination">
             <li><a href="#" class="prev">< Atrás</a></li>
             <li class="page-number active"><a href="#">1</a></li>

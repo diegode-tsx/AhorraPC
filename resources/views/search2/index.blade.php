@@ -23,7 +23,7 @@
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza CyberPuerta --}}
             
-            @if ($xd)
+            @if ($PcMig->nombre)
                 Hay elemento
             @else
                 No hay
