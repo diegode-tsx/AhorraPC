@@ -147,6 +147,8 @@ class searchController extends Controller
             $linkCompra= "https://www.amazon.com.mx".$linkCompra;
             $preciopar=explode("$",$precio);
             $precio=$preciopar[1];
+            $precio=str_replace(',', '', $precio);
+            $precio=str_replace('$', '', $precio);
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
             array_push($ListProductos,$ProductoObte);
         }
@@ -182,6 +184,8 @@ class searchController extends Controller
             $precioProducto = $caracteristicas->find('div[class="product-price"]',0)->find('span',0)->plaintext;
             $linkCompra=$caracteristicas->find('h3',0)->find('a',0)->attr['href'];
             /*$linkImagen=$element->find('div[class="image"]',0)->find('a',0)->find('img',0)->src;*/
+            $precioProducto=str_replace(',', '', $precioProducto);
+            $precioProducto=str_replace('$', '', $precioProducto);
             $linkImagen = 'img/box.png';
             $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$linkImagen,$linkCompra);
             array_push($ListProductos,$ProductoObte);
@@ -200,6 +204,8 @@ class searchController extends Controller
             $precio = $element->find('div[class="price-box"]',0)->plaintext;
             /*$linkImagen = $element->find('div[class="product-image"]',0)->find('img',0)->src;*/
             $linkImagen = 'img/box.png';
+            $precio=trim($precio,'&#36;');
+            $precio=str_replace(',', '', $precio);
             $linkCompra = $element->find('h2[class="product-name]',0)->find('a',0)->href;
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
             array_push($ListProductos,$ProductoObte);
@@ -217,7 +223,8 @@ class searchController extends Controller
             $linkImg=$element->find('div[class="catSlider"]',0)->attr['data-cp-prod-slider'];
             $price=$element->find('label[class="price"]',0)->plaintext;
             $linkCompra=$element->find('div[class="emproduct_left"]',0)->find('a',0)->attr['href'];
-
+            $price=str_replace(',', '', $price);
+            $price=str_replace('$', '', $price);
             $linkCompra=$element->find('[class="emproduct_left"]',0)->find('a',0)->attr['href'];
             $linkCyberpuerta="https://www.cyberpuerta.mx/img/product/S/";
             $LinkpartsImg=explode("https",$linkImg);
@@ -253,6 +260,8 @@ public function getProductosPcel($productos2)
                 $preciopar=explode(" ",$precioProducto);
                 $precioProducto=$preciopar[1];
             }
+            $precioProducto=str_replace(',', '', $precioProducto);
+            $precioProducto=str_replace('$', '', $precioProducto);
         }else{
             continue;
         }
