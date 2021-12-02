@@ -34,10 +34,11 @@
         
         <div class="products-container" id="global">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
-            {{-- Empieza PcMig --}}
+            
             {{-- @foreach ($resultado as $item)
                 <p>Precio {{$loop->index}}: {{$item->precio}}</p>
             @endforeach --}}
+            {{-- Empieza resultados por precio --}}
             @foreach ($resultado as $item)
             
             <div class="card" id ="{{ $loop->index }}">
@@ -54,7 +55,7 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
-                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','1','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','6','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                     </div>
                 </div>
             </div>
@@ -165,7 +166,7 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
-                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','4','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','6','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                     </div>
                 </div>
             </div>
@@ -177,6 +178,7 @@
         <div class="products-container" id="mercadolibre">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza MercadoLibre --}}
+            
             @foreach ($mercadolibre as $item)
             
             <div class="card">
@@ -202,7 +204,7 @@
             {{---------AQUÍ TERMINA----------}}
         </div>   
 
-
+        
         <div class="products-container" id="amazon">
             @foreach ($amazon as $item)
             

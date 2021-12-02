@@ -149,6 +149,9 @@ class searchController extends Controller
             $precio=$preciopar[1];
             $precio=str_replace(',', '', $precio);
             $precio=str_replace('$', '', $precio);
+            $nombre=str_replace("'", '', $nombre);
+            $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
+            $nombre=str_replace('"', ' ', $nombre);
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
             array_push($ListProductos,$ProductoObte);
         }
@@ -169,6 +172,9 @@ class searchController extends Controller
             $linkImagen=$element->find('div[class="slick-slide slick-active"]',0)->find('img',0)->attr['data-src'];
             $preciopar=explode(" ",$precio);
             $precio=$preciopar[0];
+            $nombre=str_replace("'", '', $nombre);
+            $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
+            $nombre=str_replace('"', ' ', $nombre);
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
             array_push($ListProductos,$ProductoObte);
         }
@@ -187,6 +193,9 @@ class searchController extends Controller
             $precioProducto=str_replace(',', '', $precioProducto);
             $precioProducto=str_replace('$', '', $precioProducto);
             $linkImagen = 'img/box.png';
+            $nombreProducto=str_replace("'", '', $nombreProducto);
+            $nombreProducto= preg_replace("/[\r\n|\n|\r]+/", " ", $nombreProducto);
+            $nombreProducto=str_replace('"', ' ', $nombreProducto);
             $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$linkImagen,$linkCompra);
             array_push($ListProductos,$ProductoObte);
         }
@@ -206,6 +215,9 @@ class searchController extends Controller
             $linkImagen = 'img/box.png';
             $precio=trim($precio,'&#36;');
             $precio=str_replace(',', '', $precio);
+            $nombre=str_replace("'", '', $nombre);
+            $nombre=str_replace('"', ' ', $nombre);
+            $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
             $linkCompra = $element->find('h2[class="product-name]',0)->find('a',0)->href;
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
             array_push($ListProductos,$ProductoObte);
@@ -236,7 +248,9 @@ class searchController extends Controller
             $linkImgCom = str_replace('&quot;,&quot;', '', $linkImgCom);
             $linkImgCom = str_replace('&quot;', '', $linkImgCom);
             $linkImgCom = str_replace(',', '', $linkImgCom);
-
+            $nombre=str_replace("'", '', $nombre);
+            $nombre=str_replace('"', ' ', $nombre);
+            $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
             $ProductoObte=new ProductoClass($nombre,$price,$linkImgCom,$linkCompra);
             array_push($ListProductos,$ProductoObte);
         }
@@ -262,6 +276,10 @@ public function getProductosPcel($productos2)
             }
             $precioProducto=str_replace(',', '', $precioProducto);
             $precioProducto=str_replace('$', '', $precioProducto);
+            $nombreProducto=str_replace('"', ' ', $nombreProducto);
+            $nombreProducto=str_replace("'", '', $nombreProducto);
+            //$nombreProducto=str_replace(",", '', $nombreProducto);
+            $nombreProducto= preg_replace("/[\r\n|\n|\r]+/", " ", $nombreProducto);
         }else{
             continue;
         }
