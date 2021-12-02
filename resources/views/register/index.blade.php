@@ -59,10 +59,14 @@
         </form>
     </main>
 
-    <form method="POST">
-        @csrf
-        <input type="text" placeholder="Ingresa tu codigo" name="token">
-        <br>
-        <input type="submit" name="register">
-    </form>
+    <div class="verificacion-background">
+        <form method="POST" class="verificacion-email">
+            <h2>Ingresa el código enviado a tu correo </h2>
+            @csrf
+            <div class="input">
+                <input type="text" placeholder="Código" name="token">
+            </div>
+            <input type="submit" name="register">
+        </form>
+    </div>  
 @endsection

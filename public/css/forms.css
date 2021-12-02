@@ -174,6 +174,76 @@ strong.error + .espaciado{
 }
 /*-----------------------------------------*/
 
+.verificacion-background{
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 1;
+     width: 100%;
+     height: 100%;
+     overflow: auto;
+     overflow: auto;
+     background-color: rgba(0,0,0,0.4);
+}
+
+.verificacion-email{
+     border-radius: 15px;
+     position: relative;
+     background: #fff;
+     color: var(--secundario);
+     text-align: center;
+     width: 40%;
+     margin: 10% auto;
+     padding: 30px;
+}
+
+.verificacion-email input[type="text"]{
+     width: 50%;
+     background: none;
+     outline: none;
+     border: none;
+
+     padding: 15px 10px;
+     margin-top: 20px;
+     border: 2px solid var(--negro);
+     border-radius: 10px;
+     background: var(--blanco);
+
+     font-weight: 700;
+     
+     color: var(--negro);
+}
+
+.verificacion-email input[type="text"]:focus{
+     border: 2px solid var(--primario);
+     transition: all ease 0.2s;
+}
+
+.verificacion-email input[type="text"]::placeholder{
+     font-weight: 500;
+     color: var(--gris);
+}
+
+.verificacion-email input[type="submit"]{
+     background: none;
+     outline: none;
+     border: none;
+     cursor: pointer;
+
+     padding: 10px 50px;
+     margin-top: 20px;
+     border-radius: 8px;
+     background: var(--negro);
+     
+     color: var(--blanco);
+}
+
+.verificacion-email input[type="submit"]:hover{
+     background: var(--primario);
+     transition: all ease 0.2s;
+}
+
+
 @media screen and (max-width: 1400px) {
      .form{
           width: 30%;
@@ -201,6 +271,10 @@ strong.error + .espaciado{
 
      .form .sign-in-out{
           margin-top: 25px;
+     }
+
+     .verificacion-email input[type="text"]{
+          padding: 10px;
      }
 }
 
