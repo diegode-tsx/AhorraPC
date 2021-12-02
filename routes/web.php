@@ -32,6 +32,7 @@ Route::get('/', homeController::class)->name('home');
 Route::get('/about', [aboutController::class,'index'])->name('about');
 
 Route::get('/favorite', [favoriteController::class,'index'])->Middleware('auth')->name('favorite');
+Route::post('/favorite/eliminar', [favoriteController::class,'eliminar'])->Middleware('auth')->name('favorite.eliminar');
 
 Route::get('/settings', [settingController::class,'index'])->Middleware('auth')->name('settings');
 Route::post('/settings', [settingController::class,'store'])->name('settings.store');

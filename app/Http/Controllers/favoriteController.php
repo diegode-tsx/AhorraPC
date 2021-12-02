@@ -38,4 +38,15 @@ class favoriteController extends Controller
 
         return view('favorite.index', compact('plantilla', 'favProduct'));
     }
+
+
+    function eliminar(Request $request)
+    {
+        $nomProducto=$request->nomProduct;
+        $idUser=Auth::user()->id;
+        $precio=$request->precio;
+        $linkCompra=$request->linkCompra;
+        $linkImagen=$request->linkImagen;
+    }
+
 }
