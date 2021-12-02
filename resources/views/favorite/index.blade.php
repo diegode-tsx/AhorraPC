@@ -237,7 +237,7 @@
 
         <div class="d-flex justify-content-center">
             {{$favProduct->links()}}
-        </div>
+        </div>c
     </main>
 
     <script>

@@ -61,7 +61,7 @@
 
     <div class="verificacion-background">
         <form method="POST" class="verificacion-email">
-            <h2>Ingresa el código enviado a tu correo </h2>
+            <h2 class="titulo-secundario" style="color: var(--negro);">Ingresa el código enviado a tu correo </h2>
             @csrf
             <div class="input">
                 <input type="text" placeholder="Código" name="token">
