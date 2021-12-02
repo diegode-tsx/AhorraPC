@@ -16,13 +16,26 @@ class favoriteController extends Controller
         }else{
             $plantilla='defecto';
         }
+
+        $pages=10;
         $idUser = Auth::user()->id;
+        $countFavs = DB::table('favorites')->where('idUser','=',$idUser)->get();
+        if(isset($countFavs->first()->nomProduct)){
+            $cant = $countFavs->count();
+        
+        if($cant < 10){
+            $pages = 1;
+        }
+        }
+
+
+        
         $favProduct = DB::table('favorites')
         ->join('pages', 'pages.idPage','=', 'favorites.idPage')
         ->select('*')
         ->where('idUser','=',$idUser)
-        ->paginate(10);
-        
+        ->paginate($pages);
+
         return view('favorite.index', compact('plantilla', 'favProduct'));
     }
 }
