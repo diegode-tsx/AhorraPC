@@ -19,10 +19,10 @@ main h1{
 
 /*ESTILOS DEL BANNER*/
 .tab-container{
-     grid-column-start: 1;
-     grid-column-end: 13;
+     grid-column: 1/-1;
 
      display: flex;
+     flex-wrap: wrap;
      justify-content: space-between;
      gap: 20px;
      margin-top: 25px;
@@ -72,8 +72,7 @@ main h1{
 
 /*ESTILOS DEL CONTENEDOR DE LOS PRODUCTOS*/
 .products-container{
-     grid-column-start: 1;
-     grid-column-end: 13;
+     grid-column: 1/-1;
 
      display: grid;
      grid-template-columns: repeat(4, 1fr);
@@ -183,5 +182,15 @@ a:hover{
 
      .products-container{
           grid-template-columns: repeat(3, 1fr);
+     }
+}
+
+@media screen and (max-width: 600px) {
+     .tab-container button{
+          padding: 10px;
+     }
+
+     .products-container{
+          grid-template-columns: repeat(1, 1fr);
      }
 }
