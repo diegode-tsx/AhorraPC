@@ -193,4 +193,28 @@ a:hover{
      .products-container{
           grid-template-columns: repeat(1, 1fr);
      }
+
+     @media not all and (min-resolution:.001dpcm) { 
+          @supports (-webkit-appearance: none) {
+               .tab-container{
+                    gap: 0;
+               }
+          
+               .tab-container button{
+                    margin-bottom: 20px;
+               }
+          
+               .tab-container button:nth-child(odd){
+                    margin-right: 10px;
+               }
+          
+               .tab-container button:nth-child(even){
+                    margin-left: 10px;
+               }
+          
+               .tab-container button:nth-last-child(-n+2){
+                    margin-bottom: 0;
+               }
+          }
+     }
 }
