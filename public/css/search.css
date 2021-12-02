@@ -187,35 +187,40 @@ a:hover{
 }
 
 @media screen and (max-width: 600px) {
+     main{
+          margin-top: 30px;
+     }
+
      .tab-container button{
           padding: 10px;
      }
 
      .products-container{
+          margin-top: 30px;
           grid-template-columns: repeat(1, 1fr);
      }
+}
 
-     @media not all and (min-resolution:.001dpcm) { 
-          @supports (-webkit-appearance: none) {
-               .tab-container{
-                    gap: 0;
-               }
-          
-               .tab-container button{
-                    margin-bottom: 20px;
-               }
-          
-               .tab-container button:nth-child(odd){
-                    margin-right: 10px;
-               }
-          
-               .tab-container button:nth-child(even){
-                    margin-left: 10px;
-               }
-          
-               .tab-container button:nth-last-child(-n+2){
-                    margin-bottom: 0;
-               }
+@media not all and (min-resolution:.001dpcm) { 
+     @supports (-webkit-appearance: none) {
+          .tab-container{
+               gap: 0;
+          }
+     
+          .tab-container button{
+               margin-bottom: 20px;
+          }
+     
+          .tab-container button:nth-child(odd){
+               margin-right: 10px;
+          }
+     
+          .tab-container button:nth-child(even){
+               margin-left: 10px;
+          }
+     
+          .tab-container button:nth-last-child(-n+2){
+               margin-bottom: 0;
           }
      }
 }
