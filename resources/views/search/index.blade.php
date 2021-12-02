@@ -35,10 +35,10 @@
         <div class="products-container" id="global">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PcMig --}}
-            @foreach ($resultado as $item)
+            {{-- @foreach ($resultado as $item)
                 <p>Precio {{$loop->index}}: {{$item->precio}}</p>
-            @endforeach
-            @foreach ($arrayproductos as $item)
+            @endforeach --}}
+            @foreach ($resultado as $item)
             
             <div class="card" id ="{{ $loop->index }}">
                 <div class="img-card">
@@ -49,7 +49,7 @@
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price txt-tiny">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -76,7 +76,7 @@
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price txt-tiny">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -104,7 +104,7 @@
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price txt-tiny">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -132,7 +132,7 @@
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price txt-tiny">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -160,7 +160,7 @@
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price txt-tiny">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -188,7 +188,7 @@
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price txt-tiny">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -215,7 +215,7 @@
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
     
-                        <p class="product-price txt-tiny">{{$item->precio}}</p>
+                        <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">

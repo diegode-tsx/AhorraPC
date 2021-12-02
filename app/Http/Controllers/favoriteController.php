@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class favoriteController extends Controller
 {
@@ -14,6 +16,13 @@ class favoriteController extends Controller
         }else{
             $plantilla='defecto';
         }
-        return view('favorite.index', compact('plantilla'));
+        $idUser = Auth::user()->id;
+        $favProduct = DB::table('favorites')
+        ->join('pages', 'pages.idPage','=', 'favorites.idPage')
+        ->select('*')
+        ->where('idUser','=',$idUser)
+        ->paginate(10);
+        
+        return view('favorite.index', compact('plantilla', 'favProduct'));
     }
 }
