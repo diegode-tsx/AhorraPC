@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSetting;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
 
 class settingController extends Controller
 {
@@ -37,8 +39,8 @@ class settingController extends Controller
 
     function store(StoreSetting $request){
 
+        DB::table('favorites')->where()->get();
 
-        
         $password = $_POST['actual-password'];
         $newpassword = $_POST['new_password'];
         $userpass = Auth::user()->getAuthPassword();

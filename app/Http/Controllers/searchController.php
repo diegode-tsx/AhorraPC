@@ -10,6 +10,7 @@ use App\MyClasses\ProductoClass;
 use Exception;
 use Goutte\Client;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class searchController extends Controller
 {
@@ -277,12 +278,26 @@ public function array_sort_by($arrIni, $col, $order = "SORT_ASC")
 
 public function AddFavorite(Request $request)
 {
+
+    
+
     $nomProducto=$request->nomProduct;
     $idUser=Auth::user()->id;
     $precio=$request->precio;
     $idPage = $request->tienda;
     $linkCompra=$request->linkCompra;
     $linkImagen=$request->linkImagen;
+
+    $verify = DB::table('favorites')->where('nomProducto','=',$nomProducto)->select('nomProducto')->get();
+    if(isset($verify->first()->nomProducto)){
+
+        $nomP = $verify->first()->nomProducto;
+        DB::table('favorites')->where('nomProducto','=',$nomP)->delete();
+        return response()->json(['delete'=>'Producto eliminado de favoritos']);
+        
+    }
+
+
     $favorito = new Favorite();
 
     $favorito->idPage=$idPage;
