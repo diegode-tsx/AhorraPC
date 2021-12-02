@@ -36,7 +36,7 @@
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PcMig --}}
             @foreach ($resultado as $item)
-                {{$item->precio}}
+                <p>Precio {{$loop->index}}: {{$item->precio}}</p>
             @endforeach
             @foreach ($arrayproductos as $item)
             
