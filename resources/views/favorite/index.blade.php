@@ -239,7 +239,7 @@
             {{$favProduct->links()}}
         </div>c
     </main>
-
+    <script src="{{asset('scripts/scriptConsulta.js')}}"></script>
     <script>
         var modal = document.getElementById("modal");
         var open = document.getElementById("cotizar");
