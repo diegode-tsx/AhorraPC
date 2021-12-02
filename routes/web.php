@@ -46,7 +46,7 @@ Route::get('/logout', [loginController::class, 'destroy'])->middleware('auth')->
 
 Route::post('/search',[searchController::class,'index'])->name('search');
 Route::get('/search2',[searchController::class,'viewSearch2'])->name('search2');
-
+Route::post('/search/addFavorite',[searchController::class,'AddFavorite'])->name('search.addFavorite');
 /*Route::get('/recovery', function(){
     Mail::to('chato4010@gmail.com')->send(new RecoveryMailable());
     return "Mensaje enviado";
