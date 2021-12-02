@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 require 'simple_html_dom.php';
 //use Facade\FlareClient\Http\Client;
-
-use App\Models\Favorite;
 use Illuminate\Http\Request;
 use App\MyClasses\ProductoClass;
 use Exception;
@@ -273,28 +271,6 @@ public function array_sort_by($arrIni, $col, $order = "SORT_ASC")
     array_multisort($arrAux, $order, $arrIni);
     return $arrIni;
 }
-
-public function AddFavorite(Request $request)
-{
-    $nomProducto=$request->nomProduct;
-    $idUser=Auth::user()->id;
-    $precio=$request->precio;
-    $idPage = $request->tienda;
-    $linkCompra=$request->linkCompra;
-    $linkImagen=$request->linkImagen;
-    $favorito = new Favorite();
-
-    $favorito->idPage=$idPage;
-    $favorito->idUser=$idUser;
-    $favorito->nomProducto=$nomProducto;
-    $favorito->price=$precio;
-    $favorito->url_page=$linkCompra;
-    $favorito->url_image=$linkImagen;
-    $favorito->save();
-    
-    return back();//response()->json(['success'=>'Producto agregado a favoritos']);
-}
-
 
 
 }
