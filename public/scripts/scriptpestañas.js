@@ -200,8 +200,10 @@ function add_to_favorites(precio,nomProduct,linkImagen,linkCompra,tienda, token,
 		success: function(data) {
 			if (data.success) {
 				console.log("Se agrego a favoritos");
+				console.log(data.json);
 			}else{
 				console.log("No se agrego a favoritos");
+				console.log(data.json);
 			}
 		}
 
