@@ -81,7 +81,7 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','1','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','2','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','3','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                     </div>
                 </div>
             </div>
@@ -165,7 +165,7 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','4','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                     </div>
                 </div>
             </div>
@@ -193,7 +193,7 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','5','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                     </div>
                 </div>
             </div>
@@ -220,7 +220,7 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','6','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                     </div>
                 </div>
             </div>
