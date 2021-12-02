@@ -35,6 +35,9 @@
         <div class="products-container" id="global">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PcMig --}}
+            @foreach ($resultado as $item)
+                {{$item->precio}}
+            @endforeach
             @foreach ($arrayproductos as $item)
             
             <div class="card" id ="{{ $loop->index }}">

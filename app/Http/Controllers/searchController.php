@@ -50,6 +50,7 @@ class searchController extends Controller
         $amazonProductos=file_get_html($amz_query);
         //llama la funcion si utilizas algun scrapeo como abajo
         $arrayproductos= [];
+        $resultado = [];
         $PcMig = $this->getProductosPcMig($pcMigProductos);
         foreach($PcMig as $indice => $producto){
             if($indice<5){
@@ -70,7 +71,9 @@ class searchController extends Controller
         }
 
 
-        $cyberpuerta = $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
+        $cyberpuertav1 = $this->getProductosCyberpuerta(1,$cyberpuertaProductos);
+        $cyberpuertav2 = $this->getProductosCyberpuerta(3,$cyberpuertaProductos);
+        $cyberpuerta = array_merge($cyberpuertav1, $cyberpuertav2);
         foreach($cyberpuerta as $indice => $producto){
             if($indice<5){
                 array_push($arrayproductos, $producto);
@@ -110,9 +113,7 @@ class searchController extends Controller
             }
         }
 
-
-
-
+        $resultado = $this->array_sort_by($arrayproductos, 'precio', $order = SORT_ASC);
 
         $todo = array_merge($PcMig,$amazon,$cyberpuerta,$mercadolibre,$ddtech,$pcCel); // UNO LOS 6 ARRAYS
         
@@ -125,7 +126,7 @@ class searchController extends Controller
             $plantilla='defecto';
         }
 
-        return   /* $request->all() */ view('search.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel','todo','contador','arrayproductos'), compact('plantilla'));
+        return   /* $request->all() */ view('search.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel','todo','contador','arrayproductos','resultado'), compact('plantilla'));
        
         
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
@@ -258,5 +259,18 @@ public function getProductosPcel($productos2)
     return $ListProductos;
 
 }
+
+public function array_sort_by($arrIni, $col, $order = "SORT_ASC")
+{
+    $arrAux = array();
+    foreach ($arrIni as $key=> $row)
+    {
+        $arrAux[$key] = is_object($row) ? $arrAux[$key] = $row->$col : $row[$col];
+        $arrAux[$key] = strtolower($arrAux[$key]);
+    }
+    array_multisort($arrAux, $order, $arrIni);
+    return $arrIni;
+}
+
 
 }
