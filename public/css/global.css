@@ -91,6 +91,21 @@ main{
 }
 
 @media screen and (max-width: 600px) {
+     .titulo-principal{
+          font-size: 28px;
+          line-height: 33px;
+     }
+
+     .titulo-secundario{
+          font-size: 24px;
+          line-height: 28px;
+     }
+
+     .titulo-terciario{
+          font-size: 18px;
+          line-height: 22px;
+     }
+     
      body{
           grid-template-columns: repeat(4, 1fr);
           margin: 0 16px;

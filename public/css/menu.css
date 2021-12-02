@@ -54,16 +54,29 @@ header .logo img{
      header{
           grid-template-columns: repeat(4, 1fr);
           text-align: center;
-          margin-top: 15px;
+          margin-top: 0;
      }
 
      header .logo{
+          max-width: 150px;
           margin: 0 auto;
-          margin-bottom: 15px;
+          margin-bottom: 0;
+          padding: 10px 0;
           grid-column: 1/-1;
      }
      
      .menu{
+          padding: 10px;
+          margin: 0 -16px;
+          background: var(--secundario);
           grid-column: 1/-1;
-     }    
+     }
+     
+     .menu a{
+          color: var(--blanco) !important;
+     }
+     
+     .menu a:first-child{
+          margin-left: 0;
+     }
 }

@@ -115,12 +115,6 @@ main button:hover{
      color: var(--primario);
 }
 
-.products-container .card .card-details .card-icons a:hover .fa-heart{
-     transition: all ease 0.2s;
-     color: var(--secundario);
-     -webkit-text-stroke: 2px var(--secundario);
-}
-
 /*ESTILOS DEL CHECKBOX*/
 .checkbox{
      display: inline-block;
@@ -283,8 +277,27 @@ main button:hover{
 }
 
 @media screen and (max-width: 600px) {
+     main{
+          margin-top: 30px;
+     }
+
      .products-container{
           display: block;
+          margin-top: 30px;
+     }
+
+     .products-container .card{
+          padding: 20px 10px;
+     }
+
+     .products-container .card .card-details .card-icons i{
+          font-size: 22px;
+          line-height: 22px;
+     }
+
+     .checkbox label .checkbox-box{
+          width: 1.4em;
+          height: 1.4em;
      }
 
      .modal-content{
