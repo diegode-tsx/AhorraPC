@@ -30,35 +30,34 @@
                 </div>
                 <form method="POST">
                     @csrf
+                    @if(session('fail'))
+                        <strong class="error txt-tiny">{{session('fail')}}</strong>
+                    @endif
+                    @if ($errors->has('password'))
+                        <span class="error txt-tiny">{{$errors->first('password')}}</span>
+                    @endif
                     <div class="input">
-                        
                         <input type="password" name="actual-password" placeholder="Contraseña actual" class="txt-tiny" required autofocus>
                         <i class="fas fa-key"></i>
-                        @if(session('fail'))
-            <strong class="error">{{session('fail')}}</strong>
-        @endif
-                        @if ($errors->has('password'))
-                        <span class="error">{{$errors->first('password')}}</span>
-                @endif
                     </div>
+
+                    @error('new_password')
+                        <strong class="error txt-tiny">{{$message}}</strong>
+                    @enderror
                     <div class="input">
-                        
                         <input type="password" name="new_password" placeholder="Contraseña nueva" class="txt-tiny" required>
                         <i class="fas fa-lock"></i>
-                        @error('new_password')
-                         <strong>{{$message}}</strong>
-                         @enderror
                     </div>
+
                     <div class="input">
                         <input type="password" name="new_password_confirmation" placeholder="Repetir contraseña" class="txt-tiny" required>
                         <i class="fas fa-lock"></i>
                     </div>
-                    <input type="submit" value="Cambiar" class="txt-normal">
+
                     @if(session('success'))
-                    <strong class="error">{{session('success')}}</strong>
-                     @endif
-        
-                    
+                        <strong class="error txt-tiny">{{session('success')}}</strong>
+                    @endif
+                    <input type="submit" value="Cambiar" class="txt-normal">
                 </form>
             </div>
 

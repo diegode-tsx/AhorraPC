@@ -1,9 +1,5 @@
-@import url("global.css");
-
 main{
      margin-top: 80px;
-     grid-column-start: 1;
-     grid-column-end: 13;
 }
 
 main h1{
@@ -29,6 +25,10 @@ main h1{
      color: var(--primario);
 }
 
+.content form{
+     width: 15%;
+}
+
 /*ESTILOS DE LOS INPUTS*/
 .content .change-pass .input{
      position: relative;
@@ -36,7 +36,7 @@ main h1{
 }
 
 .content .change-pass .input input[type="password"]{
-     width: 15%;
+     width: 100%;
      background: none;
      outline: none;
      border: none;
@@ -84,7 +84,7 @@ main h1{
      border: none;
      cursor: pointer;
 
-     width: 15%;
+     width: 100%;
      padding: 10px 50px;
      border-radius: 8px;
      background: var(--negro);
@@ -147,19 +147,43 @@ main h1{
      color: var(--primario);
 }
 
+.error{
+     display: block;
+     text-align: left;
+     color: #FD151B;
+     margin-bottom: 5px;
+}
+
 @media screen and (max-width: 1400px) {
      main{
           margin-top: 40px;
      }
 
-     .content .change-pass .input input[type="password"]{
+     .content form{
           width: 20%;
-          padding: 10px;
-          padding-left: 38px;
-          margin-right: 15px;
      }
 
-     .content .change-pass input[type="submit"]{
-          width: 20%;
+     .content .change-pass .input input[type="password"]{
+          padding: 10px;
+          padding-left: 38px;
+     }
+}
+
+@media screen and (max-width: 600px) {
+     .content{
+          text-align: center;
+     }
+
+     .content form{
+          width: 80%;
+          margin: 0 auto;
+     }
+
+     .content .notification .checkbox label{
+          text-align: left;
+     }
+
+     .content .notification .checkbox label .checkbox-box{
+          margin-left: 10px;
      }
 }

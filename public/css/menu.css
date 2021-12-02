@@ -1,8 +1,5 @@
-@import url("global.css");
-
 header{
-     grid-column-start: 1;
-     grid-column-end: 13;
+     grid-column: 1/-1;
 
      display: grid;
      grid-template-columns: repeat(12, 1fr);
@@ -53,6 +50,20 @@ header .logo img{
      text-align: center;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 600px) {
+     header{
+          grid-template-columns: repeat(4, 1fr);
+          text-align: center;
+          margin-top: 15px;
+     }
+
+     header .logo{
+          margin: 0 auto;
+          margin-bottom: 15px;
+          grid-column: 1/-1;
+     }
      
+     .menu{
+          grid-column: 1/-1;
+     }    
 }

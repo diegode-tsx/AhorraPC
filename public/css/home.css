@@ -1,5 +1,3 @@
-@import url("global.css");
-
 #pantalla_carga{
      background: url(../img/piggy.svg);
      background-position: center;
@@ -28,8 +26,8 @@ footer{
 }
 
 main{
-     grid-column-start: 4;
-     grid-column-end: 10;
+     grid-column-start: 4 !important;
+     grid-column-end: 10 !important;
      display: flex;
      flex-direction: column;
      height: 100%;
@@ -150,4 +148,8 @@ main h1{
           padding: 10px 10px;
           padding-left: 40px;
      }
+}
+
+@media screen and (max-width: 600px) {
+     
 }

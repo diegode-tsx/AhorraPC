@@ -1,15 +1,9 @@
-@import url("global.css");
-
 main{
-     grid-column-start: 1;
-     grid-column-end: 13;
-
      display: grid;
      grid-template-columns: repeat(12, 1fr);
      grid-template-rows: auto 1fr;
      height: fit-content;
      column-gap: 20px;
-     font-family: 'Quicksand';
      margin-top: 80px;
 }
 
@@ -208,8 +202,8 @@ main button:hover{
 
 .fa-times{
      position: absolute;
-     top: 5%;
-     right: 5%;
+     top: 2%;
+     right: 3%;
      font-size: 30px;
      cursor: pointer;
 }
@@ -285,5 +279,15 @@ main button:hover{
 
      .products-container .card .card-details .card-shop{
           margin-top: 10px;
+     }
+}
+
+@media screen and (max-width: 600px) {
+     .products-container{
+          display: block;
+     }
+
+     .modal-content{
+          width: 90%;
      }
 }

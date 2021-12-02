@@ -1,14 +1,8 @@
-@import url("global.css");
-
 .menu, footer{
      display: none !important;
 }
 
 main{
-     grid-column-start: 1;
-     grid-column-end: 13;
-     font-family: 'Quicksand';
-
      display: flex;
      justify-content: center;
      align-items: center;
@@ -169,6 +163,7 @@ strong.error + .espaciado{
 
 .text{
      margin-top: 30px;
+     text-align: left;
 }
 
 .text a{
@@ -206,5 +201,16 @@ strong.error + .espaciado{
 
      .form .sign-in-out{
           margin-top: 25px;
+     }
+}
+
+@media screen and (max-width: 600px) {
+     .logo{
+          grid-column: 1/-1 !important;
+          justify-self: center;
+     }
+     
+     .form{
+          width: 100%;
      }
 }

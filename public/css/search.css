@@ -1,9 +1,4 @@
-@import url("global.css");
-
 main{
-     grid-column-start: 1;
-     grid-column-end: 13;
-
      display: grid;
      grid-template-columns: repeat(12, 1fr);
      grid-template-rows: auto 1fr;
