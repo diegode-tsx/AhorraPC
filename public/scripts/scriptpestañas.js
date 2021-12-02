@@ -201,7 +201,7 @@ function add_to_favorites(precio,nomProduct,linkImagen,linkCompra,tienda, token,
 			if (data.success) {
 				console.log("Se agrego a favoritos");
 			}else{
-				
+				console.log("No se agrego a favoritos");
 			}
 		}
 

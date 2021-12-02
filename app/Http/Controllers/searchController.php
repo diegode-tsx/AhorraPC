@@ -293,7 +293,7 @@ public function AddFavorite(Request $request)
     $favorito->url_image=$linkImagen;
     $favorito->save();
     
-    return back();//response()->json(['success'=>'Producto agregado a favoritos']);
+    return response()->json(['success'=>'Producto agregado a favoritos']);
 }
 
 
