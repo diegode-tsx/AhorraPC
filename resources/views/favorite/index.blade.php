@@ -30,14 +30,14 @@
             @foreach ($favProduct as $item)
                 
             
-            <div class="card">
+            <div class="card" id ="{{ $loop->iteration }}">
                 <div class="img-card">
-                    <img src="{{$item->url_image}}" alt="">    <!--{{asset('img/ram.jpg')}}-->
+                    <img src="{{$item->url_image}}" alt="" tag="img">    <!--{{asset('img/ram.jpg')}}-->
                 </div>
 
                 <div class="card-details">
                     <div class="card-info">
-                        <a href="{{$item->url_page}}"><h3 class="product-name txt-tiny">{{$item->nomProducto}}</h3></a>
+                        <a href="{{$item->url_page}}"><h3 id="nombreProducto" class="product-name txt-tiny">{{$item->nomProducto}}</h3></a>
     
                         <p class="product-price txt-tiny">{{$item->price}}</p>
                     </div>
@@ -47,7 +47,7 @@
                         <a href="#"><i class="fas fa-heart"></i></a>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox">
+                                <input type="checkbox" name ="CheckboxValidar">
                                 <div class="checkbox-box"></div>
                             </label>
                         </div>
@@ -244,8 +244,28 @@
         var modal = document.getElementById("modal");
         var open = document.getElementById("cotizar");
         var close = document.getElementById("close");
-
+        class Producto {
+            constructor(nombre, precio, imagen, linkCompra) {
+                this.nombre = nombre;
+                this.precio = precio;
+                this.imagen = imagen;
+                this.linkCompra = linkCompra;
+            }
+        }
         open.onclick = function(){
+            const nicknames = document.querySelectorAll('[name="CheckboxValidar"]');
+            var productosColeccion = new Array();
+            for(let i = 0; i < nicknames.length; i++){
+                if(nicknames[i].checked){
+                    divGlobal=nicknames[i].parentNode.parentNode.parentNode.parentNode;
+                    nombre=divGlobal.getElementsByClassName('product-name txt-tiny')[0].innerHTML;
+                    precio = divGlobal.getElementsByClassName('product-price txt-tiny')[0].innerHTML;
+                    linkCompra = divGlobal.getElementsByClassName('card-info')[0].getElementsByTagName('a')[0].getAttribute('href');
+                    img = divGlobal.parentNode.getElementsByClassName('img-card')[0].getElementsByTagName('img')[0].getAttribute('src');
+                    productoSeleccionado = new Producto(nombre, precio, img, linkCompra);
+                    productosColeccion.push(productoSeleccionado);
+                }
+            }
             modal.style.display = "block";
         }
 
