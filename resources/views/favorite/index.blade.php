@@ -44,9 +44,10 @@
     
                     <div class="card-icons">
                         <a href="{{$item->url_page}}"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart"></i></a>
+                        <a href="#"><i class="fas fa-heart" onclick="eliminar_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                         <div class="checkbox">
                             <label>
+                                <a href="#"><i class="far fa-trash"></i></a>
                                 <input type="checkbox" name ="CheckboxValidar">
                                 <div class="checkbox-box"></div>
                             </label>

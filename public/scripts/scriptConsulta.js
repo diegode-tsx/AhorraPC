@@ -1,4 +1,4 @@
-function eliminar_favorites(precio,nomProduct,linkImagen,linkCompra,tienda, token, ruta) {
+function eliminar_favorites(precio,nomProduct,linkImagen,linkCompra, token, ruta) {
 	
 	$.ajax({
 		url: ruta,
@@ -8,7 +8,6 @@ function eliminar_favorites(precio,nomProduct,linkImagen,linkCompra,tienda, toke
 			nomProduct: nomProduct,//
 			linkImagen: linkImagen,
 			linkCompra: linkCompra,
-			tienda: tienda,//
 			_token: token,
 		},
 		success: function(data) {
