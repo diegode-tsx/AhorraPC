@@ -204,17 +204,6 @@
             {{---------AQUÍ TERMINA----------}}
         </div>
 
-        <ul class="pagination">
-            <li><a href="#" class="prev">< Atrás</a></li>
-            <li class="page-number active"><a href="#">1</a></li>
-            <li class="page-number"><a href="#">2</a></li>
-            <li class="page-number"><a href="#">3</a></li>
-            <li class="page-number"><a href="#">4</a></li>
-            <li class="page-number"><a href="#">5</a></li>
-            <li class="page-number"><a href="#">6</a></li>
-            <li><a href="#" class="next">Siguiente ></a></li>
-        </ul>
-
         <div id="modal" class="modal">
             <div class="modal-content">
                 <h2 class="titulo-terciario">Productos</h2>
