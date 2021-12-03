@@ -39,7 +39,7 @@
                     <div class="card-info">
                         <a href="{{$item->url_page}}"><h3 id="nombreProducto" class="product-name txt-tiny">{{$item->nomProducto}}</h3></a>
     
-                        <p class="product-price txt-tiny">${{$item->price}}</p>
+                        <p class="product-price txt-tiny">{{$item->price}}</p>
                     </div>
     
                     <div class="card-icons">
