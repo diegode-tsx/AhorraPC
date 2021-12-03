@@ -50,6 +50,17 @@ header .logo img{
      text-align: center;
 }
 
+
+@media screen and (max-width: 1200px) {
+     header .logo{
+          grid-column-end: 4; 
+     }  
+
+     .menu{
+          grid-column-start: 6;
+     }
+}
+
 @media screen and (max-width: 600px) {
      header{
           grid-template-columns: repeat(4, 1fr);

@@ -1,5 +1,7 @@
 main{
      margin-top: 80px;
+     height: fit-content;
+     align-self: center;
 }
 
 main h1{
@@ -14,7 +16,7 @@ main h1{
 }
 
 .content .title{
-     margin: 50px 0 30px 0;
+     margin: 30px 0 30px 0;
 }
 
 .content .title i{
@@ -154,6 +156,7 @@ main h1{
      margin-bottom: 5px;
 }
 
+
 @media screen and (max-width: 1400px) {
      main{
           margin-top: 40px;
@@ -166,6 +169,21 @@ main h1{
      .content .change-pass .input input[type="password"]{
           padding: 10px;
           padding-left: 38px;
+     }
+}
+
+@media screen and (max-width: 1200px) {
+     .content{
+          text-align: center;
+     }
+
+     .content form{
+          width: 40%;
+          margin: 0 auto;
+     }
+
+     .content .change-pass .input{
+          margin-bottom: 35px;
      }
 }
 

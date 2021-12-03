@@ -76,6 +76,13 @@ footer{
      }
 }
 
+@media screen and (max-width: 1200px) {
+     .features-container{
+          grid-column-start: 2;
+          grid-column-end: 12;
+     }
+}
+
 @media screen and (max-width: 600px) {
      main{
           margin-top: 30px;

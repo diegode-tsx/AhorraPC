@@ -150,6 +150,13 @@ main h1{
      }
 }
 
+@media screen and (max-width: 1200px) {
+     main{
+          grid-column-start: 2 !important;
+          grid-column-end: 12 !important;
+     }
+}
+
 @media screen and (max-width: 600px) {
      main form input[type="submit"]{
           grid-column-start: 2;

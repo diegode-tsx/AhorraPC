@@ -283,6 +283,17 @@ strong.error + .espaciado{
      }
 }
 
+@media screen and (max-width: 1200px) {
+     .logo{
+          grid-column-start: 4 !important;
+          grid-column-end: 10 !important;
+     }
+
+     .form{
+          width: 60%;
+     }
+}
+
 @media screen and (max-width: 600px) {
      .logo{
           grid-column: 1/-1 !important;

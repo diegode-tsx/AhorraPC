@@ -61,7 +61,7 @@
                 </form>
             </div>
 
-            <div class="notification">
+            {{--<div class="notification">
                 <div class="title">
                     <i class="far fa-bell"></i>
                     <h2 class="titulo-terciario">Notificaciones</h2>
@@ -73,7 +73,7 @@
                         <div class="checkbox-box"></div>
                     </label>
                 </div>
-            </div>
+            </div>--}}
 
             <div class="log-out">
                 <div class="title">

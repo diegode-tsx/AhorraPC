@@ -192,6 +192,12 @@ a:hover{
      }
 }
 
+@media screen and (max-width: 1400px) {
+     .products-container{
+          grid-template-columns: repeat(2, 1fr);
+     }
+}
+
 @media screen and (max-width: 600px) {
      main{
           margin-top: 30px;
