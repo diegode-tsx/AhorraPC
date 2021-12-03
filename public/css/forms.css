@@ -251,15 +251,15 @@ strong.error + .espaciado{
 @media screen and (max-width: 1400px) {
      .form{
           width: 30%;
-          padding: 30px;
+          padding: 25px;
      }
 
      .form .input-group{
-          margin-top: 15px;
+          margin-top: 10px;
      }
 
      .form .input-group .input{
-          margin-bottom: 15px;
+          margin-bottom: 10px;
      }
 
      .form .input-group input[type="text"],
@@ -270,11 +270,11 @@ strong.error + .espaciado{
      }
 
      .form input[type="submit"]{
-          margin-top: 25px;
+          margin-top: 20px;
      }
 
      .form .sign-in-out{
-          margin-top: 25px;
+          margin-top: 20px;
      }
 
      .verificacion-email input[type="text"]{
@@ -296,6 +296,10 @@ strong.error + .espaciado{
 @media screen and (max-width: 800px) {
      .form{
           width: 60%;
+     }
+
+     .verificacion-email{
+          width: 70%;
      }
 }
 

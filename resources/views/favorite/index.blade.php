@@ -52,11 +52,10 @@
                                 <div class="checkbox-box"></div>
                             </label>
                         </div>
-                        <div class="card-shop">
-                            <p class="titulo-terciario">{{$item->nomPagina}}</p>
-                        </div>
                     </div>
-
+                    <div class="card-shop">
+                        <p class="titulo-terciario">{{$item->nomPagina}}</p>
+                    </div>
                 </div>
             </div>
 {{---------AQUÍ TERMINA----------}}
