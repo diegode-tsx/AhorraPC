@@ -72,6 +72,10 @@ main button:hover{
 
 .products-container .card .card-details{
      width: 58%;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
 }
 
 .products-container .card .card-details .card-info a{
@@ -89,6 +93,7 @@ main button:hover{
 
 .products-container .card .card-details .card-icons{
      display: flex;
+     flex-wrap: wrap;
      align-items: center;
      margin-top: 40px;
 }
@@ -161,13 +166,14 @@ main button:hover{
 
 .products-container .card .card-details .card-shop{
      padding: 10px;
-     margin-top: 20px;
+     margin-top: 15px;
      background: var(--secundario);
      border-radius: 10px;
      font-weight: 500;
      font-size: 24px;
      line-height: 30px;
      color: var(--blanco);
+     flex: 1;
 }
 
 /*ESTILOS DE LA VENTANA MODAL*/
@@ -269,10 +275,6 @@ main button:hover{
      .products-container .card .card-details .card-icons i{
           font-size: 26px;
           line-height: 26px;
-     }
-
-     .products-container .card .card-details .card-shop{
-          margin-top: 10px;
      }
 }
 

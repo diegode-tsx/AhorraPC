@@ -3,7 +3,6 @@
 let animado = document.querySelectorAll(".card");
 let conta = [animado.length];
 
-
 function MostrarScroll(){
     let scrollTop = document.documentElement.scrollTop;
     for (var i=0; i<animado.length; i++){
@@ -182,10 +181,7 @@ function ActivarMenorPrecio(){
 	MostrarScroll();
 }
 
-
-
 function add_to_favorites(precio,nomProduct,linkImagen,linkCompra,tienda, token, ruta) {
-	
 	$.ajax({
 		url: ruta,
 		type: "POST",
@@ -201,12 +197,25 @@ function add_to_favorites(precio,nomProduct,linkImagen,linkCompra,tienda, token,
 			if (data.success) {
 				console.log("Se agrego a favoritos");
 				console.log(data.json);
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					html: '<h3 class="titulo-secundario">Producto agregado a favoritos</h1>',
+					showConfirmButton: false,
+					timer: 1000
+				   });
 			}else{
 				console.log("No se agrego a favoritos");
 				console.log(data.json);
+				Swal.fire({
+					position: 'top-end',
+					icon: 'error',
+					html: '<h1 class="titulo-secundario">Producto eliminado de favoritos</h1>',
+					showConfirmButton: false,
+					timer: 1000	
+				   });
 			}
 		}
-
 	});
 }
 

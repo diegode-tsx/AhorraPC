@@ -31,7 +31,7 @@
             <button onclick="ActivarMercadolibre()" class=" btn-btn titulo-terciario" id="btn">MercadoLibre</button>
             <button onclick="ActivarAmazon()" class=" btn-btn titulo-terciario" id="btn">Amazon</button>
         </div>
-        
+        <h2 class="titulo-secundario producto-buscado">Producto buscao</h2>
         <div class="products-container" id="global">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             
@@ -55,7 +55,7 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
-                        <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','6','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        <a class="xd"><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','6','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                     </div>
                 </div>
             </div>
@@ -241,6 +241,6 @@
             <li><a href="#" class="next">Siguiente ></a></li>
         </ul>--}}
         <script src="{{asset('scripts/scriptpestañas.js')}}"></script>
-        
+        <script src="{{ asset('js/app.js') }}"></script>
     </main>
 @endsection

@@ -68,7 +68,13 @@ main h1{
      color: var(--primario);
 }
 
-
+.producto-buscado{
+     grid-column: 1/-1;
+     text-align: center;
+     margin-top: 50px;
+     color: var(--primario);
+     font-weight: 800;
+}
 
 /*ESTILOS DEL CONTENEDOR DE LOS PRODUCTOS*/
 .products-container{
@@ -198,6 +204,10 @@ a:hover{
      .products-container{
           margin-top: 30px;
           grid-template-columns: repeat(1, 1fr);
+     }
+
+     .producto-buscado{
+          margin-top: 30px;
      }
 }
 

@@ -51,7 +51,8 @@
                     <i class="fas fa-key"></i>
                 </div>
             </div>
-            <input type="submit" value="Continuar" name="form_data" class="txt-normal">
+            <input type="submit" value="Continuar" name="form_data" class="txt-normal" style="margin-bottom: 5px;">
+            <input type="submit" value="Ya tengo un código" name="form_data" class="txt-normal" style="margin: 0;">
             <div class="sign-in-out txt-tiny">
                 ¿Ya tienes cuenta?
                 <a href="{{route('login')}}">Inicia sesión</a>
