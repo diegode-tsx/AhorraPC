@@ -39,7 +39,7 @@
                     <div class="card-info">
                         <a href="{{$item->url_page}}"><h3 id="nombreProducto" class="product-name txt-tiny">{{$item->nomProducto}}</h3></a>
     
-                        <p class="product-price txt-tiny">{{$item->price}}</p>
+                        <p class="product-price txt-tiny">${{$item->price}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -113,6 +113,7 @@
                     cantidad = cantidad + parseFloat(productosColeccion[arrprecio][1]);
                 }
                 var conDecimal = cantidad.toFixed(2); 
+                var signoPrecio = "$";
             for(var arreglo in productosColeccion) {
                 var div_card = document.createElement("div");
                 div_card.className = "card card2";
@@ -138,13 +139,14 @@
 
                 var pre_producto = document.createElement("p");
                 pre_producto.className = "product-price txt-tiny";
-                pre_producto.innerHTML = productosColeccion[arreglo][1];
+                pre_producto.innerHTML = signoPrecio + productosColeccion[arreglo][1];
                 div_card_info.appendChild(pre_producto);
             }
+            var signo = "Total: ";
             var total = document.createElement("p");
                 total.className = "total txt-normal total txt-normal2";
                 contenedor.appendChild(total);
-                total.innerHTML = conDecimal;
+                total.innerHTML = signo + signoPrecio+ conDecimal;
         }
 
         close.onclick = function(){
