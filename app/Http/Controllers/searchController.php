@@ -172,7 +172,12 @@ class searchController extends Controller
             $precio=$element->find('div[class="ui-search-item__group ui-search-item__group--price"]',0)->plaintext;
             $linkImagen=$element->find('div[class="slick-slide slick-active"]',0)->find('img',0)->attr['data-src'];
             $preciopar=explode(" ",$precio);
-            $precio=$preciopar[0];
+            if(str_contains($precio, 'Antes:')){
+                $precio=$preciopar[1];
+            }else{
+                $precio=$preciopar[0];
+            }
+            //$precio=$preciopar[0];
             $nombre=str_replace("'", '', $nombre);
             $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
             $nombre=str_replace('"', ' ', $nombre);
@@ -229,6 +234,10 @@ class searchController extends Controller
             $nombre=str_replace("'", '', $nombre);
             $nombre=str_replace('"', ' ', $nombre);
             $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
+            if(str_contains($precio, '&#36;')){
+                $preciopar=explode("&#36;",$precio);
+                $precio=$preciopar[1];
+            }
             $linkCompra = $element->find('h2[class="product-name]',0)->find('a',0)->href;
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra,"1");
             array_push($ListProductos,$ProductoObte);
