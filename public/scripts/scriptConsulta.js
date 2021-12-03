@@ -14,9 +14,23 @@ function eliminar_favorites(precio,nomProduct,linkImagen,linkCompra, token, ruta
 			if (data.success) {
 				console.log("Se agrego a favoritos");
 				console.log(data.json);
+				Swal.fire({
+					position: 'top-end',
+					icon: 'error',
+					html: '<h1 class="titulo-secundario">Producto eliminado de favoritos</h1>',
+					showConfirmButton: false,
+					timer: 1000	
+				   });
 			}else{
 				console.log("No se agrego a favoritos");
 				console.log(data.json);
+				Swal.fire({
+					position: 'top-end',
+					icon: 'error',
+					html: '<h1 class="titulo-secundario">Producto eliminado de favoritos</h1>',
+					showConfirmButton: false,
+					timer: 1000	
+				   });
 			}
 		}
 

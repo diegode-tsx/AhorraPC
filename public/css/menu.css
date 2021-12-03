@@ -61,6 +61,12 @@ header .logo img{
      }
 }
 
+@media screen and (max-width: 800px) {
+     .menu{
+          grid-column-start: 5;
+     }
+}
+
 @media screen and (max-width: 600px) {
      header{
           grid-template-columns: repeat(4, 1fr);
