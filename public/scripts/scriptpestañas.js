@@ -182,6 +182,7 @@ function ActivarMenorPrecio(){
 }
 
 function add_to_favorites(precio,nomProduct,linkImagen,linkCompra,tienda, token, ruta) {
+	
 	$.ajax({
 		url: ruta,
 		type: "POST",
