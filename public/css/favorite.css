@@ -286,6 +286,10 @@ main button:hover{
      .modal-content{
           width: 80%;
      }
+
+     .d-flex{
+          margin-bottom: 15px;
+     }
 }
 
 @media screen and (max-width: 600px) {
@@ -320,7 +324,8 @@ main button:hover{
 
 .d-flex{
      display:-ms-flexbox!important;
-     display:flex!important
+     display:flex!important;
+     grid-column: 1/-1;
 }
 
 .justify-content-center{
@@ -332,40 +337,42 @@ main button:hover{
      display:-ms-flexbox;display:flex;
      padding-left:0;
      list-style:none;
-     border-radius:.25rem
+     font-family: 'Quicksand';
 }
-.page-link{position:relative;
+
+.page-link{
+     margin: 0 auto;
+     position:relative;
+     text-decoration: none;
      display:block;
      padding:.5rem .75rem;
      margin-left:-1px;
      line-height:1.25;
-     color:#007bff;
+     color:var(--negro);
      background-color:#fff;
      border:1px solid #dee2e6}
      .page-link:hover{z-index:2;
-          color:#0056b3;
-          text-decoration:none;
-          background-color:#e9ecef;
-          border-color:#dee2e6}
+          color:var(--terciario);
+          text-decoration:none;}
+          
           .page-link:focus{
                z-index:3;
-               outline:0;
-               box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}
+               outline:0;}
                .page-item:first-child 
                .page-link{
                     margin-left:0;
-                    border-top-left-radius:.25rem;
-                    border-bottom-left-radius:.25rem
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
                }
                .page-item:last-child .page-link
                {
-                    border-top-right-radius:.25rem;
-                    border-bottom-right-radius:.25rem
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
                }
                .page-item.active .page-link{
                     z-index:3;
-                    color:#fff;background-color:#007bff;
-                    border-color:#007bff
+                    color:var(--terciario);background-color:var(--negro);
+                    border-color:var(--negro);
                }
                .page-item.disabled .page-link{color:#6c757d;
                     pointer-events:none;cursor:auto;
@@ -375,19 +382,19 @@ main button:hover{
                .pagination-lg .page-link{
                     padding:.75rem 1.5rem;
                     font-size:1.25rem;
-                    line-height:1.5
+                    line-height:1.5;
                }
                     .pagination-lg .page-item:first-child 
                     .page-link{border-top-left-radius:.3rem;
-                         border-bottom-left-radius:.3rem
+                         border-bottom-left-radius:.3rem;
                     }
                     .pagination-lg 
                     .page-item:last-child .page-link{
                          border-top-right-radius:.3rem;
-                         border-bottom-right-radius:.3rem
+                         border-bottom-right-radius:.3rem;
                     }
                          .pagination-sm .page-link{padding:.25rem .5rem;
-                              font-size:.875rem;line-height:1.5
+                              font-size:.875rem;line-height:1.5;
                          }
                          .pagination-sm 
                          .page-item:first-child 
@@ -396,7 +403,7 @@ main button:hover{
                               border-bottom-left-radius:.2rem}
                               .pagination-sm .page-item:last-child 
                               .page-link{border-top-right-radius:.2rem;
-                                   border-bottom-right-radius:.2rem
+                                   border-bottom-right-radius:.2rem;
                               }
                               .badge{
                                    display:inline-block;
@@ -411,5 +418,5 @@ main button:hover{
                                    transition:color .15s ease-in-out,background-color 
                                    .15s ease-in-out,border-color 
                                    .15s ease-in-out,box-shadow 
-                                   .15s ease-in-out
+                                   .15s ease-in-out;
                               }

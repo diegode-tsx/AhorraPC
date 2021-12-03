@@ -44,10 +44,10 @@
     
                     <div class="card-icons">
                         <a href="{{$item->url_page}}"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="#"><i class="fas fa-heart" onclick="eliminar_favorites('{{$item->price}}','{{$item->nomProducto}}','{{$item->url_image}}','{{$item->url_page}}','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        <a href="#"><i class="fas fa-heart"></i></a>
                         <div class="checkbox">
                             <label>
-                                <a href="#"><i class="far fa-trash"></i></a>
+                                <a href="#"><i class="far fa-trash" onclick="eliminar_favorites('{{$item->price}}','{{$item->nomProducto}}','{{$item->url_image}}','{{$item->url_page}}','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                                 <input type="checkbox" name ="CheckboxValidar">
                                 <div class="checkbox-box"></div>
                             </label>
@@ -80,11 +80,10 @@
                 <i class="fas fa-times" id="close"></i>
             </div>
         </div>
-
-        <div class="d-flex justify-content-center">
-            {{$favProduct->links()}}
-        </div>c
     </main>
+    <div class="d-flex justify-content-center">
+        {{$favProduct->links()}}
+    </div>
     <script src="{{asset('scripts/scriptConsulta.js')}}"></script>
     <script>
         var modal = document.getElementById("modal");
