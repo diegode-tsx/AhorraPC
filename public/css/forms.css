@@ -176,7 +176,6 @@ strong.error + .espaciado{
 
 /*ESTILOS DE LA VENTANA DE VERIFICACIÓN*/
 .verificacion-background{
-     display: none;
      position: fixed;
      top: 0;
      left: 0;

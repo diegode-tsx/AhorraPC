@@ -14,9 +14,6 @@
 
 @section('content')
     <main>
-        @if (session('send'))
-            <strong>{{session('send')}}</strong>
-        @endif
         <form action="" class="form" method="POST">
             @csrf <!-- esta mierda es mortal xd-->
             <h1 class="titulo-principal">Crea una cuenta</h1>
@@ -51,23 +48,31 @@
                     <i class="fas fa-key"></i>
                 </div>
             </div>
-            <input type="submit" value="Continuar" name="form_data" class="txt-normal" style="margin-bottom: 5px;">
-            <input type="submit" value="Ya tengo un código" name="form_data" class="txt-normal" style="margin: 0;">
+            <input type="submit" value="Continuar" name="form_data" class="txt-normal">
             <div class="sign-in-out txt-tiny">
                 ¿Ya tienes cuenta?
                 <a href="{{route('login')}}">Inicia sesión</a>
             </div>
         </form>
+        <form method="POST">
+            @csrf
+        <input type="submit" name="token_conf" value="Ya tengo codigo">
+    </form>
     </main>
+@if (session('send'))
+    
 
     <div class="verificacion-background">
         <form method="POST" class="verificacion-email">
-            <h2 class="titulo-secundario" style="color: var(--negro);">Ingresa el código enviado a tu correo </h2>
             @csrf
+            <h2 class="titulo-secundario" style="color: var(--negro);">Ingresa el código enviado a tu correo </h2>
+            
             <div class="input">
                 <input type="text" placeholder="Código" name="token">
             </div>
             <input type="submit" name="register">
         </form>
     </div>  
+    @endif
 @endsection
+
