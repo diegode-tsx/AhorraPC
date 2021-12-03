@@ -139,7 +139,6 @@ class searchController extends Controller
         }else{
             $plantilla='defecto';
         }
-
         return   /* $request->all() */ view('search.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel','todo','contador','arrayproductos','resultado','searchGlobal'), compact('plantilla'));
        
         
