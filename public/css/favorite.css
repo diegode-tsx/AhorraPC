@@ -173,8 +173,7 @@ main button:hover{
      font-size: 24px;
      line-height: 30px;
      color: var(--blanco);
-     flex: 1;
-     height: fit-content;
+     flex: 100%     ;
 }
 
 /*ESTILOS DE LA VENTANA MODAL*/
