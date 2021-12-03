@@ -113,6 +113,8 @@ main h1{
      justify-content: space-between;
      align-items: center;
      flex-wrap: wrap;
+     max-width: 100%;
+     overflow: hidden;
 
      opacity: 0;
      transition: all 0.5s;
@@ -128,6 +130,7 @@ main h1{
 
 .products-container .card .card-details{
      width: 58%;
+     
 }
 
 a{
@@ -141,7 +144,7 @@ a:hover{
 }
 
 .products-container .card .card-details .card-info .product-name{
-     word-wrap: break-word
+     word-wrap: break-word;
 }
 
 .products-container .card .card-details .card-info .product-price{
