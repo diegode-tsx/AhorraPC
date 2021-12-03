@@ -39,7 +39,7 @@ class settingController extends Controller
 
     function store(StoreSetting $request){
 
-        DB::table('favorites')->where()->get();
+        
 
         $password = $_POST['actual-password'];
         $newpassword = $_POST['new_password'];
