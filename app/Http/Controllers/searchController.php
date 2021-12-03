@@ -187,7 +187,7 @@ class searchController extends Controller
         }
     }
     catch(Exception $e){
-        
+        return $ListProductos;
     }
         return $ListProductos;
     }
