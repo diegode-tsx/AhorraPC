@@ -34,9 +34,7 @@ class StoreUser extends FormRequest
     public function messages()
     {
         return [
-            'username' => 'User is required! Supports 0-16 characters',
-            'email' => 'Email is required!',
-            'password' => 'Password is required!, Min 6 characters'
+            
         ];
     }
 
