@@ -66,7 +66,7 @@
             <div class="modal-content" id="modal-content">
                 <h2 class="titulo-terciario">Productos</h2>
                 <h3></h3>
-                <div class="card">
+                {{-- <div class="card">
                     <div class="card-img">
                         <img src="{{asset('img/ram.jpg')}}" alt="">
                     </div>
@@ -75,8 +75,8 @@
     
                         <p class="product-price txt-tiny">$3,269.00</p>
                     </div>
-                </div>
-                <p class="total txt-normal">Total: $3500</p>
+                </div> --}}
+                {{-- <p class="total txt-normal">Total: $3500</p> --}}
                 <i class="fas fa-times" id="close"></i>
             </div>
         </div>
@@ -108,8 +108,12 @@
             }
             
             modal.style.display = "block";
+            var cantidad = 0;
+            for(var arrprecio in productosColeccion){
+                    cantidad = cantidad + parseFloat(productosColeccion[arrprecio][1]);
+                }
+                var conDecimal = cantidad.toFixed(2); 
             for(var arreglo in productosColeccion) {
-                
                 var div_card = document.createElement("div");
                 div_card.className = "card card2";
                 contenedor.appendChild(div_card);
@@ -137,6 +141,10 @@
                 pre_producto.innerHTML = productosColeccion[arreglo][1];
                 div_card_info.appendChild(pre_producto);
             }
+            var total = document.createElement("p");
+                total.className = "total txt-normal total txt-normal2";
+                contenedor.appendChild(total);
+                total.innerHTML = conDecimal;
         }
 
         close.onclick = function(){
@@ -144,6 +152,11 @@
             var elements = document.getElementsByClassName('card2');
         while(elements.length > 0){
         elements[0].parentNode.removeChild(elements[0]);
+        }
+
+        var elements2 = document.getElementsByClassName('total txt-normal2');
+        while(elements2.length > 0){
+        elements2[0].parentNode.removeChild(elements2[0]);
         }
 }
         
