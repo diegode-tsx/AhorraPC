@@ -89,7 +89,7 @@
             </div>
             @endforeach
             @else
-            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            <img src="{{asset('img/pigerror.svg')}}" class="not-found" alt="">
             @endif
             {{-- Termina PcMig --}}
             {{---------AQUÍ TERMINA----------}}
@@ -121,7 +121,7 @@
             </div>
             @endforeach
             @else
-            <img src="{{asset('img/nofind.jpeg')}}" class="not-found" alt="">
+            <img src="{{asset('img/pigerror.svg')}}" class="not-found" alt="">
             @endif
             {{-- Termina CyberPuerta --}}
             {{---------AQUÍ TERMINA----------}}
@@ -153,7 +153,7 @@
             </div>
             @endforeach
             @else
-            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            <img src="{{asset('img/pigerror.svg')}}" class="not-found" alt="">
             @endif
             {{-- Termina DDTech --}}
             {{---------AQUÍ TERMINA----------}}
@@ -185,7 +185,7 @@
             </div>
             @endforeach
             @else
-            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            <img src="{{asset('img/pigerror.svg')}}" class="not-found" alt="">
             @endif
             {{-- Termina PCEL --}}
             {{---------AQUÍ TERMINA----------}}
@@ -218,7 +218,7 @@
             </div>
             @endforeach
             @else
-            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            <img src="{{asset('img/pigerror.svg')}}" class="not-found" alt="">
             @endif
             {{-- Termina MercadoLibre --}}
             {{---------AQUÍ TERMINA----------}}
@@ -249,7 +249,7 @@
             </div>
             @endforeach
             @else
-            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            <img src="{{asset('img/pigerror.svg')}}" class="not-found" alt="">
             @endif
         </div>
         

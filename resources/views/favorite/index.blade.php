@@ -127,7 +127,7 @@
                 img_producto.src = productosColeccion[arreglo][2];
                 //Hago hijo a div_card_img de div_card
                 div_card.appendChild(div_card_img);
-                div_card_img.appendChild(img_producto);
+                div_card_img.appendChild(img_producto); //Img hijo de div_card_img
 
                 var div_card_info = document.createElement("div");
                 div_card_info.className = "card-info";
