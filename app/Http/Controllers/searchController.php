@@ -270,6 +270,11 @@ class searchController extends Controller
     public function getProductosCyberpuerta($identificador,$productos)
     {
         $ListProductos = [];
+        $producto= $productos->find('li[class="cell productData small-12 small-order-'.strval($identificador).'"]',0);
+        if(isset($producto)){
+            return $ListProductos;
+        }
+
         foreach ($productos->find('li[class="cell productData small-12 small-order-'.strval($identificador).'"]') as $element) {
             /* echo $element->plaintext;
             echo "<hr>"; */
@@ -310,6 +315,11 @@ class searchController extends Controller
 public function getProductosPcel($productos2)
 {
     $ListProductos = [];
+    $base= $productos2->find('div[class="product-list"]',0)->find('table',0);
+    if(isset($base)){
+        return $ListProductos;
+    }
+
     foreach ($productos2->find('div[class="product-list"]',0)->find('table',0)->find('tr') as $indice => $producto) {
         try{
         if(($indice+1) % 2!=0){
