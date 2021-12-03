@@ -84,6 +84,7 @@ main h1{
      grid-template-columns: repeat(4, 1fr);
      grid-template-rows: auto 1fr;
      column-gap: 20px;
+     width: fit-content;
 
      margin-top: 50px;
      display: none;/*Lo puse para que todo esté desactivado por defecto*/
@@ -118,6 +119,7 @@ main h1{
 
      opacity: 0;
      transition: all 0.5s;
+     width: fit-content;
 }
 
 .products-container .card .img-card{
