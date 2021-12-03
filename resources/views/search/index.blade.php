@@ -49,13 +49,15 @@
                 <div class="card-details">
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-    
+                        
                         <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+                        @if($plantilla == 'usuario')
                         <a class="xd"><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','{{ $item->tienda }}','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -83,7 +85,9 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+                        @if($plantilla=="usuario")
                         <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','1','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -115,7 +119,9 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+                        @if($plantilla=="usuario")
                         <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','2','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -147,7 +153,9 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+                        @if($plantilla=="usuario")
                         <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','3','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -179,7 +187,9 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+                        @if($plantilla=="usuario")
                         <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','6','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -212,7 +222,9 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+                        @if($plantilla=="usuario")
                         <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','5','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -243,7 +255,9 @@
     
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+                        @if($plantilla=="usuario")
                         <a><i class="fas fa-heart" onclick="add_to_favorites('{{$item->precio}}','{{$item->nombre}}','{{$item->imagenLink}}','{{$item->LinkCompra}}','6','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
