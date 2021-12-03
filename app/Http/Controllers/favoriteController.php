@@ -47,6 +47,14 @@ class favoriteController extends Controller
         $precio=$request->precio;
         $linkCompra=$request->linkCompra;
         $linkImagen=$request->linkImagen;
+
+        $productdel = DB::table('favorite')
+        ->where('idUser', '=', $idUser )
+        ->where('nomProduct','=',$nomProducto)
+        ->delete();
+
+
+
     }
 
 }
