@@ -168,7 +168,13 @@ class searchController extends Controller
         foreach ($productos->find('li[class="ui-search-layout__item"]') as $element) {
             
             $caracteristicas = $element->find('div[class="ui-search-result__content-wrapper"]',0);
-            $nombre=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0)->plaintext;
+            $nombre=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0);
+            if(isset($nombre)){
+                $nombre=$caracteristicas->find('h3[class="ui-search-result__title"]',0)->plaintext;
+            }else{
+                continue;
+            }
+            
             $linkCompra=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0)->find('a',0)->attr['href'];
             $precio=$element->find('div[class="ui-search-item__group ui-search-item__group--price"]',0)->plaintext;
             $linkImagen=$element->find('div[class="slick-slide slick-active"]',0)->find('img',0)->attr['data-src'];
@@ -187,6 +193,7 @@ class searchController extends Controller
         }
     }
     catch(Exception $e){
+        $error= $e->getMessage();
         return $ListProductos;
     }
         return $ListProductos;
