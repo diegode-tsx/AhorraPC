@@ -164,8 +164,9 @@ class searchController extends Controller
 
     public function getProductosMercLibre($productos){
         $ListProductos = [];
+        try{
         foreach ($productos->find('li[class="ui-search-layout__item"]') as $element) {
-            try{
+            
             $caracteristicas = $element->find('div[class="ui-search-result__content-wrapper"]',0);
             $nombre=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0)->plaintext;
             $linkCompra=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0)->find('a',0)->attr['href'];
@@ -183,11 +184,11 @@ class searchController extends Controller
             $nombre=str_replace('"', ' ', $nombre);
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra,"5");
             array_push($ListProductos,$ProductoObte);
-            }
-            catch(Exception $e){
-                continue;
-            }
         }
+    }
+    catch(Exception $e){
+        
+    }
         return $ListProductos;
     }
 
