@@ -290,6 +290,12 @@ strong.error + .espaciado{
      }
 
      .form{
+          width: 40%;
+     }
+}
+
+@media screen and (max-width: 800px) {
+     .form{
           width: 60%;
      }
 }
