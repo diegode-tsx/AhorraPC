@@ -165,6 +165,7 @@ class searchController extends Controller
     public function getProductosMercLibre($productos){
         $ListProductos = [];
         foreach ($productos->find('li[class="ui-search-layout__item"]') as $element) {
+            try{
             $caracteristicas = $element->find('div[class="ui-search-result__content-wrapper"]',0);
             $nombre=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0)->plaintext;
             $linkCompra=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0)->find('a',0)->attr['href'];
@@ -177,6 +178,10 @@ class searchController extends Controller
             $nombre=str_replace('"', ' ', $nombre);
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra,"5");
             array_push($ListProductos,$ProductoObte);
+            }
+            catch(Exception $e){
+                continue;
+            }
         }
         return $ListProductos;
     }
@@ -185,6 +190,7 @@ class searchController extends Controller
     public function getProductosDdTech($productos){
         $ListProductos = [];
         foreach ($productos->find('div[class="product"]') as $element) {
+            try{
             $caracteristicas =$element->find('div[class="product-info text-left"]',0);
             $nombreProducto = $caracteristicas->find('a',0)->plaintext;
             $precioProducto = $caracteristicas->find('div[class="product-price"]',0)->find('span',0)->plaintext;
@@ -198,6 +204,10 @@ class searchController extends Controller
             $nombreProducto=str_replace('"', ' ', $nombreProducto);
             $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$linkImagen,$linkCompra,"3");
             array_push($ListProductos,$ProductoObte);
+            }
+            catch(Exception $e){
+                continue;
+            }
         }
         
         return $ListProductos;
@@ -209,6 +219,7 @@ class searchController extends Controller
     {
         $ListProductos = [];
         foreach ($productos->find('div[class="product-wrapper"]') as $element) {
+            try{
             $nombre = $element->find('h2[class="product-name"]',0)->plaintext;
             $precio = $element->find('div[class="price-box"]',0)->plaintext;
             /*$linkImagen = $element->find('div[class="product-image"]',0)->find('img',0)->src;*/
@@ -221,6 +232,10 @@ class searchController extends Controller
             $linkCompra = $element->find('h2[class="product-name]',0)->find('a',0)->href;
             $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra,"1");
             array_push($ListProductos,$ProductoObte);
+            }
+            catch(Exception $e){
+                continue;
+            }
         }
         return $ListProductos;
     }
@@ -231,6 +246,7 @@ class searchController extends Controller
         foreach ($productos->find('li[class="cell productData small-12 small-order-'.strval($identificador).'"]') as $element) {
             /* echo $element->plaintext;
             echo "<hr>"; */
+            try{
             $nombre=$element->find('div[class="emproduct_right"]',0)->find('a',0)->plaintext;
             $linkImg=$element->find('div[class="catSlider"]',0)->attr['data-cp-prod-slider'];
             $price=$element->find('label[class="price"]',0)->plaintext;
@@ -253,6 +269,10 @@ class searchController extends Controller
             $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
             $ProductoObte=new ProductoClass($nombre,$price,$linkImgCom,$linkCompra,"2");
             array_push($ListProductos,$ProductoObte);
+            }
+            catch(Exception $e){
+                continue;
+            }
         }
         return $ListProductos;
          
@@ -264,6 +284,7 @@ public function getProductosPcel($productos2)
 {
     $ListProductos = [];
     foreach ($productos2->find('div[class="product-list"]',0)->find('table',0)->find('tr') as $indice => $producto) {
+        try{
         if(($indice+1) % 2!=0){
             $nombreLinkProducto =$producto->find('div[class="name"]',0)->find('a',0);
             $LinkImagen =$producto->find('div[class="image"]',0)->find('a',0)->find('img',0)->src; 
@@ -285,6 +306,10 @@ public function getProductosPcel($productos2)
         }
         $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$LinkImagen,$linkProducto,"4");
         array_push($ListProductos,$ProductoObte);
+        }
+        catch(Exception $e){
+            continue;
+        }
     }
     return $ListProductos;
 
