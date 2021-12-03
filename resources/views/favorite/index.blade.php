@@ -39,7 +39,7 @@
                     <div class="card-info">
                         <a href="{{$item->url_page}}"><h3 id="nombreProducto" class="product-name txt-tiny">{{$item->nomProducto}}</h3></a>
     
-                        <p class="product-price txt-tiny">{{$item->price}}</p>
+                        <p class="product-price txt-tiny">${{$item->price}}</p>
                     </div>
     
                     <div class="card-icons">
@@ -102,6 +102,7 @@
                     precio = divGlobal.getElementsByClassName('product-price txt-tiny')[0].innerHTML;
                     linkCompra = divGlobal.getElementsByClassName('card-info')[0].getElementsByTagName('a')[0].getAttribute('href');
                     img = divGlobal.parentNode.getElementsByClassName('img-card')[0].getElementsByTagName('img')[0].getAttribute('src');
+                    precio = precio.replace('$','');
                     producto = [nombre, precio, img, linkCompra];
                     productosColeccion.push(producto);
                 }
