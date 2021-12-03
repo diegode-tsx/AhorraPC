@@ -89,14 +89,7 @@
         var modal = document.getElementById("modal");
         var open = document.getElementById("cotizar");
         var close = document.getElementById("close");
-        class Producto {
-            constructor(nombre, precio, imagen, linkCompra) {
-                this.nombre = nombre;
-                this.precio = precio;
-                this.imagen = imagen;
-                this.linkCompra = linkCompra;
-            }
-        }
+        
         open.onclick = function(){
             const nicknames = document.querySelectorAll('[name="CheckboxValidar"]');
             var productosColeccion = new Array();
@@ -107,11 +100,15 @@
                     precio = divGlobal.getElementsByClassName('product-price txt-tiny')[0].innerHTML;
                     linkCompra = divGlobal.getElementsByClassName('card-info')[0].getElementsByTagName('a')[0].getAttribute('href');
                     img = divGlobal.parentNode.getElementsByClassName('img-card')[0].getElementsByTagName('img')[0].getAttribute('src');
-                    productoSeleccionado = new Producto(nombre, precio, img, linkCompra);
-                    productosColeccion.push(productoSeleccionado);
+                    producto = [nombre, precio, img, linkCompra];
+                    productosColeccion.push(producto);
                 }
             }
+            
             modal.style.display = "block";
+            for(var arreglo in productosColeccion) {
+                console.log(productosColeccion[arreglo][0]);
+            }
         }
 
         close.onclick = function(){
