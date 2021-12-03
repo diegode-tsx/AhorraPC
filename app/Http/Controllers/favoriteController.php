@@ -52,7 +52,7 @@ class favoriteController extends Controller
         ->where('idUser', '=', $idUser )
         ->where('nomProduct','=',$nomProducto)
         ->delete();
-
+        return redirect()->action([favoriteController::class, 'index']);
 
 
     }
