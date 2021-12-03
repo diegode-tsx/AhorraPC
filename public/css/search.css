@@ -173,7 +173,7 @@ a:hover{
 }
 
 .not-found{
-     width: 80%;
+     width: 12%;
      grid-column: 1/-1;
      margin: 0 auto;
 }
@@ -201,6 +201,17 @@ a:hover{
 @media screen and (max-width: 1200px) {
      .products-container{
           grid-template-columns: repeat(2, 1fr);
+     }
+
+     .not-found{
+          width: 20%;
+     }
+}
+
+@media screen and (max-width: 800px) {
+     .not-found{
+          width: 40%;
+          margin-bottom: 10px;
      }
 }
 
