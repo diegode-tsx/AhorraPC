@@ -152,7 +152,7 @@ class searchController extends Controller
             $nombre=str_replace("'", '', $nombre);
             $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
             $nombre=str_replace('"', ' ', $nombre);
-            $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
+            $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra,"6");
             array_push($ListProductos,$ProductoObte);
         }
         catch(Exception $e){
@@ -175,7 +175,7 @@ class searchController extends Controller
             $nombre=str_replace("'", '', $nombre);
             $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
             $nombre=str_replace('"', ' ', $nombre);
-            $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
+            $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra,"5");
             array_push($ListProductos,$ProductoObte);
         }
         return $ListProductos;
@@ -196,7 +196,7 @@ class searchController extends Controller
             $nombreProducto=str_replace("'", '', $nombreProducto);
             $nombreProducto= preg_replace("/[\r\n|\n|\r]+/", " ", $nombreProducto);
             $nombreProducto=str_replace('"', ' ', $nombreProducto);
-            $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$linkImagen,$linkCompra);
+            $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$linkImagen,$linkCompra,"3");
             array_push($ListProductos,$ProductoObte);
         }
         
@@ -219,7 +219,7 @@ class searchController extends Controller
             $nombre=str_replace('"', ' ', $nombre);
             $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
             $linkCompra = $element->find('h2[class="product-name]',0)->find('a',0)->href;
-            $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra);
+            $ProductoObte=new ProductoClass($nombre,$precio,$linkImagen,$linkCompra,"1");
             array_push($ListProductos,$ProductoObte);
         }
         return $ListProductos;
@@ -251,7 +251,7 @@ class searchController extends Controller
             $nombre=str_replace("'", '', $nombre);
             $nombre=str_replace('"', ' ', $nombre);
             $nombre= preg_replace("/[\r\n|\n|\r]+/", " ", $nombre);
-            $ProductoObte=new ProductoClass($nombre,$price,$linkImgCom,$linkCompra);
+            $ProductoObte=new ProductoClass($nombre,$price,$linkImgCom,$linkCompra,"2");
             array_push($ListProductos,$ProductoObte);
         }
         return $ListProductos;
@@ -283,7 +283,7 @@ public function getProductosPcel($productos2)
         }else{
             continue;
         }
-        $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$LinkImagen,$linkProducto);
+        $ProductoObte=new ProductoClass($nombreProducto,$precioProducto,$LinkImagen,$linkProducto,"4");
         array_push($ListProductos,$ProductoObte);
     }
     return $ListProductos;
