@@ -63,14 +63,15 @@
         </div>
 
         <div id="modal" class="modal">
-            <div class="modal-content">
+            <div class="modal-content" id="modal-content">
                 <h2 class="titulo-terciario">Productos</h2>
+                <h3></h3>
                 <div class="card">
                     <div class="card-img">
                         <img src="{{asset('img/ram.jpg')}}" alt="">
                     </div>
                     <div class="card-info">
-                        <a href="#"><h3 class="product-name txt-tiny">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3></a>
+                        <h3 class="product-name txt-tiny">Kit Memoria RAM Patriot Viper Steel RGB DDR4, 3600MHz, 32GB (2 x 16GB), Non-ECC, CL20, XMP</h3>
     
                         <p class="product-price txt-tiny">$3,269.00</p>
                     </div>
@@ -88,7 +89,9 @@
         var modal = document.getElementById("modal");
         var open = document.getElementById("cotizar");
         var close = document.getElementById("close");
-        
+        var contenedor = document.getElementById("modal-content");
+        var segundo = document.getElementById('modal-content').getElementsByTagName('h3')[0];
+
         open.onclick = function(){
             const nicknames = document.querySelectorAll('[name="CheckboxValidar"]');
             var productosColeccion = new Array();
@@ -106,13 +109,44 @@
             
             modal.style.display = "block";
             for(var arreglo in productosColeccion) {
-                console.log(productosColeccion[arreglo][0]);
+                
+                var div_card = document.createElement("div");
+                div_card.className = "card card2";
+                contenedor.appendChild(div_card);
+                document.getElementById('modal-content').insertBefore(div_card,segundo);
+                var div_card_img = document.createElement("div");
+                div_card_img.className = "card-img";
+                // IMAGEN
+                var img_producto = document.createElement("img");
+                img_producto.src = productosColeccion[arreglo][2];
+                //Hago hijo a div_card_img de div_card
+                div_card.appendChild(div_card_img);
+                div_card_img.appendChild(img_producto);
+
+                var div_card_info = document.createElement("div");
+                div_card_info.className = "card-info";
+                var nom_producto = document.createElement("h3");
+                nom_producto.className = "product-name txt-tiny";
+                nom_producto.innerHTML = productosColeccion[arreglo][0];
+                //Hago hijo a div_card_info de div_card
+                div_card.appendChild(div_card_info);
+                div_card_info.appendChild(nom_producto);
+
+                var pre_producto = document.createElement("p");
+                pre_producto.className = "product-price txt-tiny";
+                pre_producto.innerHTML = productosColeccion[arreglo][1];
+                div_card_info.appendChild(pre_producto);
             }
         }
 
         close.onclick = function(){
             modal.style.display = "none";
+            var elements = document.getElementsByClassName('card2');
+        while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
         }
+}
+        
 
         window.onclick = function(event) {
             if (event.target == modal){
