@@ -52,6 +52,7 @@ class searchController extends Controller
         $amz_str2="&ref=nb_sb_noss_2";
 
         $amz_query=$amz_str1.$search2.$amz_str2;
+        
         $cyberpuertaProductos = file_get_html('https://www.cyberpuerta.mx/index.php?cl=search&searchparam='.$search);
         $pcCelProductos=file_get_html('https://pcel.com/index.php?route=product/search&filter_name='.$search2);
         $amz_query=$amz_str1.$search2.$amz_str2;
@@ -60,6 +61,7 @@ class searchController extends Controller
         $ddTechProductos=file_get_html('https://ddtech.mx/buscar/'.$search);
         $mercLibreProductos=file_get_html('https://listado.mercadolibre.com.mx/'.$search3);
         $amazonProductos=file_get_html($amz_query);
+        
         //llama la funcion si utilizas algun scrapeo como abajo
         $arrayproductos= [];
         $resultado = [];
