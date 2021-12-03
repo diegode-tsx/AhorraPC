@@ -179,7 +179,7 @@ class searchController extends Controller
             
             $caracteristicas = $element->find('div[class="ui-search-result__content-wrapper"]',0);
             $nombre=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0);
-            if(isset($nombre)){
+            if(!(isset($nombre))){
                 $nombre=$caracteristicas->find('h3[class="ui-search-result__title"]',0)->plaintext;
             }else{
                 continue;
@@ -270,8 +270,7 @@ class searchController extends Controller
     public function getProductosCyberpuerta($identificador,$productos)
     {
         $ListProductos = [];
-        $producto= $productos->find('li[class="cell productData small-12 small-order-'.strval($identificador).'"]',0);
-        if(isset($producto)){
+        if($productos->find('li[class="cell productData small-12 small-order-'.strval($identificador).'"]',0)==null){
             return $ListProductos;
         }
 
@@ -315,8 +314,7 @@ class searchController extends Controller
 public function getProductosPcel($productos2)
 {
     $ListProductos = [];
-    $base= $productos2->find('div[class="product-list"]',0)->find('table',0);
-    if(isset($base)){
+    if($productos2->find('div[class="product-list"]',0)==null){
         return $ListProductos;
     }
 
