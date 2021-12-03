@@ -66,6 +66,7 @@
         <div class="products-container" id="pcmig">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PcMig --}}
+            @if ($PcMig)
             @foreach ($PcMig as $item)
             
             <div class="card" id ="{{ $loop->index }}">
@@ -87,6 +88,9 @@
                 </div>
             </div>
             @endforeach
+            @else
+            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            @endif
             {{-- Termina PcMig --}}
             {{---------AQUÍ TERMINA----------}}
         </div>
@@ -94,6 +98,7 @@
         <div class="products-container" id="cyberpuerta">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza CyberPuerta --}}
+            @if ($cyberpuerta)
             @foreach ($cyberpuerta as $item)
             
             <div class="card">
@@ -115,6 +120,9 @@
                 </div>
             </div>
             @endforeach
+            @else
+            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            @endif
             {{-- Termina CyberPuerta --}}
             {{---------AQUÍ TERMINA----------}}
         </div>
@@ -122,6 +130,7 @@
         <div class="products-container" id="ddtech">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza DDTech --}}
+            @if ($ddtech)
             @foreach ($ddtech as $item)
             
             <div class="card">
@@ -143,6 +152,9 @@
                 </div>
             </div>
             @endforeach
+            @else
+            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            @endif
             {{-- Termina DDTech --}}
             {{---------AQUÍ TERMINA----------}}
         </div>   
@@ -150,6 +162,7 @@
         <div class="products-container" id="pcel">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PCEL --}}
+            @if ($pcCel)
             @foreach ($pcCel as $item)
             
             <div class="card">
@@ -171,6 +184,9 @@
                 </div>
             </div>
             @endforeach
+            @else
+            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            @endif
             {{-- Termina PCEL --}}
             {{---------AQUÍ TERMINA----------}}
         </div>   
@@ -179,6 +195,7 @@
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza MercadoLibre --}}
             
+            @if ($mercadolibre)
             @foreach ($mercadolibre as $item)
             
             <div class="card">
@@ -200,12 +217,16 @@
                 </div>
             </div>
             @endforeach
+            @else
+            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            @endif
             {{-- Termina MercadoLibre --}}
             {{---------AQUÍ TERMINA----------}}
         </div>   
 
         
         <div class="products-container" id="amazon">
+            @if ($amazon)
             @foreach ($amazon as $item)
             
             <div class="card">
@@ -227,6 +248,9 @@
                 </div>
             </div>
             @endforeach
+            @else
+            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            @endif
         </div>
         
         
