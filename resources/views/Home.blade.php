@@ -20,7 +20,7 @@
             <img src="{{asset('img/logo.png')}}" alt="">
         </div>
 
-        <form action="{{route('search')}}" method="POST">
+        <form action="{{route('search')}}" method="POST" autocomplete="off">
             @csrf
             <div class="buscador-container">
                 <input type="text" name="busqueda" class="txt-normal">
