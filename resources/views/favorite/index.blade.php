@@ -47,7 +47,7 @@
                         <a href="#"><i class="fas fa-heart"></i></a>
                         <div class="checkbox">
                             <label>
-                                <a href="#"><i class="far fa-trash" onclick="eliminar_favorites('{{$item->price}}','{{$item->nomProducto}}','{{$item->url_image}}','{{$item->url_page}}','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
+                                <a href=""><i class="far fa-trash" onclick="eliminar_favorites('{{$item->price}}','{{$item->nomProducto}}','{{$item->url_image}}','{{$item->url_page}}','{{ csrf_token() }}','{{ route('search.addFavorite') }}')"></i></a>
                                 <input type="checkbox" name ="CheckboxValidar">
                                 <div class="checkbox-box"></div>
                             </label>
