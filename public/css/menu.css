@@ -63,7 +63,7 @@ header .logo img{
 
 @media screen and (max-width: 800px) {
      .menu{
-          grid-column-start: 5;
+          grid-column-start: 4;
      }
 }
 
