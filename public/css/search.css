@@ -171,6 +171,11 @@ a:hover{
 .mostrarArriba {
      animation: mostrarArriba 1s;
 }
+
+.not-found{
+     grid-column: 1/-1;
+     margin: 0 auto;
+}
  
 @keyframes mostrarArriba{
      0%{

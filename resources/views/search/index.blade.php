@@ -121,7 +121,7 @@
             </div>
             @endforeach
             @else
-            <img src="{{asset('img/nofind.jpeg')}}" alt="">
+            <img src="{{asset('img/nofind.jpeg')}}" class="not-found" alt="">
             @endif
             {{-- Termina CyberPuerta --}}
             {{---------AQUÍ TERMINA----------}}
