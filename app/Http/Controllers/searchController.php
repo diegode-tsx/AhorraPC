@@ -179,7 +179,7 @@ class searchController extends Controller
             
             $caracteristicas = $element->find('div[class="ui-search-result__content-wrapper"]',0);
             $nombre=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0);
-            if($nombre!=null){
+             if($nombre!=null){
                 $nombre=$caracteristicas->find('h3[class="ui-search-result__title"]',0)->plaintext;
             }else{
                 continue;
