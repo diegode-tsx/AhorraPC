@@ -230,7 +230,7 @@
             </div>
             @endforeach
             @else
-           {{--<img src="{{asset('img/pigerror.svg')}}" class="not-found" alt=""> --}}
+           <img src="{{asset('img/pigerror.svg')}}" class="not-found" alt="">
             @endif 
             {{-- Termina MercadoLibre --}}
             {{---------AQUÍ TERMINA----------}}
