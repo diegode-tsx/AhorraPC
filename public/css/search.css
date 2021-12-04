@@ -84,7 +84,6 @@ main h1{
      grid-template-columns: repeat(4, 1fr);
      grid-template-rows: auto 1fr;
      column-gap: 20px;
-     width: fit-content;
 
      margin-top: 50px;
      display: none;/*Lo puse para que todo esté desactivado por defecto*/
