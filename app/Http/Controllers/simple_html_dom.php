@@ -45,6 +45,69 @@ defined('DEFAULT_SPAN_TEXT') || define('DEFAULT_SPAN_TEXT', ' ');
 defined('MAX_FILE_SIZE') || define('MAX_FILE_SIZE', 600000);
 define('HDOM_SMARTY_AS_TEXT', 1);
 
+function curl_get_contents($url)
+{
+	$context = stream_context_create(
+		array(
+			"http" => array(
+				'timeout' => 200,
+				'method'=>"GET",
+				"header" => 
+					"
+					'Host' : $url,
+					'Cache-Control' : 'max-age=0',
+					'Device-Memory' : 8,
+					'Dpr' : 1,
+					'Viewport-Width' : '1366',
+					'Rtt' : 150,
+					'Downlink' : 10,
+					'Ect' : '4g',
+					'Sec-Ch-Ua' :  'Not A;Brand;v='99', 'Chromium';v='99', 'Opera GX';v='85'',
+					'Sec-Ch-Ua-Mobile' : '?0',
+					'Sec-Ch-Ua-Full-Version' : '99.0.4844.84',
+					'Sec-Ch-Ua-Arch' : 'x86',
+					'Sec-Ch-Ua-Platform' : 'Windows',
+					'Sec-Ch-Ua-Platform-Version' : '10.0.0',
+					'Sec-Ch-Ua-Model' : '',
+					'Sec-Ch-Prefers-Color-Scheme' : 'dark',
+					'Upgrade-Insecure-Requests' : '1',
+					'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36 OPR/85.0.4341.68',
+					'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+					'Sec-Fetch-Site' : 'same-origin',
+					'Sec-Fetch-Mode' : 'navigate',
+					'Sec-Fetch-User' : '?1',
+					'Sec-Fetch-Dest' : 'document',
+					'Referer' : $url,
+					'Accept-Encoding' : 'gzip, deflate, br',
+					'Accept-Language' : 'es-419,es;q=0.9',
+					'Cookie' : '__utma=12798129.956777838.1650107488.1650107488.1650107488.1; __utmc=12798129; __utmz=12798129.1650107488.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); __utmt=1; __utmb=12798129.1.10.1650107488; SLG_G_WPT_TO=es; __gads=ID=f5ad1b19be5d95e0-220fba11057c0001:T=1650107487:RT=1650107487:S=ALNI_MZumJT0jP0X5rDLn164t8THCSdeVQ; SLG_GWPT_Show_Hide_tmp=1; SLG_wptGlobTipTmp=1'"
+				// Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Silk/1.0.13.81_10003810) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 Silk-Accelerated=true
+				/** 
+				*Mozilla/5.0 (Windows NT 10.0; WOW64) 
+				*			AppleWebKit/537.36 (KHTML, like Gecko)
+				*			Mozilla / 5.0 (Linux;;) AppleWebKit / (KHTML, como Gecko) Chrome / Safari /
+				*			Mozilla / 5.0 (Linux;;) AppleWebKit / (KHTML, como Gecko) Chrome / Mobile Safari /
+				*			Mozilla/5.0 (Linux; <Android Version>; <Build Tag etc.>)AppleWebKit/<WebKit Rev>(KHT-
+				*			ML, like Gecko) Chrome/<Chrome Rev>Safari/<WebKit Rev>
+				*			Chrome/50.0.2661.102 Safari/537.36\r\n" .
+				*			"accept: text/html,application/xhtml+xml,application/xml;q=0.9,
+				*/ //			image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\r\n" .
+				//			"accept-language: es-ES,es;q=0.9,en;q=0.8,it;q=0.7\r\n" .
+				//			"accept-encoding: gzip, deflate, br\r\n"
+				
+			)
+		)
+	);
+  	$ch = curl_init();
+  	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch,CURLOPT_USERAGENT, $context);//'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+	$html = curl_exec($ch);
+  	$data = curl_exec($ch);
+  	curl_close($ch);
+  	return $data;
+}
+
 function file_get_html(
 	$url,
 	$use_include_path = false,
@@ -56,8 +119,11 @@ function file_get_html(
 	$target_charset = DEFAULT_TARGET_CHARSET,
 	$stripRN = true,
 	$defaultBRText = DEFAULT_BR_TEXT,
-	$defaultSpanText = DEFAULT_SPAN_TEXT)
+	$defaultSpanText = DEFAULT_SPAN_TEXT
+	)
+
 {
+  
 	if($maxLen <= 0) { $maxLen = MAX_FILE_SIZE; }
 
 	$dom = new simple_html_dom(
@@ -69,26 +135,29 @@ function file_get_html(
 		$defaultBRText,
 		$defaultSpanText
 	);
-
+	$args = func_get_args();
+  	$dom->load(call_user_func_array('curl_get_contents', $args), true);
+  	return $dom;
 	/**
 	 * For sourceforge users: uncomment the next line and comment the
 	 * retrieve_url_contents line 2 lines down if it is not already done.
-	 */
-	$contents = file_get_contents(
-		$url,
-		$use_include_path,
-		$context,
-		$offset,
-		$maxLen
-	);
-	// $contents = retrieve_url_contents($url);
-
-	if (empty($contents) || strlen($contents) > $maxLen) {
-		$dom->clear();
-		return false;
-	}
-
-	return $dom->load($contents, $lowercase, $stripRN);
+	* 
+	*$contents = file_get_contents(
+	*	$url,
+	*	$use_include_path,
+	*	$context,
+	*	$offset,
+	*	$maxLen
+	*);
+	* // $contents = retrieve_url_contents($url);
+*
+	*if (empty($contents) || strlen($contents) > $maxLen) {
+	*	$dom->clear();
+	*	return false;
+	*}
+*
+*	return $dom->load($contents, $lowercase, $stripRN);
+*/
 }
 
 function str_get_html(
