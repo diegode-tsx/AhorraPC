@@ -73,14 +73,14 @@ function curl_get_contents($url)
 					'Upgrade-Insecure-Requests' : '1',
 					'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36 OPR/85.0.4341.68',
 					'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+					'accept' : 'application/json\r\n'
 					'Sec-Fetch-Site' : 'same-origin',
 					'Sec-Fetch-Mode' : 'navigate',
 					'Sec-Fetch-User' : '?1',
 					'Sec-Fetch-Dest' : 'document',
 					'Referer' : $url,
 					'Accept-Encoding' : 'gzip, deflate, br',
-					'Accept-Language' : 'es-419,es;q=0.9',
-					'Cookie' : '__utma=12798129.956777838.1650107488.1650107488.1650107488.1; __utmc=12798129; __utmz=12798129.1650107488.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); __utmt=1; __utmb=12798129.1.10.1650107488; SLG_G_WPT_TO=es; __gads=ID=f5ad1b19be5d95e0-220fba11057c0001:T=1650107487:RT=1650107487:S=ALNI_MZumJT0jP0X5rDLn164t8THCSdeVQ; SLG_GWPT_Show_Hide_tmp=1; SLG_wptGlobTipTmp=1'"
+					'Accept-Language' : 'es-419,es;q=0.9'"
 				// Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Silk/1.0.13.81_10003810) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 Silk-Accelerated=true
 				/** 
 				*Mozilla/5.0 (Windows NT 10.0; WOW64) 
@@ -99,10 +99,45 @@ function curl_get_contents($url)
 		)
 	);
   	$ch = curl_init();
-  	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  	curl_setopt($ch, CURLOPT_URL,    $url);
+    // We do not authenticate, only access page to get a session going.
+    // Change to False if it is not enough (you'll see that cookiefile
+    // remains empty).
+    curl_setopt($ch, CURLOPT_NOBODY, True);
+
+    // You may want to change User-Agent here, too
+    curl_setopt($ch, CURLOPT_COOKIEFILE, "cookiefile");
+    curl_setopt($ch, CURLOPT_COOKIEJAR,  "cookiefile");
+
+    // Just in case
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+    $ret    = curl_exec($ch);
+
+    // This page we retrieve, and scrape, with GET method
+    foreach(array(
+            CURLOPT_POST            => False,       // We GET...
+            CURLOPT_NOBODY          => False,       // ...the body...
+            CURLOPT_BINARYTRANSFER  => True,        // ...as binary...
+            CURLOPT_RETURNTRANSFER  => True,        // ...into $ret...
+            CURLOPT_FOLLOWLOCATION  => True,        // ...following redirections...
+            CURLOPT_MAXREDIRS       => 10,           // ...reasonably...
+            CURLOPT_REFERER         => $url,        // ...as if we came from $url...
+            CURLOPT_COOKIEFILE      => 'cookiefile', // Save these cookies
+            CURLOPT_COOKIEJAR       => 'cookiefile', // (already set above)
+            CURLOPT_CONNECTTIMEOUT  => 30,          // Seconds
+            CURLOPT_TIMEOUT         => 300,         // Seconds
+            CURLOPT_LOW_SPEED_LIMIT => 16384,       // 16 Kb/s
+            CURLOPT_LOW_SPEED_TIME  => 15,          // 
+            ) as $option => $value)
+            if (!curl_setopt($ch, $option, $value))
+                    die("could not set $option to " . serialize($value));
+
+    $ret = curl_exec($ch);
+    // Done; cleanup.
 	curl_setopt($ch,CURLOPT_USERAGENT, $context);//'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
 	$html = curl_exec($ch);
+	sleep(2); //Eso debería ser suficiente si se le redirige después de 5 segundos. |no jalo xd|
   	$data = curl_exec($ch);
   	curl_close($ch);
   	return $data;

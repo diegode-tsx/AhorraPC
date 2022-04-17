@@ -61,7 +61,7 @@ class searchController extends Controller
         $ddTechProductos=file_get_html('https://ddtech.mx/buscar/'.$search);
         $mercLibreProductos=file_get_html('https://listado.mercadolibre.com.mx/'.$search3);
         $amazonProductos=file_get_html($amz_query);
-        
+        echo $pcCelProductos;
         //llama la funcion si utilizas algun scrapeo como abajo
         $arrayproductos= [];
         $resultado = [];
