@@ -51,16 +51,22 @@ class searchController extends Controller
         $amz_str1="https://www.amazon.com.mx/s?k=";
         $amz_str2="&ref=nb_sb_noss_2";
 
-        $amz_query=$amz_str1.$search2.$amz_str2;
+        $amz_query=$amz_str1.$search2;
         
         $cyberpuertaProductos = file_get_html('https://www.cyberpuerta.mx/index.php?cl=search&searchparam='.$search);
-        $pcCelProductos=file_get_html('https://pcel.com/index.php?route=product/search&filter_name='.$search2);
-        $amz_query=$amz_str1.$search2.$amz_str2;
+	    sleep(2);
+        $pcCelProductos=file_get_html('https://pcel.com/index.php?route=product/search&sort=p.price&order=ASC&filter_name='.$search2);
+        sleep(2);
+        $amz_query=$amz_str1.$search;
         //$digitaLifeProductos=file_get_html('https://www.digitalife.com.mx/buscar/t_ryzen-3600');
-        $pcMigProductos=file_get_html('https://pcmig.com.mx/?s='.$search.'&post_type=product');
+        $pcMigProductos=file_get_html('https://pcmig.com.mx/?orderby=price&paged=1&s='.$search.'&post_type=product');
+        sleep(2);
         $ddTechProductos=file_get_html('https://ddtech.mx/buscar/'.$search);
+        sleep(2);
         $mercLibreProductos=file_get_html('https://listado.mercadolibre.com.mx/'.$search3);
+        sleep(2);
         $amazonProductos=file_get_html($amz_query);
+        sleep(2);
         echo $pcCelProductos;
         //llama la funcion si utilizas algun scrapeo como abajo
         $arrayproductos= [];

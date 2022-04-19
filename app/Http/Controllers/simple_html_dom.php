@@ -47,57 +47,91 @@ define('HDOM_SMARTY_AS_TEXT', 1);
 
 function curl_get_contents($url)
 {
-	$context = stream_context_create(
-		array(
-			"http" => array(
-				'timeout' => 200,
-				'method'=>"GET",
-				"header" => 
-					"
-					'Host' : $url,
-					'Cache-Control' : 'max-age=0',
-					'Device-Memory' : 8,
-					'Dpr' : 1,
-					'Viewport-Width' : '1366',
-					'Rtt' : 150,
-					'Downlink' : 10,
-					'Ect' : '4g',
-					'Sec-Ch-Ua' :  'Not A;Brand;v='99', 'Chromium';v='99', 'Opera GX';v='85'',
-					'Sec-Ch-Ua-Mobile' : '?0',
-					'Sec-Ch-Ua-Full-Version' : '99.0.4844.84',
-					'Sec-Ch-Ua-Arch' : 'x86',
-					'Sec-Ch-Ua-Platform' : 'Windows',
-					'Sec-Ch-Ua-Platform-Version' : '10.0.0',
-					'Sec-Ch-Ua-Model' : '',
-					'Sec-Ch-Prefers-Color-Scheme' : 'dark',
-					'Upgrade-Insecure-Requests' : '1',
-					'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36 OPR/85.0.4341.68',
-					'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-					'accept' : 'application/json\r\n'
-					'Sec-Fetch-Site' : 'same-origin',
-					'Sec-Fetch-Mode' : 'navigate',
-					'Sec-Fetch-User' : '?1',
-					'Sec-Fetch-Dest' : 'document',
-					'Referer' : $url,
-					'Accept-Encoding' : 'gzip, deflate, br',
-					'Accept-Language' : 'es-419,es;q=0.9'"
-				// Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Silk/1.0.13.81_10003810) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 Silk-Accelerated=true
-				/** 
-				*Mozilla/5.0 (Windows NT 10.0; WOW64) 
-				*			AppleWebKit/537.36 (KHTML, like Gecko)
-				*			Mozilla / 5.0 (Linux;;) AppleWebKit / (KHTML, como Gecko) Chrome / Safari /
-				*			Mozilla / 5.0 (Linux;;) AppleWebKit / (KHTML, como Gecko) Chrome / Mobile Safari /
-				*			Mozilla/5.0 (Linux; <Android Version>; <Build Tag etc.>)AppleWebKit/<WebKit Rev>(KHT-
-				*			ML, like Gecko) Chrome/<Chrome Rev>Safari/<WebKit Rev>
-				*			Chrome/50.0.2661.102 Safari/537.36\r\n" .
-				*			"accept: text/html,application/xhtml+xml,application/xml;q=0.9,
-				*/ //			image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3\r\n" .
-				//			"accept-language: es-ES,es;q=0.9,en;q=0.8,it;q=0.7\r\n" .
-				//			"accept-encoding: gzip, deflate, br\r\n"
-				
-			)
-		)
-	);
+	$findAmz = "amazon";
+	$findDdtech = "ddtech";
+	$findPcmig = "pcmig";
+	$findCyber = "cyber";
+	$findPcel = "pcel";
+	$findML = "mercado";
+	$pos1 = strpos($url, $findAmz);
+	$pos2 = strpos($url, $findDdtech);
+	$pos3 = strpos($url, $findPcmig);
+	$pos4 = strpos($url, $findCyber);
+	$pos5 = strpos($url, $findPcel);
+	$pos6 = strpos($url, $findML);
+
+
+	if ($pos1 === false){ //amazon https://www.amazon.com.mx/
+
+	} else {
+	$urlHost = "fls-na.amazon.com.mx";
+	$urlRefer = substr($url, 0, 25);	
+	}
+	if ($pos2 === false){ //ddtech https://ddtech.mx/
+
+	} else {
+	$urlHost = substr($url, 8, 10);
+	$urlRefer = substr($url, 0, 18);	
+	}
+	if ($pos3 === false){ //pcmig https://pcmig.com.mx/
+
+	} else {
+	$urlHost = substr($url, 8, 13);
+	$urlRefer = substr($url, 0, 21);	
+	}
+	if ($pos4 === false){ // Cyberpuerta https://www.cyberpuerta.mx/
+
+	} else {
+	$urlHost = substr($url, 8, 19);
+	$urlRefer = substr($url, 0, 27);	
+	}
+	if ($pos5 === false){ //Pcel https://pcel.com/index.php
+
+	} else {
+	$urlHost = substr($url, 8, 8);
+	$urlRefer = substr($url, 0, 17);	
+	}
+	if ($pos6 === false){ //mercado libre https://listado.mercadolibre.com.mx/
+
+	} else {
+	$urlHost = substr($url, 8, 27);
+	$urlRefer = substr($url, 0, 36);	
+	}
+	
+	$context = stream_context_create(array(
+		"http" => array(
+			'timeout' => 200,
+			'method'=>"GET",
+			"header" => array(
+		"Content-Type" => "text/plain",
+		'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',
+    	'Accept-Encoding' => 'gzip, deflate, br',
+		'Host' => $urlHost,
+		'Cache-Control' => 'max-age=0',
+		'Device-Memory' => 8,
+		'Dpr' => 1,
+		'Viewport-Width' => '1366',
+		'Rtt' => 150,
+		'Downlink' => 10,
+		'Ect' => '4g',
+		'Sec-Ch-Ua' =>  "Not A;Brand;v='99', 'Chromium';v='99', 'Opera GX';v='85'",
+		'Sec-Ch-Ua-Mobile' => '?0',
+		'Sec-Ch-Ua-Full-Version' => '99.0.4844.84',
+		'Sec-Ch-Ua-Arch' => 'x86',
+		'Sec-Ch-Ua-Platform' => 'Windows',
+		'Sec-Ch-Ua-Platform-Version' => '10.0.0',
+		'Sec-Ch-Ua-Model' => '',
+		'Sec-Ch-Prefers-Color-Scheme' => 'dark',
+		'Upgrade-Insecure-Requests' => '1',
+		'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+		'Sec-Fetch-Site' => 'same-origin',
+		'Sec-Fetch-Mode' => 'navigate',
+		'Sec-Fetch-User' => '?1',
+		'Sec-Fetch-Dest' => 'document',
+		'Referer' => $urlRefer,
+		'Accept-Encoding' => 'gzip, deflate, br',
+		'Accept-Language' => 'es-419,es;q=0.9'
+	))));
   	$ch = curl_init();
   	curl_setopt($ch, CURLOPT_URL,    $url);
     // We do not authenticate, only access page to get a session going.
@@ -111,6 +145,8 @@ function curl_get_contents($url)
 
     // Just in case
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
     $ret    = curl_exec($ch);
 
@@ -122,7 +158,7 @@ function curl_get_contents($url)
             CURLOPT_RETURNTRANSFER  => True,        // ...into $ret...
             CURLOPT_FOLLOWLOCATION  => True,        // ...following redirections...
             CURLOPT_MAXREDIRS       => 10,           // ...reasonably...
-            CURLOPT_REFERER         => $url,        // ...as if we came from $url...
+            CURLOPT_REFERER         => $urlRefer,        // ...as if we came from $url...
             CURLOPT_COOKIEFILE      => 'cookiefile', // Save these cookies
             CURLOPT_COOKIEJAR       => 'cookiefile', // (already set above)
             CURLOPT_CONNECTTIMEOUT  => 30,          // Seconds
@@ -133,11 +169,11 @@ function curl_get_contents($url)
             if (!curl_setopt($ch, $option, $value))
                     die("could not set $option to " . serialize($value));
 
-    $ret = curl_exec($ch);
+    
     // Done; cleanup.
-	curl_setopt($ch,CURLOPT_USERAGENT, $context);//'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+	curl_setopt($ch,CURLOPT_USERAGENT, $context);
 	$html = curl_exec($ch);
-	sleep(2); //Eso debería ser suficiente si se le redirige después de 5 segundos. |no jalo xd|
+	sleep(5);
   	$data = curl_exec($ch);
   	curl_close($ch);
   	return $data;
