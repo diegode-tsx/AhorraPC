@@ -20,8 +20,8 @@ class searchController extends Controller
      Public $ListProduPcelv2 = [];
      static $ListProduCyberPuertav2=[];
     function viewSearch2(){
-        
-        
+
+
 
         if(Auth::check()){//si el usuario esta logeado usara tal plantilla
             $plantilla='usuario';
@@ -52,22 +52,15 @@ class searchController extends Controller
         $amz_str2="&ref=nb_sb_noss_2";
 
         $amz_query=$amz_str1.$search2;
-        
+
         $cyberpuertaProductos = file_get_html('https://www.cyberpuerta.mx/index.php?cl=search&searchparam='.$search);
-	    sleep(2);
         $pcCelProductos=file_get_html('https://pcel.com/index.php?route=product/search&sort=p.price&order=ASC&filter_name='.$search2);
-        sleep(2);
         $amz_query=$amz_str1.$search;
         //$digitaLifeProductos=file_get_html('https://www.digitalife.com.mx/buscar/t_ryzen-3600');
         $pcMigProductos=file_get_html('https://pcmig.com.mx/?orderby=price&paged=1&s='.$search.'&post_type=product');
-        sleep(2);
         $ddTechProductos=file_get_html('https://ddtech.mx/buscar/'.$search);
-        sleep(2);
         $mercLibreProductos=file_get_html('https://listado.mercadolibre.com.mx/'.$search3);
-        sleep(2);
         $amazonProductos=file_get_html($amz_query);
-        sleep(2);
-        echo $pcCelProductos;
         //llama la funcion si utilizas algun scrapeo como abajo
         $arrayproductos= [];
         $resultado = [];
@@ -102,7 +95,7 @@ class searchController extends Controller
             }
         }
 
-        
+
         self::$ListProduCyberPuertav2 =$cyberpuerta;
         $mercadolibre = $this->getProductosMercLibre($mercLibreProductos);
         foreach($mercadolibre as $indice => $producto){
@@ -136,7 +129,7 @@ class searchController extends Controller
         $resultado = $this->array_sort_by($arrayproductos, 'precio', $order = SORT_ASC);
 
         $todo = array_merge($PcMig,$amazon,$cyberpuerta,$mercadolibre,$ddtech,$pcCel); // UNO LOS 6 ARRAYS
-        
+
             $contador = 5;
         // $xcosa = "Cadena de texto"; Parametro de prueba
         //control de session //cambio de plantilla
@@ -146,8 +139,8 @@ class searchController extends Controller
             $plantilla='defecto';
         }
         return   /* $request->all() */ view('search.index', compact('PcMig','amazon','cyberpuerta','mercadolibre','ddtech','pcCel','todo','contador','arrayproductos','resultado','searchGlobal'), compact('plantilla'));
-       
-        
+
+
         // return   /* $request->all() */ view('search.index')->with('xcosa',$xcosa); Se manda la vista
 
     }
@@ -182,7 +175,7 @@ class searchController extends Controller
         $ListProductos = [];
         try{
         foreach ($productos->find('li[class="ui-search-layout__item"]') as $element) {
-            
+
             $caracteristicas = $element->find('div[class="ui-search-result__content-wrapper"]',0);
             $nombre=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0)->plaintext;
             /*if($nombre!=null){
@@ -190,7 +183,7 @@ class searchController extends Controller
             }else{
                 continue;
             }*/
-            
+
             $linkCompra=$caracteristicas->find('div[class="ui-search-item__group ui-search-item__group--title"]',0)->find('a',0)->attr['href'];
             $precio=$element->find('div[class="ui-search-item__group ui-search-item__group--price"]',0)->plaintext;
             $linkImagen=$element->find('div[class="slick-slide slick-active"]',0)->find('img',0)->attr['data-src'];
@@ -238,7 +231,7 @@ class searchController extends Controller
                 continue;
             }
         }
-        
+
         return $ListProductos;
     }
 
@@ -312,8 +305,8 @@ class searchController extends Controller
             }
         }
         return $ListProductos;
-         
-    
+
+
 }
 
 
@@ -328,10 +321,10 @@ public function getProductosPcel($productos2)
         try{
         if(($indice+1) % 2!=0){
             $nombreLinkProducto =$producto->find('div[class="name"]',0)->find('a',0);
-            $LinkImagen =$producto->find('div[class="image"]',0)->find('a',0)->find('img',0)->src; 
+            $LinkImagen =$producto->find('div[class="image"]',0)->find('a',0)->find('img',0)->src;
             $precioProducto =$producto->find('div[class="price"]',0)->plaintext;
             $nombreProducto=$nombreLinkProducto->plaintext;
-            $linkProducto=$nombreLinkProducto->attr['href'];  
+            $linkProducto=$nombreLinkProducto->attr['href'];
             if(str_contains($precioProducto, ' ')){
                 $preciopar=explode(" ",$precioProducto);
                 $precioProducto=$preciopar[1];
@@ -372,7 +365,7 @@ public function array_sort_by($arrIni, $col, $order = "SORT_ASC")
 public function AddFavorite(Request $request)
 {
 
-    
+
 
     $nomProducto=$request->nomProduct;
     $idUser=Auth::user()->id;
@@ -387,7 +380,7 @@ public function AddFavorite(Request $request)
         $nomP = $verify->first()->nomProducto;
         DB::table('favorites')->where('nomProducto','=',$nomP)->delete();
         return response()->json(['delete'=>'Producto eliminado de favoritos']);
-        
+
     }
 
 
@@ -400,7 +393,7 @@ public function AddFavorite(Request $request)
     $favorito->url_page=$linkCompra;
     $favorito->url_image=$linkImagen;
     $favorito->save();
-    
+
     return response()->json(['success'=>'Producto agregado a favoritos']);
 }
 
