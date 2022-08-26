@@ -3,7 +3,7 @@
 @section('title','Busqueda')
 @section('styles')
 <link rel="stylesheet" href="{{asset('css/search.css')}}">
-    
+
 @endsection
 
 @section('logo')
@@ -27,20 +27,20 @@
             <button onclick="ActivarPcmig()" class="active btn-btn titulo-terciario" id="btn">PCMIG</button>
             <button onclick="ActivarCyberpuerta()" class=" btn-btn titulo-terciario" id="btn">CyberPuerta</button>
             <button onclick="ActivarDdtech()" class=" btn-btn titulo-terciario" id="btn">DDTech</button>
-            <button onclick="ActivarPcel()" class=" btn-btn titulo-terciario" id="btn">PCEL</button>
+            {{--<button onclick="ActivarPcel()" class=" btn-btn titulo-terciario" id="btn">PCEL</button>--}}
             <button onclick="ActivarMercadolibre()" class=" btn-btn titulo-terciario" id="btn">MercadoLibre</button>
-            <button onclick="ActivarAmazon()" class=" btn-btn titulo-terciario" id="btn">Amazon</button>
+            {{--<button onclick="ActivarAmazon()" class=" btn-btn titulo-terciario" id="btn">Amazon</button>--}}
         </div>
         <h2 class="titulo-secundario producto-buscado">{{ $searchGlobal }}</h2>
         <div class="products-container" id="global">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
-            
+
             {{-- @foreach ($resultado as $item)
                 <p>Precio {{$loop->index}}: {{$item->precio}}</p>
             @endforeach --}}
             {{-- Empieza resultados por precio --}}
             @foreach ($resultado as $item)
-            
+
             <div class="card" id ="{{ $loop->index }}">
                 <div class="img-card">
                     <img src="{{$item->imagenLink}}">
@@ -49,10 +49,10 @@
                 <div class="card-details">
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-                        
+
                         <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
-    
+
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         @if($plantilla == 'usuario')
@@ -62,7 +62,7 @@
                 </div>
             </div>
             @endforeach
-            
+
         </div>
 
         <div class="products-container" id="pcmig">
@@ -70,7 +70,7 @@
             {{-- Empieza PcMig --}}
             @if ($PcMig)
             @foreach ($PcMig as $item)
-            
+
             <div class="card" id ="{{ $loop->index }}">
                 <div class="img-card">
                     <img src="{{$item->imagenLink}}">
@@ -79,10 +79,10 @@
                 <div class="card-details">
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-    
+
                         <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
-    
+
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         @if($plantilla=="usuario")
@@ -104,7 +104,7 @@
             {{-- Empieza CyberPuerta --}}
             @if ($cyberpuerta)
             @foreach ($cyberpuerta as $item)
-            
+
             <div class="card">
                 <div class="img-card">
                     <img src="{{$item->imagenLink}}">
@@ -113,10 +113,10 @@
                 <div class="card-details">
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-    
+
                         <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
-    
+
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         @if($plantilla=="usuario")
@@ -132,13 +132,13 @@
             {{-- Termina CyberPuerta --}}
             {{---------AQUÍ TERMINA----------}}
         </div>
-        
+
         <div class="products-container" id="ddtech">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza DDTech --}}
             @if ($ddtech)
             @foreach ($ddtech as $item)
-            
+
             <div class="card">
                 <div class="img-card">
                     <img src="{{$item->imagenLink}}">
@@ -147,10 +147,10 @@
                 <div class="card-details">
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-    
+
                         <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
-    
+
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         @if($plantilla=="usuario")
@@ -165,14 +165,14 @@
             @endif
             {{-- Termina DDTech --}}
             {{---------AQUÍ TERMINA----------}}
-        </div>   
+        </div>
 
         <div class="products-container" id="pcel">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza PCEL --}}
             @if ($pcCel)
             @foreach ($pcCel as $item)
-            
+
             <div class="card">
                 <div class="img-card">
                     <img src="{{$item->imagenLink}}">
@@ -181,10 +181,10 @@
                 <div class="card-details">
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-    
+
                         <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
-    
+
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         @if($plantilla=="usuario")
@@ -199,15 +199,15 @@
             @endif
             {{-- Termina PCEL --}}
             {{---------AQUÍ TERMINA----------}}
-        </div>   
+        </div>
 
         <div class="products-container" id="mercadolibre">
             {{---------AQUÍ EMPIEZA LA ESTRUCTURA DEL CONTENEDOR DE CADA PRODUCTO----------}}
             {{-- Empieza MercadoLibre --}}
-            
+
             @if ($mercadolibre)
             @foreach ($mercadolibre as $item)
-            
+
             <div class="card">
                 <div class="img-card">
                     <img src="{{$item->imagenLink}}">
@@ -216,10 +216,10 @@
                 <div class="card-details">
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-    
+
                         <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
-    
+
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         @if($plantilla=="usuario")
@@ -231,16 +231,16 @@
             @endforeach
             @else
            <img src="{{asset('img/pigerror.svg')}}" class="not-found" alt="">
-            @endif 
+            @endif
             {{-- Termina MercadoLibre --}}
             {{---------AQUÍ TERMINA----------}}
-        </div>   
+        </div>
 
-        
+
         <div class="products-container" id="amazon">
             @if ($amazon)
             @foreach ($amazon as $item)
-            
+
             <div class="card">
                 <div class="img-card">
                     <img src="{{$item->imagenLink}}">
@@ -249,10 +249,10 @@
                 <div class="card-details">
                     <div class="card-info">
                         <a href="{{$item->LinkCompra}}" target="_blank"><h3 class="product-name txt-tiny">{{$item->nombre}}</h3></a>
-    
+
                         <p class="product-price txt-tiny">${{$item->precio}}</p>
                     </div>
-    
+
                     <div class="card-icons">
                         <a href="{{$item->LinkCompra}}" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                         @if($plantilla=="usuario")
@@ -266,8 +266,8 @@
             <img src="{{asset('img/pigerror.svg')}}" class="not-found" alt="">
             @endif
         </div>
-        
-        
+
+
         {{--<ul class="pagination">
             <li><a href="#" class="prev">< Atrás</a></li>
             <li class="page-number active"><a href="#">1</a></li>
