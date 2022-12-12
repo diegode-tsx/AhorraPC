@@ -17,3 +17,5 @@ class aboutController extends Controller
         return view('about.index', compact('plantilla'));
     }
 }
+
+//getYolo;
