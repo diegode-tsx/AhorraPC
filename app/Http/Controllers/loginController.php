@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// prueba de pull request
+//yolo archivement
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
