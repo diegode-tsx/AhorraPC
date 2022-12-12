@@ -33,12 +33,12 @@
                 <p class="txt-normal">Revisa los resultados de las tiendas de tu preferencia</p>
             </div>
             <div class="feature third">
-                <img src="{{asset('img/cheap.png')}}" alt="">
-                <p class="txt-normal">Consigue los precios más bajos de la tienda</p>
-            </div>
-            <div class="feature fourth">
                 <img src="{{asset('img/favorite.png')}}" alt="">
                 <p class="txt-normal">Guarda tus favoritos para comprar más tarde</p>
+            </div>
+            <div class="feature fourth">
+                <img src="{{asset('img/cheap.png')}}" alt="">
+                <p class="txt-normal">Cotiza tus productos agregados a favoritos</p>    
             </div>
         </div>
     </main>

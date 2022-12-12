@@ -45,6 +45,140 @@ defined('DEFAULT_SPAN_TEXT') || define('DEFAULT_SPAN_TEXT', ' ');
 defined('MAX_FILE_SIZE') || define('MAX_FILE_SIZE', 600000);
 define('HDOM_SMARTY_AS_TEXT', 1);
 
+function curl_get_contents($url)
+{
+	$findAmz = "amazon";
+	$findDdtech = "ddtech";
+	$findPcmig = "pcmig";
+	$findCyber = "cyber";
+	$findPcel = "pcel";
+	$findML = "mercado";
+	$pos1 = strpos($url, $findAmz);
+	$pos2 = strpos($url, $findDdtech);
+	$pos3 = strpos($url, $findPcmig);
+	$pos4 = strpos($url, $findCyber);
+	$pos5 = strpos($url, $findPcel);
+	$pos6 = strpos($url, $findML);
+
+
+	if ($pos1 === false){ //amazon https://www.amazon.com.mx/
+
+	} else {
+	$urlHost = "fls-na.amazon.com.mx";
+	$urlRefer = substr($url, 0, 25);	
+	}
+	if ($pos2 === false){ //ddtech https://ddtech.mx/
+
+	} else {
+	$urlHost = substr($url, 8, 10);
+	$urlRefer = substr($url, 0, 18);	
+	}
+	if ($pos3 === false){ //pcmig https://pcmig.com.mx/
+
+	} else {
+	$urlHost = substr($url, 8, 13);
+	$urlRefer = substr($url, 0, 21);	
+	}
+	if ($pos4 === false){ // Cyberpuerta https://www.cyberpuerta.mx/
+
+	} else {
+	$urlHost = substr($url, 8, 19);
+	$urlRefer = substr($url, 0, 27);	
+	}
+	if ($pos5 === false){ //Pcel https://pcel.com/index.php
+
+	} else {
+	$urlHost = substr($url, 8, 8);
+	$urlRefer = substr($url, 0, 17);	
+	}
+	if ($pos6 === false){ //mercado libre https://listado.mercadolibre.com.mx/
+
+	} else {
+	$urlHost = substr($url, 8, 27);
+	$urlRefer = substr($url, 0, 36);	
+	}
+	
+	$context = stream_context_create(array(
+		"http" => array(
+			'timeout' => 200,
+			'method'=>"GET",
+			"header" => array(
+		"Content-Type" => "text/plain",
+		'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',
+    	'Accept-Encoding' => 'gzip, deflate, br',
+		'Host' => $urlHost,
+		'Cache-Control' => 'max-age=0',
+		'Device-Memory' => 8,
+		'Dpr' => 1,
+		'Viewport-Width' => '1366',
+		'Rtt' => 150,
+		'Downlink' => 10,
+		'Ect' => '4g',
+		'Sec-Ch-Ua' =>  "Not A;Brand;v='99', 'Chromium';v='99', 'Opera GX';v='85'",
+		'Sec-Ch-Ua-Mobile' => '?0',
+		'Sec-Ch-Ua-Full-Version' => '99.0.4844.84',
+		'Sec-Ch-Ua-Arch' => 'x86',
+		'Sec-Ch-Ua-Platform' => 'Windows',
+		'Sec-Ch-Ua-Platform-Version' => '10.0.0',
+		'Sec-Ch-Ua-Model' => '',
+		'Sec-Ch-Prefers-Color-Scheme' => 'dark',
+		'Upgrade-Insecure-Requests' => '1',
+		'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+		'Sec-Fetch-Site' => 'same-origin',
+		'Sec-Fetch-Mode' => 'navigate',
+		'Sec-Fetch-User' => '?1',
+		'Sec-Fetch-Dest' => 'document',
+		'Referer' => $urlRefer,
+		'Accept-Encoding' => 'gzip, deflate, br',
+		'Accept-Language' => 'es-419,es;q=0.9'
+	))));
+  	$ch = curl_init();
+  	curl_setopt($ch, CURLOPT_URL,    $url);
+    // We do not authenticate, only access page to get a session going.
+    // Change to False if it is not enough (you'll see that cookiefile
+    // remains empty).
+    curl_setopt($ch, CURLOPT_NOBODY, True);
+
+    // You may want to change User-Agent here, too
+    curl_setopt($ch, CURLOPT_COOKIEFILE, "cookiefile");
+    curl_setopt($ch, CURLOPT_COOKIEJAR,  "cookiefile");
+
+    // Just in case
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+    $ret    = curl_exec($ch);
+
+    // This page we retrieve, and scrape, with GET method
+    foreach(array(
+            CURLOPT_POST            => False,       // We GET...
+            CURLOPT_NOBODY          => False,       // ...the body...
+            CURLOPT_BINARYTRANSFER  => True,        // ...as binary...
+            CURLOPT_RETURNTRANSFER  => True,        // ...into $ret...
+            CURLOPT_FOLLOWLOCATION  => True,        // ...following redirections...
+            CURLOPT_MAXREDIRS       => 10,           // ...reasonably...
+            CURLOPT_REFERER         => $urlRefer,        // ...as if we came from $url...
+            CURLOPT_COOKIEFILE      => 'cookiefile', // Save these cookies
+            CURLOPT_COOKIEJAR       => 'cookiefile', // (already set above)
+            CURLOPT_CONNECTTIMEOUT  => 30,          // Seconds
+            CURLOPT_TIMEOUT         => 300,         // Seconds
+            CURLOPT_LOW_SPEED_LIMIT => 16384,       // 16 Kb/s
+            CURLOPT_LOW_SPEED_TIME  => 15,          // 
+            ) as $option => $value)
+            if (!curl_setopt($ch, $option, $value))
+                    die("could not set $option to " . serialize($value));
+
+    
+    // Done; cleanup.
+	curl_setopt($ch,CURLOPT_USERAGENT, $context);
+	$html = curl_exec($ch);
+	sleep(5);
+  	$data = curl_exec($ch);
+  	curl_close($ch);
+  	return $data;
+}
+
 function file_get_html(
 	$url,
 	$use_include_path = false,
@@ -56,8 +190,11 @@ function file_get_html(
 	$target_charset = DEFAULT_TARGET_CHARSET,
 	$stripRN = true,
 	$defaultBRText = DEFAULT_BR_TEXT,
-	$defaultSpanText = DEFAULT_SPAN_TEXT)
+	$defaultSpanText = DEFAULT_SPAN_TEXT
+	)
+
 {
+  
 	if($maxLen <= 0) { $maxLen = MAX_FILE_SIZE; }
 
 	$dom = new simple_html_dom(
@@ -69,26 +206,29 @@ function file_get_html(
 		$defaultBRText,
 		$defaultSpanText
 	);
-
+	$args = func_get_args();
+  	$dom->load(call_user_func_array('curl_get_contents', $args), true);
+  	return $dom;
 	/**
 	 * For sourceforge users: uncomment the next line and comment the
 	 * retrieve_url_contents line 2 lines down if it is not already done.
-	 */
-	$contents = file_get_contents(
-		$url,
-		$use_include_path,
-		$context,
-		$offset,
-		$maxLen
-	);
-	// $contents = retrieve_url_contents($url);
-
-	if (empty($contents) || strlen($contents) > $maxLen) {
-		$dom->clear();
-		return false;
-	}
-
-	return $dom->load($contents, $lowercase, $stripRN);
+	* 
+	*$contents = file_get_contents(
+	*	$url,
+	*	$use_include_path,
+	*	$context,
+	*	$offset,
+	*	$maxLen
+	*);
+	* // $contents = retrieve_url_contents($url);
+*
+	*if (empty($contents) || strlen($contents) > $maxLen) {
+	*	$dom->clear();
+	*	return false;
+	*}
+*
+*	return $dom->load($contents, $lowercase, $stripRN);
+*/
 }
 
 function str_get_html(
